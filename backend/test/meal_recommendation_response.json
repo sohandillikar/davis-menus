@@ -1,0 +1,58 @@
+{
+  "breakfast": {
+    "items": [
+      {
+        "id": 1195,
+        "created_at": "2025-07-30T09:52:54.827614-07:00",
+        "date": "2025-07-30",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "item_name": "Basic Omelet",
+        "quantity": 6,
+        "serving_size_oz": 4.48,
+        "calories": 238.81,
+        "fat_g": 18.48,
+        "carbohydrates_g": 2.55,
+        "protein_g": 15.33,
+        "allergens": [
+          "egg",
+          "dairy",
+          "vinegar"
+        ],
+        "diets": [
+          "vegetarian",
+          "halal"
+        ],
+        "ingredients": "Liquid whole eggs (cage-free whole eggs, citric acid), Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil)",
+        "explanation": "Basic Omelet provides high\u2010quality complete protein along with heart\u2010healthy fats from olive oil. It outperforms Scrambled Egg by using a healthier oil blend and offers more protein per serving than Overnight Oats."
+      },
+      {
+        "id": 1220,
+        "created_at": "2025-07-30T09:52:54.827614-07:00",
+        "date": "2025-07-30",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "item_name": "Boiled Eggs",
+        "quantity": 10,
+        "serving_size_oz": 2,
+        "calories": 81.17,
+        "fat_g": 5.39,
+        "carbohydrates_g": 0.41,
+        "protein_g": 7.12,
+        "allergens": [
+          "egg"
+        ],
+        "diets": [
+          "vegetarian",
+          "halal"
+        ],
+        "ingredients": "Whole large white eggs",
+        "explanation": "Boiled Eggs are pure protein with minimal added fat or sodium. They deliver more protein per calorie than Cheddar Cheese and avoid the added fats and allergens found in Overnight Oats."
+      }
+    ],
+    "total_calories": 2244.56,
+    "total_protein": 163.18
+  }
+}
