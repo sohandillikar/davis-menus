@@ -203,7 +203,7 @@ for dining_hall in DINING_HALLS:
             menu_items = extract_menu_items(html, date, dining_hall)
             week_menu_items += menu_items
 
-            print(f"{date.strftime("%a, %b %d")} - Extracted {len(menu_items)} {meal.lower()} items")
+            print(f"{date.strftime('%a, %b %d')} - Extracted {len(menu_items)} {meal.lower()} items")
     print()
 
 # If today is Sunday, clear the menu_items table.
