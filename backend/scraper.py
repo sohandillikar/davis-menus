@@ -7,6 +7,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import time
 import json
+from pprint import pprint
 from typing import List, Dict, Any, Optional
 
 # Constants
@@ -258,6 +259,9 @@ else:
         response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
         if len(response.data) > 0:
             print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
+
+pprint(week_menu_items)
+exit()
 
 # Insert all menu items
 if len(week_menu_items) > 0:
