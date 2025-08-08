@@ -1,11 +1,12 @@
 import requests
 from config import *
 from pytz import timezone
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any, Optional
 
 # Constants
+DINING_HALLS = ["tercero", "segundo", "latitude", "cuarto"]
 MEAL_NAMES = ["Breakfast", "Lunch", "Dinner"]
 DIET_TYPES = ["vegan", "vegetarian", "halal"]
 NUTRITION_KEYS = {
@@ -17,6 +18,18 @@ NUTRITION_KEYS = {
     "Contains": "allergens",
     "Ingredients": "ingredients"
 }
+MENU_ITEMS_TABLE = supabase_client.table("menu_items")
+
+def get_dates_till_saturday(start: datetime) -> List[datetime]:
+    """Returns a list of days from the start date till the upcoming Saturday."""
+    days = [start]
+    days_till_sat = 6 - (start.weekday() + 1) % 7
+
+    for i in range(days_till_sat):
+        start += timedelta(days=1)
+        days.append(start)
+
+    return days
 
 def get_dining_hall_html(dining_hall: str) -> str:
     """Fetch HTML content from dining hall menu page."""
@@ -155,29 +168,35 @@ def extract_menu_items(html: str, date: datetime, dining_hall: str) -> List[Dict
     
     return menu_items
 
-"""
-all_menu_items = []
-today = datetime.now(timezone('US/Pacific')).date()
+today = datetime.now(timezone("US/Pacific")).date() # datetime(2025, 8, 4).date()
+dates_till_saturday = get_dates_till_saturday(today)
 
-for dining_hall in ["tercero", "segundo", "latitude", "cuarto"]:
-    meal_items = extract_menu_items(today, dining_hall)
-    all_menu_items.extend(meal_items)
+week_menu_items = []
 
-# Delete existing entries for today's date before inserting new data
-today_formatted = today.strftime("%Y-%m-%d")
-supabase_client.table("menu_items").delete().eq("date", today_formatted).execute()
-print(f'Deleted existing menu items for {today_formatted}')
+for dining_hall in DINING_HALLS:
+    print(f"Scraping from {dining_hall.title()} menu...")
+    for date in dates_till_saturday:
+        for meal in MEAL_NAMES:
+            html = get_dining_hall_html(dining_hall)
+            menu_items = extract_menu_items(html, date, dining_hall)
+            week_menu_items += menu_items
+
+            print(f"{date.strftime("%a, %b %d")} - Extracted {len(menu_items)} {meal.lower()} items")
+    print()
+
+# If today is Sunday, clear the menu_items table.
+if today.weekday() == 6:
+    response = MENU_ITEMS_TABLE.delete().neq("id", -1).execute()
+    print(f"CLEARED menu_items table | DELETED {len(response.data)} items")
+else:
+    for date in dates_till_saturday:
+        response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
+        if len(response.data) > 0:
+            print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
 
 # Insert all menu items
-supabase_client.table("menu_items").insert(all_menu_items).execute()
-print(f'Inserted {len(all_menu_items)} menu items into database')
-"""
-
-import json
-
-html = get_dining_hall_html("tercero")
-
-menu_items = extract_menu_items(html, datetime.now(timezone('US/Pacific')).date(), "tercero")
-
-with open("./test/tercero2.json", "w") as f:
-    json.dump(menu_items, f, indent=4)
+if len(week_menu_items) > 0:
+    response = MENU_ITEMS_TABLE.insert(week_menu_items).execute()
+    print(f'INSERTED {len(response.data)} items into menu_items table')
+else:
+    print("NO ITEMS TO INSERT")
