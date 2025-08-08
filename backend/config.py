@@ -8,12 +8,12 @@ load_dotenv()
 
 
 supabase_client = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_KEY")
+    os.getenv("SUPABASE_URL").strip(),
+    os.getenv("SUPABASE_KEY").strip()
 )
 
 openai_client = OpenAI( 
-  api_key=os.getenv("OPENAI_API_KEY")
+  api_key=os.getenv("OPENAI_API_KEY").strip()
 )
 
 
