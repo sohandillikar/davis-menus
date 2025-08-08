@@ -116,7 +116,10 @@ def parse_nutrition_value(value: str, key: str) -> Any:
 
 def extract_nutrition_info(nutrition_ul: Any) -> Dict[str, Any]:
     """Extract nutrition information from h6 and p tags in the nutrition_ul."""
-    nutrition = {}
+    nutrition = {
+        "allergens": [],
+        "ingredients": ""
+    }
     
     for h6 in nutrition_ul.find_all("h6"):
         key = h6.get_text(strip=True)
@@ -228,7 +231,6 @@ dates_till_saturday = get_dates_till_saturday(today)
 week_menu_items = []
 
 for dining_hall in DINING_HALLS:
-    print(f"Scraping {dining_hall.title()}\'s menu...")
     for date in dates_till_saturday:
         html = get_dining_hall_html(dining_hall)
         menu_items = extract_menu_items(html, date, dining_hall)
@@ -247,6 +249,43 @@ else:
         response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
         if len(response.data) > 0:
             print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
+
+"""
+# Payload inspection: ensure uniform keys and consistent types across items
+if len(week_menu_items) > 0:
+    unique_key_sets = {tuple(sorted(item.keys())) for item in week_menu_items}
+    print(f"Unique key sets in payload: {len(unique_key_sets)}")
+    if len(unique_key_sets) != 1:
+        # Print a summary of the different key sets (limited for brevity)
+        for idx, keyset in enumerate(list(unique_key_sets)[:5], start=1):
+            print(f"Key set #{idx} (size {len(keyset)}): {keyset}")
+
+        # Optionally show an example item for each unique keyset
+        seen_sets = set()
+        for item in week_menu_items:
+            ks = tuple(sorted(item.keys()))
+            if ks in seen_sets:
+                continue
+            seen_sets.add(ks)
+            preview = {k: type(item.get(k)).__name__ for k in sorted(item.keys())}
+            print(f"Example types for key set (size {len(ks)}): {preview}")
+            if len(seen_sets) >= 3:
+                break
+
+    # Check type consistency per key
+    key_to_types: Dict[str, set] = {}
+    for item in week_menu_items:
+        for k, v in item.items():
+            key_to_types.setdefault(k, set()).add(type(v).__name__)
+
+    inconsistent_keys = {k: types for k, types in key_to_types.items() if len(types) > 1}
+    if inconsistent_keys:
+        print("Type inconsistencies detected (key -> types):")
+        for k, types in inconsistent_keys.items():
+            print(f"  {k}: {sorted(types)}")
+    else:
+        print("All keys have consistent value types across items.")
+"""
 
 # Insert all menu items
 if len(week_menu_items) > 0:
