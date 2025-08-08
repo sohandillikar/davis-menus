@@ -47,10 +47,26 @@ def find_date_div(soup: BeautifulSoup, date: datetime) -> Optional[Any]:
     
     return h3s[0].find_parent("div")
 
-def extract_diet_info(li_element: Any) -> List[str]:
-    """Extract diet information from img tags in a list/menu item."""
+def extract_description(nutrition_ul: Any) -> str:
+    """Extract description from the first div in the nutrition_ul."""
+    first_div = nutrition_ul.find("div")
+    if first_div:
+        desc_p = first_div.find("p")
+        if desc_p:
+            return desc_p.get_text(strip=True)
+    return ""
+
+def extract_feature(nutrition_ul: Any) -> str:
+    """Extract feature from li with class 'feature' in the nutrition_ul."""
+    feature_li = nutrition_ul.find("li", class_="feature")
+    if feature_li:
+        return feature_li.get_text(strip=True)
+    return ""
+
+def extract_diet_info(nutrition_ul: Any) -> List[str]:
+    """Extract diet info from the img tags in the nutrition_ul."""
     diets = []
-    for img in li_element.find_all("img"):
+    for img in nutrition_ul.find_all("img"):
         alt_text = img.get("alt", "").strip().lower()
         if alt_text in DIET_TYPES:
             diets.append(alt_text)
@@ -66,11 +82,11 @@ def parse_nutrition_value(value: str, key: str) -> Any:
         return [a.strip().lower() for a in value.split(",") if a.strip()]
     return value
 
-def extract_nutrition_info(li_element: Any) -> Dict[str, Any]:
-    """Extract nutrition information from h6 and p tags in a list/menu item."""
+def extract_nutrition_info(nutrition_ul: Any) -> Dict[str, Any]:
+    """Extract nutrition information from h6 and p tags in the nutrition_ul."""
     nutrition = {}
     
-    for h6 in li_element.find_all("h6"):
+    for h6 in nutrition_ul.find_all("h6"):
         key = h6.get_text(strip=True)
         value_tag = h6.find_next_sibling("p")
         
@@ -86,7 +102,7 @@ def extract_nutrition_info(li_element: Any) -> Dict[str, Any]:
     return nutrition
 
 def extract_menu_item(li_element: Any, date: datetime, dining_hall: str, 
-                     meal_name: str, platform: str) -> Dict[str, Any]:
+                      meal_name: str, platform: str) -> Dict[str, Any]:
     """Extract a single menu item from a list element underneath the platform name."""
     # Get item name
     span_element = li_element.find("span")
@@ -95,9 +111,13 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
     
     item_name = span_element.get_text(strip=True)
     
-    # Extract diet and nutrition info
-    diets = extract_diet_info(li_element)
-    nutrition = extract_nutrition_info(li_element)
+    nutrition_ul = li_element.find("ul", class_="nutrition")
+    
+    # Extract description, features, diet, and nutrition info
+    description = extract_description(nutrition_ul)
+    feature = extract_feature(nutrition_ul)
+    diets = extract_diet_info(nutrition_ul)
+    nutrition = extract_nutrition_info(nutrition_ul)
     
     # Build menu item dictionary
     item = {
@@ -106,6 +126,8 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
         "meal": meal_name.lower(),
         "platform": platform,
         "item_name": item_name,
+        "description": description,
+        "feature": feature,
         "diets": diets,
     }
     item.update(nutrition)
@@ -185,6 +207,7 @@ for dining_hall in DINING_HALLS:
     print()
 
 # If today is Sunday, clear the menu_items table.
+# DO NOT DELETE MENU ITEMS THAT ARE PEOPLE'S FAVORITES
 if today.weekday() == 6:
     response = MENU_ITEMS_TABLE.delete().neq("id", -1).execute()
     print(f"CLEARED menu_items table | DELETED {len(response.data)} items")
