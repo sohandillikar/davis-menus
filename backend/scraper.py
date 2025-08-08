@@ -3,10 +3,8 @@ from config import *
 from pytz import timezone
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
-from pprint import pprint
 from typing import List, Dict, Any, Optional
 
-# Constants
 DINING_HALLS = ["tercero", "segundo", "latitude", "cuarto"]
 MEAL_NAMES = ["Breakfast", "Lunch", "Dinner"]
 DIET_TYPES = ["vegan", "vegetarian", "halal"]
@@ -19,24 +17,11 @@ NUTRITION_KEYS = {
     "Contains": "allergens",
     "Ingredients": "ingredients"
 }
-MENU_ITEMS_TABLE = supabase_client.table("menu_items_duplicate")
+MENU_ITEMS_TABLE = supabase_client.table("menu_items")
 
 # Configure a resilient HTTP session (retries, timeouts, headers)
 def _build_http_session() -> requests.Session:
     session = requests.Session()
-    """
-    retry = Retry(
-        total=5,
-        connect=5,
-        read=5,
-        backoff_factor=1.5,
-        status_forcelist=[429, 500, 502, 503, 504],
-        allowed_methods={"GET", "HEAD", "OPTIONS"},
-    )
-    adapter = HTTPAdapter(max_retries=retry)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    """
     session.headers.update(
         {
             "User-Agent": (
@@ -249,43 +234,6 @@ else:
         response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
         if len(response.data) > 0:
             print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
-
-"""
-# Payload inspection: ensure uniform keys and consistent types across items
-if len(week_menu_items) > 0:
-    unique_key_sets = {tuple(sorted(item.keys())) for item in week_menu_items}
-    print(f"Unique key sets in payload: {len(unique_key_sets)}")
-    if len(unique_key_sets) != 1:
-        # Print a summary of the different key sets (limited for brevity)
-        for idx, keyset in enumerate(list(unique_key_sets)[:5], start=1):
-            print(f"Key set #{idx} (size {len(keyset)}): {keyset}")
-
-        # Optionally show an example item for each unique keyset
-        seen_sets = set()
-        for item in week_menu_items:
-            ks = tuple(sorted(item.keys()))
-            if ks in seen_sets:
-                continue
-            seen_sets.add(ks)
-            preview = {k: type(item.get(k)).__name__ for k in sorted(item.keys())}
-            print(f"Example types for key set (size {len(ks)}): {preview}")
-            if len(seen_sets) >= 3:
-                break
-
-    # Check type consistency per key
-    key_to_types: Dict[str, set] = {}
-    for item in week_menu_items:
-        for k, v in item.items():
-            key_to_types.setdefault(k, set()).add(type(v).__name__)
-
-    inconsistent_keys = {k: types for k, types in key_to_types.items() if len(types) > 1}
-    if inconsistent_keys:
-        print("Type inconsistencies detected (key -> types):")
-        for k, types in inconsistent_keys.items():
-            print(f"  {k}: {sorted(types)}")
-    else:
-        print("All keys have consistent value types across items.")
-"""
 
 # Insert all menu items
 if len(week_menu_items) > 0:
