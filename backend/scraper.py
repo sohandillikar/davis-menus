@@ -3,6 +3,9 @@ from config import *
 from pytz import timezone
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+import time
 from typing import List, Dict, Any, Optional
 
 # Constants
@@ -18,7 +21,36 @@ NUTRITION_KEYS = {
     "Contains": "allergens",
     "Ingredients": "ingredients"
 }
-MENU_ITEMS_TABLE = supabase_client.table("menu_items")
+MENU_ITEMS_TABLE = supabase_client.table("menu_items_duplicate")
+
+# Configure a resilient HTTP session (retries, timeouts, headers)
+def _build_http_session() -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=5,
+        connect=5,
+        read=5,
+        backoff_factor=1.5,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods={"GET", "HEAD", "OPTIONS"},
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    session.headers.update(
+        {
+            "User-Agent": (
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Connection": "keep-alive",
+        }
+    )
+    return session
+
+HTTP_SESSION = _build_http_session()
 
 def get_dates_till_saturday(start: datetime) -> List[datetime]:
     """Returns a list of days from the start date till the upcoming Saturday."""
@@ -34,8 +66,13 @@ def get_dates_till_saturday(start: datetime) -> List[datetime]:
 def get_dining_hall_html(dining_hall: str) -> str:
     """Fetch HTML content from dining hall menu page."""
     url = f"https://housing.ucdavis.edu/dining/menus/dining-commons/{dining_hall}/"
-    response = requests.get(url)
-    return response.text
+    try:
+        response = HTTP_SESSION.get(url, timeout=(10, 30))
+        response.raise_for_status()
+        return response.text
+    except Exception as e:
+        print(f"Failed to fetch {url}: {e}")
+        return ""
 
 def find_date_div(soup: BeautifulSoup, date: datetime) -> Optional[Any]:
     """Find the div containing menu items for the specified date."""
@@ -198,12 +235,19 @@ week_menu_items = []
 for dining_hall in DINING_HALLS:
     print(f"Scraping from {dining_hall.title()} menu...")
     for date in dates_till_saturday:
-        for meal in MEAL_NAMES:
-            html = get_dining_hall_html(dining_hall)
-            menu_items = extract_menu_items(html, date, dining_hall)
-            week_menu_items += menu_items
+        html = get_dining_hall_html(dining_hall)
+        if not html:
+            print(f"No HTML fetched for {dining_hall.title()}, skipping")
+            # brief pause before next attempt to be polite to server
+            time.sleep(1)
+            continue
 
-            print(f"{date.strftime('%a, %b %d')} - Extracted {len(menu_items)} {meal.lower()} items")
+        menu_items = extract_menu_items(html, date, dining_hall)
+        week_menu_items += menu_items
+
+        print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
+        # small delay to avoid hammering the server
+        time.sleep(1)
     print()
 
 # If today is Sunday, clear the menu_items table.
