@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import time
+import json
 from typing import List, Dict, Any, Optional
 
 # Constants
@@ -246,6 +247,10 @@ for dining_hall in DINING_HALLS:
         week_menu_items += menu_items
 
         print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
+
+        with open(f"./menu_items_{dining_hall}_{date.strftime('%Y-%m-%d')}.json", "w") as f:
+            json.dump(menu_items, f, indent=4)
+        
         # small delay to avoid hammering the server
         time.sleep(1)
     print()
