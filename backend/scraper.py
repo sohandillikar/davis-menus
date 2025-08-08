@@ -70,6 +70,9 @@ def get_dates_till_saturday(start: datetime) -> List[datetime]:
 def get_dining_hall_html(dining_hall: str) -> str:
     """Fetch HTML content from dining hall menu page."""
     url = f"https://housing.ucdavis.edu/dining/menus/dining-commons/{dining_hall}/"
+    response = HTTP_SESSION.get(url)
+    return response.text
+    """
     try:
         response = HTTP_SESSION.get(url) #, timeout=(10, 30))
         response.raise_for_status()
@@ -77,6 +80,7 @@ def get_dining_hall_html(dining_hall: str) -> str:
     except Exception as e:
         print(f"Failed to fetch {url}: {e}")
         return ""
+    """
 
 def find_date_div(soup: BeautifulSoup, date: datetime) -> Optional[Any]:
     """Find the div containing menu items for the specified date."""
@@ -237,16 +241,13 @@ dates_till_saturday = get_dates_till_saturday(today)
 week_menu_items = []
 
 for dining_hall in DINING_HALLS:
-    print(f"Scraping from {dining_hall.title()} menu...")
+    print(f"Scraping {dining_hall.title()}\'s menu...")
     for date in dates_till_saturday:
         html = get_dining_hall_html(dining_hall)
         menu_items = extract_menu_items(html, date, dining_hall)
         week_menu_items += menu_items
 
         print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
-
-        # small delay to avoid hammering the server
-        time.sleep(1)
     print()
 
 # If today is Sunday, clear the menu_items table.

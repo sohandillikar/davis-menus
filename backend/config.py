@@ -6,7 +6,7 @@ from openai import OpenAI
 load_dotenv()
 
 
-"""
+
 supabase_client = create_client(
     os.getenv("SUPABASE_URL"),
     os.getenv("SUPABASE_KEY")
@@ -15,8 +15,9 @@ supabase_client = create_client(
 openai_client = OpenAI( 
   api_key=os.getenv("OPENAI_API_KEY")
 )
-"""
 
+
+"""
 def _get_env_str(name: str, required: bool = True) -> str | None:
     value = os.getenv(name)
     if value is None:
@@ -37,3 +38,4 @@ supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
 # OpenAI key is optional for the scraper; only instantiate if present
 OPENAI_API_KEY = _get_env_str("OPENAI_API_KEY", required=False)
 openai_client = OpenAI(api_key=OPENAI_API_KEY) if OPENAI_API_KEY else None
+"""
