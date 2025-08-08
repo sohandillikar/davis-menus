@@ -3,10 +3,6 @@ from config import *
 from pytz import timezone
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-import time
-import json
 from pprint import pprint
 from typing import List, Dict, Any, Optional
 
@@ -70,17 +66,8 @@ def get_dates_till_saturday(start: datetime) -> List[datetime]:
 def get_dining_hall_html(dining_hall: str) -> str:
     """Fetch HTML content from dining hall menu page."""
     url = f"https://housing.ucdavis.edu/dining/menus/dining-commons/{dining_hall}/"
-    response = HTTP_SESSION.get(url)
+    response = HTTP_SESSION.get(url) # requests.get(url)
     return response.text
-    """
-    try:
-        response = HTTP_SESSION.get(url) #, timeout=(10, 30))
-        response.raise_for_status()
-        return response.text
-    except Exception as e:
-        print(f"Failed to fetch {url}: {e}")
-        return ""
-    """
 
 def find_date_div(soup: BeautifulSoup, date: datetime) -> Optional[Any]:
     """Find the div containing menu items for the specified date."""
@@ -260,9 +247,6 @@ else:
         response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
         if len(response.data) > 0:
             print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
-
-pprint(week_menu_items)
-exit()
 
 # Insert all menu items
 if len(week_menu_items) > 0:
