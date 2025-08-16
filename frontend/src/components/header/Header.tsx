@@ -8,11 +8,7 @@ export function Header() {
             <div className="max-w-6xl mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     {/* Left side - Logo and title */}
-                    <LogoAndTitle
-                        logoSrc="/logo.png"
-                        title="AggieMenus"
-                        subtitle="UC Davis Dining Guide"
-                    />
+                    <LogoAndTitle />
                     
                     {/* Right side - Desktop buttons (hidden on mobile) */}
                     <DesktopButtons />

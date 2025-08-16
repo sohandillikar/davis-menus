@@ -1,7 +1,6 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { LikeButton } from "./LikeButton";
 import { MenuItemData } from "./MenuItem";
-import * as utils from "@/lib/utils";
 
 interface ItemHeaderProps {
     item: MenuItemData;
@@ -26,8 +25,8 @@ export function ItemHeader({ item, expanded, showExtraMetadata }: ItemHeaderProp
                 {item.item_name}
                 </h3>
                 {showExtraMetadata && (
-                    <div className="text-xs text-muted-foreground mt-1 truncate">
-                        {formatDate(item.date)} • {utils.strToTitleCase(item.meal)} • {utils.strToTitleCase(item.dining_hall)}
+                    <div className="capitalize text-xs text-muted-foreground mt-1 truncate">
+                        {formatDate(item.date)} • {item.meal} • {item.dining_hall}
                     </div>
                 )}
             </div>

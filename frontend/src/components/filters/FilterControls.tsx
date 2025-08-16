@@ -2,9 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Filter, X } from "lucide-react";
 import { FilterButton } from "./FilterButton";
 import { ActiveFilterPills } from "./ActiveFilterPills";
-
-const DIET_OPTIONS = ["halal", "vegan", "vegetarian"];
-const ALLERGEN_OPTIONS = ["egg", "fish", "gluten", "milk", "peanuts", "sesame", "shellfish", "soy", "tree nuts", "wheat"];
+import { DIET_OPTIONS, ALLERGEN_OPTIONS } from "@/lib/constants";
 
 interface FilterControlsProps {
   selectedDiets: string[];

@@ -64,7 +64,3 @@ export function filterMenuItems(
 
   return menuItems;
 }
-
-export function strToTitleCase(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}

@@ -5,6 +5,7 @@ import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
+import { DINING_HALLS, MEALS } from "@/lib/constants";
 import * as db from "@/lib/database";
 import * as utils from "@/lib/utils";
 
@@ -73,7 +74,7 @@ const Index = () => {
           <TabSelector
             selectedValue={selectedHall}
             onValueChange={setSelectedHall}
-            tabs={["tercero", "segundo", "latitude", "cuarto"]}
+            tabs={DINING_HALLS}
             type="primary"
           />
         </div>
@@ -85,7 +86,7 @@ const Index = () => {
           <TabSelector
             selectedValue={selectedMeal}
             onValueChange={setSelectedMeal}
-            tabs={["breakfast", "lunch", "dinner"]}
+            tabs={MEALS}
             type="secondary"
           />
         </div>

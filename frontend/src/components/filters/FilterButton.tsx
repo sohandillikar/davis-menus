@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { filterStyles } from "./FilterStyles";
-import * as utils from "@/lib/utils";
 
 interface FilterButtonProps {
     title: string;
@@ -61,9 +60,8 @@ export function FilterButton(props: FilterButtonProps) {
                   />
                   <label
                     htmlFor={`option-${option}`}
-                    className={`text-${tooManyOptions ? "xs" : "sm"} capitalize cursor-pointer`}
-                  >
-                    {utils.strToTitleCase(option)}
+                    className={`text-${tooManyOptions ? "xs" : "sm"} capitalize cursor-pointer`}>
+                    {option}
                   </label>
                 </div>
               ))}

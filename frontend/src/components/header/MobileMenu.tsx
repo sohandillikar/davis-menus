@@ -5,14 +5,14 @@ import { LogOut, Menu } from "lucide-react";
 import { FavoritesSheet } from "../favorites/FavoritesSheet";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "@/contexts/AuthContext";
-import { WhatShouldIEatButton } from "./WhatShouldIEatButton";
+import { MealPlannerButton } from "./MealPlannerButton";
 
 function MenuButtons() {
     const { isSignedIn, signIn, signOut } = useAuthContext();
     return (
         <div className="mt-6 space-y-4">
             {/* What Should I Eat? */}
-            <WhatShouldIEatButton variant="mobile" />
+            <MealPlannerButton variant="mobile" />
 
             {/* Favorites */}
             <FavoritesSheet variant="mobile" />

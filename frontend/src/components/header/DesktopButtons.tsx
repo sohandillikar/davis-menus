@@ -3,7 +3,7 @@ import { ChevronDown, LogOut } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { FcGoogle } from "react-icons/fc";
 import { FavoritesSheet } from "../favorites/FavoritesSheet";
-import { WhatShouldIEatButton } from "./WhatShouldIEatButton";
+import { MealPlannerButton } from "./MealPlannerButton";
 import { useAuthContext } from "@/contexts/AuthContext";
 
 function WhatIsCookingButton() {
@@ -35,7 +35,7 @@ function WhatIsCookingButton() {
 export function DesktopButtons() {
     return (
         <div className="hidden md:flex items-center gap-3">
-            <WhatShouldIEatButton variant="desktop" />
+            <MealPlannerButton variant="desktop" />
             <FavoritesSheet />
             <WhatIsCookingButton />
         </div>

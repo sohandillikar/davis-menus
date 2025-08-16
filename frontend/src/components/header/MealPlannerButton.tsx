@@ -1,21 +1,22 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Utensils } from "lucide-react";
 import { SignInModal } from "../SignInModal";
 import { useAuthContext } from "@/contexts/AuthContext";
-import { useState } from "react";
+import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
 
-interface WhatShouldIEatButtonProps {
+interface MealPlannerButtonProps {
     variant: "desktop" | "mobile";
 }
 
-export function WhatShouldIEatButton({ variant }: WhatShouldIEatButtonProps) {
+export function MealPlannerButton({ variant }: MealPlannerButtonProps) {
     const { isSignedIn } = useAuthContext();
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+    const [isMealPlannerModalOpen, setIsMealPlannerModalOpen] = useState(false);
 
     const handleClick = () => {
         if (isSignedIn) {
-            // TODO: Open AI Meal Planner
-            console.log("Open AI Meal Planner");
+            setIsMealPlannerModalOpen(true);
         } else {
             setIsSignInModalOpen(true);
         }
@@ -46,6 +47,10 @@ export function WhatShouldIEatButton({ variant }: WhatShouldIEatButtonProps) {
             googleButtonText="Continue"
             open={isSignInModalOpen}
             onOpenChange={setIsSignInModalOpen}
+        />
+        <MealPlannerModal
+            open={isMealPlannerModalOpen}
+            onOpenChange={setIsMealPlannerModalOpen}
         />
     </>);
 }

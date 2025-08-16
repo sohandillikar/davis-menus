@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { filterStyles } from "./FilterStyles";
 import { X } from "lucide-react";
-import * as utils from "@/lib/utils";
 
 interface ActiveFiltersProps {
     selectedOptions: string[];
@@ -27,9 +26,8 @@ export function ActiveFilterPills(props: ActiveFiltersProps) {
           <Badge
             key={i}
             variant="secondary"
-            className={styles.selectedPill}
-          >
-            {props.preText ? `${props.preText} ${option}` : utils.strToTitleCase(option)}
+            className={`${!props.preText && "capitalize"} ${styles.selectedPill}`}>
+            {props.preText ? `${props.preText} ${option}` : option}
               <Button
                 variant="ghost"
                 size="sm"
