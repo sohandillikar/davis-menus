@@ -6,9 +6,10 @@ interface ItemHeaderProps {
     item: MenuItemData;
     expanded: boolean;
     showExtraMetadata: boolean;
+    showLikeButton: boolean;
 }
 
-export function ItemHeader({ item, expanded, showExtraMetadata }: ItemHeaderProps) {
+export function ItemHeader({ item, expanded, showExtraMetadata, showLikeButton }: ItemHeaderProps) {
     const formatDate = (date: string): string => {
         const dateObj = new Date(date + "T00:00:00");
         return dateObj.toLocaleDateString('en-US', {
@@ -31,7 +32,7 @@ export function ItemHeader({ item, expanded, showExtraMetadata }: ItemHeaderProp
                 )}
             </div>
             <div className="ml-3 flex-shrink-0 flex items-center gap-2">
-                <LikeButton itemName={item.item_name} />
+                {showLikeButton && <LikeButton itemName={item.item_name} />}
                 {expanded ?
                     <ChevronUp className="h-5 w-5 text-muted-foreground" /> :
                     <ChevronDown className="h-5 w-5 text-muted-foreground" />

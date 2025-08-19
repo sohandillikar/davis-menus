@@ -52,8 +52,8 @@ export function LikeButton({ itemName }: LikeButtonProps) {
             <Heart className={`h-4 w-4 transition-transform duration-200 ${isAnimating ? 'scale-125' : 'scale-100'} ${liked ? 'fill-current' : ''}`} />
         </Button>
         <SignInModal
-            title="Sign In Required"
-            description="Please sign in to like a meal"
+            title="Hey there!"
+            description="Please sign in to save your favorite menu items :)"
             googleButtonText="Continue"
             open={isSignInModalOpen}
             onOpenChange={setIsSignInModalOpen}

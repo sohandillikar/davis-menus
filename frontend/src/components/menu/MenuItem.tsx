@@ -27,20 +27,20 @@ export interface MenuItemData {
 interface MenuItemProps {
   item: MenuItemData;
   showExtraMetadata?: boolean; // Whether to show date, dining hall, and meal
+  showLikeButton?: boolean;
   nutritionFactsLayout?: "row" | "grid";
 }
   
-export function MenuItem({ item, showExtraMetadata = false, nutritionFactsLayout = "row" }: MenuItemProps) {
+export function MenuItem({ item, showExtraMetadata = false, showLikeButton = true, nutritionFactsLayout = "row" }: MenuItemProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <Card 
       className="p-4 bg-gradient-card border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 cursor-pointer"
-      onClick={() => setExpanded(!expanded)}
-    >
+      onClick={() => setExpanded(!expanded)}>
       <div className="space-y-3">
         {/* Header */}
-        <ItemHeader item={item} expanded={expanded} showExtraMetadata={showExtraMetadata} />
+        <ItemHeader item={item} expanded={expanded} showExtraMetadata={showExtraMetadata} showLikeButton={showLikeButton} />
 
         {/* Badges Row */}
         <NutritionBadges item={item} />

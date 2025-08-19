@@ -1,44 +1,73 @@
-import { Button } from "@/components/ui/button";
-import { FormData } from "./MealPlannerModal";
-import { MEALS } from "@/lib/constants";
+import { useState, useEffect } from "react";
+import { SelectItem, SelectTrigger } from "@/components/ui/select";
+import { SelectValue } from "@/components/ui/select";
+import { SelectContent } from "@/components/ui/select";
+import { Select } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { MealPreferences } from "./MealPlannerModal";
+import { LoadingAnimation } from "./LoadingAnimation";
+import * as utils from "@/lib/utils";
+import * as db from "@/lib/database";
 
 interface Step2Props {
-	formData: FormData;
-	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+	mealPreferences: MealPreferences;
+	setMealPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step2({ formData, setFormData }: Step2Props) {
-	const handleClick = (selectedMeal: string) => {
-		let newMeals = [...formData.meals];
-		const newDiningHalls = { ...formData.diningHalls };
-
-		if (formData.meals.includes(selectedMeal)) {
-			newMeals = newMeals.filter(meal => meal !== selectedMeal);
-			delete newDiningHalls[selectedMeal];
-		} else {
-			newMeals.push(selectedMeal);
-		}
-
-		setFormData(prev => ({
+export function Step2({ mealPreferences, setMealPreferences }: Step2Props) {
+	const [isLoading, setIsLoading] = useState(false);
+	const [availableDiningHalls, setAvailableDiningHalls] = useState<Record<string, string[]>>({});
+	
+	const handleValueChange = (meal: string, value: string) => {
+		setMealPreferences(prev => ({
 			...prev,
-			meals: newMeals,
-			diningHalls: newDiningHalls
+			meals: {
+				...prev.meals,
+				[meal]: value
+			}
 		}));
 	};
 
-	return (<>
-		<h2 className="text-xl font-semibold mb-4">Choose Meals</h2>
-		<p className="text-sm text-muted-foreground mb-6">Which meals are you planning? (Select one or more)</p>
-		<div className="grid grid-cols-3 gap-4">
-			{MEALS.map((meal, i) => (
-				<Button
-				key={i}
-				variant={formData.meals.includes(meal) ? "default" : "outline"}
-				className="capitalize"
-				onClick={() => handleClick(meal)}>
-				{meal}
-				</Button>
-			))}
+	useEffect(() => {
+		const fetchAvailableDiningHalls = async () => {
+			const today = utils.formatDateForDB(new Date());
+			const response = await db.getAvailableDiningHalls(today);
+			setAvailableDiningHalls(response);
+		}
+
+		setIsLoading(true);
+		fetchAvailableDiningHalls();
+		setTimeout(() => setIsLoading(false), 500);
+	}, []);
+
+	return (
+		isLoading ? <LoadingAnimation message="Gimme a sec..." submessage="Fetching available dining halls" /> :
+		<div>
+			<h2 className="text-xl font-semibold mb-4">Which dining hall for each meal?</h2>
+			<div className="space-y-4">
+				{Object.keys(availableDiningHalls).map((meal, i) => (
+					<div key={i} className="space-y-2">
+						<Label className="capitalize font-medium">{meal}</Label>
+						<Select 
+						value={mealPreferences.meals[meal] || ""} 
+						onValueChange={(value) => handleValueChange(meal, value)}>
+							<SelectTrigger>
+								<SelectValue placeholder="Choose dining hall" />
+							</SelectTrigger>
+							<SelectContent>
+								{availableDiningHalls[meal].map((hall, i) => (
+									<SelectItem key={i} value={hall} className="capitalize">
+									{hall.charAt(0).toUpperCase() + hall.slice(1)}
+									</SelectItem>
+								))}
+								<SelectItem value="none">
+									{`None (I'm skipping ${meal})`}
+								</SelectItem>
+							</SelectContent>
+						</Select>
+					</div>
+				))}
+			</div>
 		</div>
-	</>);
+	);
 }

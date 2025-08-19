@@ -42,8 +42,8 @@ export function MealPlannerButton({ variant }: MealPlannerButtonProps) {
             </Button>
         }
         <SignInModal
-            title="Sign In Required"
-            description="Please sign in to access personalized meal recommendations"
+            title="Hey there!"
+            description="Please sign in to access personalized meal recommendations :)"
             googleButtonText="Continue"
             open={isSignInModalOpen}
             onOpenChange={setIsSignInModalOpen}

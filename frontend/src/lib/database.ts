@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { MenuItemData } from "@/components/menu/MenuItem";
 import * as utils from "@/lib/utils";
+import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
+import { MEALS } from "@/lib/constants";
 
 export async function getWeeklyMenuItems(firstDate: Date, lastDate: Date) {
     let allData: MenuItemData[] = [];
@@ -134,6 +136,59 @@ export async function unlikeMenuItem(userId: string, itemName: string) {
 
     if (deleteError) {
         console.error("Error deleting favorite items where name = itemName:", deleteError);
+        return { success: false };
+    }
+
+    return { success: true };
+}
+
+export async function getAvailableDiningHalls(date: string) {
+    let availableDiningHalls: Record<string, string[]> = {};
+    
+    for (const meal of MEALS) {
+        const { data, error } = await supabase
+            .from("menu_items")
+            .select("dining_hall")
+            .eq("date", date)
+            .eq("meal", meal);
+
+        if (error) {
+            console.error("Error fetching dining halls for meal:", error);
+        } else {
+            const uniqueDiningHalls = new Set(data.map(item => item.dining_hall));
+            availableDiningHalls[meal] = Array.from(uniqueDiningHalls);
+        }
+    }
+
+    return availableDiningHalls;
+}
+
+export async function getUserPreferences(userId: string) {
+    const { data, error } = await supabase
+        .from("meal_preferences")
+        .select("calories, protein, meals, diets, allergens")
+        .eq("user_id", userId);
+
+    if (error)
+        console.error("Error fetching user preferences:", error);
+    else if (data.length > 0)
+        return data[0];
+}
+
+export async function saveMealPreferences(userId: string, mealPreferences: MealPreferences) {
+    const { error } = await supabase
+    .from("meal_preferences")
+    .upsert({
+        "user_id": userId,
+        calories: mealPreferences.calories,
+        protein: mealPreferences.protein,
+        meals: mealPreferences.meals,
+        diets: mealPreferences.diets,
+        allergens: mealPreferences.allergens
+    });
+
+    if (error) {
+        console.error("Error saving meal preferences:", error);
         return { success: false };
     }
 

@@ -1,54 +1,77 @@
-import { SelectItem, SelectTrigger } from "@/components/ui/select";
-import { SelectValue } from "@/components/ui/select";
-import { SelectContent } from "@/components/ui/select";
-import { Select } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { DINING_HALLS } from "@/lib/constants";
-import { FormData } from "./MealPlannerModal";
+import { MealPreferences } from "./MealPlannerModal";
+import { DIET_OPTIONS, ALLERGEN_OPTIONS } from "@/lib/constants";
 
 interface Step3Props {
-	formData: FormData;
-	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+	mealPreferences: MealPreferences;
+	setMealPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step3({ formData, setFormData }: Step3Props) {
-	const sortedMeals = formData.meals.sort((a, b) => {
-		const order = {"breakfast": 0, "lunch": 1, "dinner": 2};
-		return order[a] - order[b];
-	});
+interface CheckboxGroupProps {
+	label: string;
+	options: string[];
+	selectedOptions: string[];
+	handleCheck: (option: string) => void;
+}
 
-	const handleValueChange = (meal: string, value: string) => {
-		setFormData(prev => ({
+function CheckboxGroup({ label, options, selectedOptions, handleCheck }: CheckboxGroupProps) {
+	return (
+		<div>
+			<h3 className="font-medium mb-3">{label}</h3>
+			<div className="grid grid-cols-2 gap-2">
+				{options.map((option, i) => (
+					<div key={i} className="flex items-center space-x-2">
+						<Checkbox
+						id={`option-${option}`}
+						checked={selectedOptions.includes(option)}
+						onCheckedChange={() => handleCheck(option)}/>
+						<Label htmlFor={`option-${option}`} className="capitalize">
+						{option}
+						</Label>
+					</div>
+				))}
+			</div>
+		</div>
+	);
+}
+
+export function Step3({ mealPreferences, setMealPreferences }: Step3Props) {
+	const handleDietCheck = (selectedDiet: string) => {
+		setMealPreferences(prev => ({
 			...prev,
-			diningHalls: {
-				...prev.diningHalls,
-				[meal]: value
-			}
+			diets: prev.diets.includes(selectedDiet) ?
+			prev.diets.filter(diet => diet !== selectedDiet) :
+			[...prev.diets, selectedDiet]
 		}));
 	};
 
-	return (<>
-		<h2 className="text-xl font-semibold mb-4">Which dining hall for each meal?</h2>
-		<div className="space-y-4">
-			{sortedMeals.map((meal, i) => (
-				<div key={i} className="space-y-2">
-					<Label className="capitalize font-medium">{meal}</Label>
-					<Select 
-					value={formData.diningHalls[meal] || ""} 
-					onValueChange={(value) => handleValueChange(meal, value)}>
-						<SelectTrigger>
-							<SelectValue placeholder="Choose dining hall" />
-						</SelectTrigger>
-						<SelectContent>
-							{DINING_HALLS.map((hall) => (
-								<SelectItem key={hall} value={hall} className="capitalize">
-								{hall}
-								</SelectItem>
-							))}
-						</SelectContent>
-					</Select>
-				</div>
-			))}
+	const handleAllergenCheck = (selectedAllergen: string) => {
+		setMealPreferences(prev => ({
+			...prev,
+			allergens: prev.allergens.includes(selectedAllergen) ?
+			prev.allergens.filter(allergen => allergen !== selectedAllergen) :
+			[...prev.allergens, selectedAllergen]
+		}));
+	};
+
+	return (
+		<div>
+			<h2 className="text-xl font-semibold mb-4">Any dietary preferences or allergens?</h2>
+			<div className="space-y-6">
+				<CheckboxGroup
+				label="Dietary Preferences"
+				options={DIET_OPTIONS}
+				selectedOptions={mealPreferences.diets}
+				handleCheck={handleDietCheck}
+				/>
+				<CheckboxGroup
+				label="Exclude Allergens"
+				options={ALLERGEN_OPTIONS}
+				selectedOptions={mealPreferences.allergens}
+				handleCheck={handleAllergenCheck}
+				/>
+			</div>
 		</div>
-	</>);
+	);
 }

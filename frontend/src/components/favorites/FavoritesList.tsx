@@ -16,6 +16,7 @@ interface FavoritesListProps {
     items: MenuItemData[];
     hasFavorites: boolean;
     showExtraMetadata?: boolean;
+    showLikeButton?: boolean;
 }
 
 function FillerComponent({ header, body, icon, action = null }: FillerComponentProps) {
@@ -31,7 +32,7 @@ function FillerComponent({ header, body, icon, action = null }: FillerComponentP
     );
 }
 
-export function FavoritesList({ items, hasFavorites, showExtraMetadata = false }: FavoritesListProps) {
+export function FavoritesList({ items, hasFavorites, showExtraMetadata = false, showLikeButton = true }: FavoritesListProps) {
     const { isSignedIn, signIn } = useAuthContext();
 
     return (
@@ -40,7 +41,7 @@ export function FavoritesList({ items, hasFavorites, showExtraMetadata = false }
                 {!isSignedIn ?
                     <FillerComponent
                     header="Sign in to track your favorites"
-                    body="Sign in to save your favorite menu items and get notified when they're back on the menu!"
+                    body="Please sign in to save your favorite menu items and track when they're back on the menu :)"
                     icon={<Heart className="h-12 w-12 text-muted-foreground mb-4" />}
                     action={
                         <Button
@@ -62,7 +63,15 @@ export function FavoritesList({ items, hasFavorites, showExtraMetadata = false }
                     body="Tap the heart icon next to your favorite dishes to track when they're back on the menu!"
                     icon={<Heart className="h-12 w-12 text-muted-foreground mb-4" />}
                     /> :
-                    items.map((item, i) => <MenuItem key={i} item={item} showExtraMetadata={showExtraMetadata} nutritionFactsLayout="grid" />)
+                    items.map((item, i) => (
+                        <MenuItem
+                        key={i}
+                        item={item}
+                        showExtraMetadata={showExtraMetadata}
+                        showLikeButton={showLikeButton}
+                        nutritionFactsLayout="grid"
+                        />
+                    ))
                 }
             </div>
         </ScrollArea>

@@ -1,9 +1,15 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { MenuItemData } from "@/components/menu/MenuItem";
+import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
+import { API_BASE_URL } from "@/lib/constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function stringToTitleCase(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 export function formatDateForDB(date: Date): string {
@@ -63,4 +69,22 @@ export function filterMenuItems(
   );
 
   return menuItems;
+}
+
+export async function getMealPlan(mealPreferences: MealPreferences) {
+  const response = await fetch(`${API_BASE_URL}/get_meal_plan`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      meal_preferences: mealPreferences,
+      date: formatDateForDB(new Date())
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.meal_plan;
 }

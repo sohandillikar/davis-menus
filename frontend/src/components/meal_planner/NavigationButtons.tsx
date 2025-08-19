@@ -1,19 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { FormData } from "./MealPlannerModal";
+import { MealPreferences } from "./MealPlannerModal";
 
 interface NavigationButtonsProps {
 	currentStep: number;
 	setCurrentStep: (step: number) => void;
-	formData: FormData;
+	mealPreferences: MealPreferences;
+	minCalories: number;
+	minProtein: number;
 	isLoading: boolean;
 	onCloseModal: () => void;
 }
 
-export function NavigationButtons({ currentStep, setCurrentStep, formData, isLoading, onCloseModal }: NavigationButtonsProps) {
-	const canProceedStep2 = formData.calories && formData.protein;
-	const canProceedStep3 = formData.meals.length > 0;
-	const canProceedStep4 = formData.meals.every(meal => formData.diningHalls[meal]);
+export function NavigationButtons({ currentStep, setCurrentStep, mealPreferences, minCalories, minProtein, isLoading, onCloseModal }: NavigationButtonsProps) {
+	const canProceedStep2 = (
+		mealPreferences.calories &&
+		mealPreferences.protein &&
+		parseInt(mealPreferences.calories) >= minCalories &&
+		parseInt(mealPreferences.protein) >= minProtein
+	);
+	const canProceedStep3 = (
+		Object.keys(mealPreferences.meals).length === 3 &&
+		Object.values(mealPreferences.meals).some(value => value !== "none")
+	);
 
 	return (
 		<div className="flex justify-between pt-6 border-t">
@@ -26,20 +35,18 @@ export function NavigationButtons({ currentStep, setCurrentStep, formData, isLoa
 				Back
 			</Button>
 
-			{currentStep < 5 ?
+			{currentStep < 4 ?
 				<Button
-					onClick={() => setCurrentStep(Math.min(currentStep + 1, 5))}
+					onClick={() => setCurrentStep(Math.min(currentStep + 1, 4))}
 					disabled={
 						(currentStep === 1 && !canProceedStep2) ||
-						(currentStep === 2 && !canProceedStep3) ||
-						(currentStep === 3 && !canProceedStep4) ||
-						isLoading
+						(currentStep === 2 && !canProceedStep3)
 					}
 					className="flex items-center gap-2">
 					Next
 					<ChevronRight className="h-4 w-4" />
 				</Button> :
-				<Button onClick={onCloseModal}>Close</Button>
+				<Button disabled={isLoading} onClick={onCloseModal}>Close</Button>
 			}
 		</div>
 	);

@@ -47,7 +47,7 @@ export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
                     </TabsContent>
                     
                     <TabsContent value="offered" className="mt-4 flex-1 min-h-0">
-                        <FavoritesList items={offeredThisWeek} hasFavorites={favorites.length > 0} showExtraMetadata={true} />
+                        <FavoritesList items={offeredThisWeek} hasFavorites={favorites.length > 0} showExtraMetadata={true} showLikeButton={false} />
                     </TabsContent>
                 </Tabs>
             </SheetContent>
