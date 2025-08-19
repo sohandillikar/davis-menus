@@ -8,7 +8,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "http://10.0.0.158:8080"],  # Frontend URLs
+    allow_origins=[
+        "http://localhost:8080",
+        "https://davis-menus.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
