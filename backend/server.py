@@ -46,4 +46,4 @@ async def ping_to_keep_server_alive():
     async with aiohttp.ClientSession() as session:
         while True:
             await session.get(f"{server_url}/ping")
-            await asyncio.sleep(randint(8 * 60, 14.9 * 60))
+            await asyncio.sleep(randint(int(8 * 60), int(14.9 * 60)))
