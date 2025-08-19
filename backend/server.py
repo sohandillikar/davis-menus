@@ -13,11 +13,15 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
-frontend_url = "https://davis-menus.vercel.app"
+server_url = "https://davis-menus-server.onrender.com"
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", frontend_url],
+    allow_origins=[
+        "http://localhost:8080",
+        "https://davis-menus.vercel.app",
+        server_url
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,5 +45,5 @@ async def ping_to_keep_server_alive():
     """Send ping requests to the server every 5 seconds"""
     async with aiohttp.ClientSession() as session:
         while True:
-            await session.get(f"{frontend_url}/ping")
+            await session.get(f"{server_url}/ping")
             await asyncio.sleep(5)
