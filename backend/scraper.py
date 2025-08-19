@@ -17,6 +17,7 @@ NUTRITION_KEYS = {
     "Contains": "allergens",
     "Ingredients": "ingredients"
 }
+
 MENU_ITEMS_TABLE = supabase_client.table("menu_items")
 
 # Configure a resilient HTTP session (retries, timeouts, headers)
@@ -224,11 +225,15 @@ for dining_hall in DINING_HALLS:
         print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
     print()
 
-# If today is Sunday, clear the menu_items table.
-# DO NOT DELETE MENU ITEMS THAT ARE PEOPLE'S FAVORITES
+# If today is Sunday, clear the menu_items table
 if today.weekday() == 6:
-    response = MENU_ITEMS_TABLE.delete().neq("id", -1).execute()
-    print(f"CLEARED menu_items table | DELETED {len(response.data)} items")
+    # Get all favorite items ids
+    response = supabase_client.table("favorite_items").select("item_id").execute()
+    favorite_items = [item["item_id"] for item in response.data]
+
+    # Delete all menu items that are not favorite items
+    response = MENU_ITEMS_TABLE.delete().not_.in_("id", favorite_items).execute()
+    print(f"DELETED {len(response.data)} items from menu_items table")
 else:
     for date in dates_till_saturday:
         response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
