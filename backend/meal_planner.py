@@ -201,7 +201,7 @@ class MealPlanner:
 
         return default_split
     
-    def plan_meal(self, meal, calorie_goal, protein_goal, max_repeated_items=2):
+    def plan_meal(self, meal, calorie_goal, protein_goal, max_repeated_items=3):
         selected_items = self.healthy_items.head(0).copy()
         menu_items = self.healthy_items[self.healthy_items['meal'] == meal]
 
@@ -239,11 +239,11 @@ class MealPlanner:
                 item_to_add = items_to_add.sort_values(by='pd_difference', ascending=True).iloc[0]
                 selected_items = pd.concat([selected_items, pd.DataFrame([item_to_add])])
 
-        while not goals_met() and len(empty_food_groups) < 4:
-            food_group = order[i % 4]
+        while not goals_met() and len(empty_food_groups) < len(order):
+            food_group = order[i % len(order)]
 
             # If the current food group is not in the meal plan OR the goals are still not met after the first iteration
-            if not selected_items[f'is_{food_group}'].any() or (i > 0 and not goals_met()):
+            if not selected_items[f'is_{food_group}'].any() or (i > len(order) and not goals_met()):
                 add_item(food_group)
 
             i += 1
@@ -261,7 +261,7 @@ class MealPlanner:
 
         return selected_items
 
-    def plan_meals(self, max_repeated_items=2):
+    def plan_meals(self, max_repeated_items=3):
         goals_by_meals = self.split_goals_by_meals()
         
         for meal, goals in goals_by_meals.items():
@@ -269,6 +269,3 @@ class MealPlanner:
             goals_by_meals[meal] = meal_plan
 
         return goals_by_meals
-
-
-# meal_planner = MealPlanner('2025-08-17', '6e3a820d-e976-483d-9df2-6402bcfe78a0')
