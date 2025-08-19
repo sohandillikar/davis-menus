@@ -1,6 +1,7 @@
 import asyncio
 import aiohttp
 from config import *
+from random import randint
 from fastapi import FastAPI
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
@@ -42,8 +43,7 @@ async def ping():
     return {"message": "pong", "success": True}
 
 async def ping_to_keep_server_alive():
-    """Send ping requests to the server every 5 seconds"""
     async with aiohttp.ClientSession() as session:
         while True:
             await session.get(f"{server_url}/ping")
-            await asyncio.sleep(5)
+            await asyncio.sleep(randint(8 * 60, 14.9 * 60))
