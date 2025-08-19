@@ -33,11 +33,11 @@ export function Step2({ mealPreferences, setMealPreferences }: Step2Props) {
 			const today = utils.formatDateForDB(new Date());
 			const response = await db.getAvailableDiningHalls(today);
 			setAvailableDiningHalls(response);
+			setTimeout(() => setIsLoading(false), 300);
 		}
 
 		setIsLoading(true);
 		fetchAvailableDiningHalls();
-		setTimeout(() => setIsLoading(false), 500);
 	}, []);
 
 	return (

@@ -80,11 +80,11 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
         await db.saveMealPreferences(user.id, mealPreferences);
         const response = await utils.getMealPlan(mealPreferences);
         setMealPlan(response);
+        setTimeout(() => setIsLoading(false), 300);
       }
 
       setIsLoading(true);
       fetchMealPlan();
-      setTimeout(() => setIsLoading(false), 1000);
     }
   }, [currentStep]);
 
