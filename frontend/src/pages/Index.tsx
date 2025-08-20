@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 import { DayPicker } from "@/components/DayPicker";
 import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
+import { SignInModal } from "@/components/SignInModal";
+import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
 import { DINING_HALLS, MEALS } from "@/lib/constants";
 import * as db from "@/lib/database";
@@ -16,10 +19,7 @@ const Index = () => {
   const [selectedDiets, setSelectedDiets] = useState<string[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
-  const [weekBoundaries, setWeekBoundaries] = useState({
-    lastSunday: new Date(),
-    nextSaturday: new Date()
-  });
+  const [weekBoundaries, setWeekBoundaries] = useState({lastSunday: new Date(), nextSaturday: new Date()});
   
   const [weeklyMenuItems, setWeeklyMenuItems] = useState([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState([]);
@@ -120,13 +120,13 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="mt-12 py-8 border-t border-border/30 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-muted-foreground text-sm">
-            UC Davis Dining Menus • Made with 💙 for Aggies
-          </p>
-        </div>
-      </footer>
+      <Footer />
+
+      {/* Sign In Modal */}
+      <SignInModal />
+
+      {/* Meal Planner Modal */}
+      <MealPlannerModal />
     </div>
   );
 };

@@ -12,11 +12,7 @@ import { MenuItemData } from "@/components/menu/MenuItem";
 import * as db from "@/lib/database";
 import * as utils from "@/lib/utils";
 import { MealPlanDisplay } from "./MealPlanDisplay";
-
-interface MealPlannerModalProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
+import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 
 export interface MealPreferences {
   calories: string;
@@ -36,7 +32,7 @@ export interface MealPlan {
   explanation: string;
 }
 
-export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) {
+export function MealPlannerModal() {
   const minCalories = 500;
   const minProtein = 25;
   const defaultMealPreferences: MealPreferences = {
@@ -52,6 +48,7 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
   const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
   const { user } = useAuthContext();
+  const { isOpen, setIsOpen } = useMealPlannerModalContext();
 
   const resetModal = () => {
     setCurrentStep(1);
@@ -59,7 +56,7 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
   };
 
   const handleClose = () => {
-    onOpenChange(false);
+    setIsOpen(false);
     resetModal();
   };
 
@@ -94,7 +91,7 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
   }, [currentStep]);
 
   useEffect(() => {
-    if (open) {
+    if (isOpen) {
       const fetchUserPreferences = async () => {
         const response = await db.getUserPreferences(user.id);
         if (response)
@@ -103,10 +100,10 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
 
       fetchUserPreferences();
     }
-  }, [open]);
+  }, [isOpen]);
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">

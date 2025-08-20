@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
-import { SignInModal } from "@/components/SignInModal";
+import { useSignInModalContext } from "@/contexts/SignInModalContext";
 import * as db from "@/lib/database";
 
 interface LikeButtonProps {
@@ -13,7 +13,7 @@ interface LikeButtonProps {
 export function LikeButton({ itemName }: LikeButtonProps) {
     const [liked, setLiked] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+    const { setIsOpen, setMode } = useSignInModalContext();
 
     const { user, isSignedIn } = useAuthContext();
     const { favorites } = useFavoritesContext();
@@ -21,7 +21,8 @@ export function LikeButton({ itemName }: LikeButtonProps) {
     const handleLike = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         if (!isSignedIn) {
-            setIsSignInModalOpen(true);
+            setMode("favorites");
+            setIsOpen(true);
         } else {
             let success = false;
             if (liked) {
@@ -43,7 +44,7 @@ export function LikeButton({ itemName }: LikeButtonProps) {
         setLiked(favorites.some(favorite => favorite.item_name === itemName));
     }, [favorites]);
 
-    return (<>
+    return (
         <Button
             variant="ghost"
             size="icon"
@@ -51,12 +52,5 @@ export function LikeButton({ itemName }: LikeButtonProps) {
             onClick={handleLike}>
             <Heart className={`h-4 w-4 transition-transform duration-200 ${isAnimating ? 'scale-125' : 'scale-100'} ${liked ? 'fill-current' : ''}`} />
         </Button>
-        <SignInModal
-            title="Hey there!"
-            description="Please sign in to save your favorite menu items :)"
-            googleButtonText="Continue"
-            open={isSignInModalOpen}
-            onOpenChange={setIsSignInModalOpen}
-        />
-    </>);
+    );
 }

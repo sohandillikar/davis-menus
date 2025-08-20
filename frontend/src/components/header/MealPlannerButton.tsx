@@ -1,24 +1,28 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Utensils } from "lucide-react";
-import { SignInModal } from "../SignInModal";
 import { useAuthContext } from "@/contexts/AuthContext";
-import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
+import { useSignInModalContext } from "@/contexts/SignInModalContext";
+import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 
 interface MealPlannerButtonProps {
     variant: "desktop" | "mobile";
+    onClick?: () => void;
 }
 
-export function MealPlannerButton({ variant }: MealPlannerButtonProps) {
+export function MealPlannerButton({ variant, onClick }: MealPlannerButtonProps) {
     const { isSignedIn } = useAuthContext();
-    const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
-    const [isMealPlannerModalOpen, setIsMealPlannerModalOpen] = useState(false);
+    const { setIsOpen: setSignInModalOpen, setMode: setSignInModalMode } = useSignInModalContext();
+    const { setIsOpen: setMealPlannerModalOpen } = useMealPlannerModalContext();
 
     const handleClick = () => {
+        if (onClick) {
+            onClick();
+        }
         if (isSignedIn) {
-            setIsMealPlannerModalOpen(true);
+            setMealPlannerModalOpen(true);
         } else {
-            setIsSignInModalOpen(true);
+            setSignInModalMode("mealPlanner");
+            setSignInModalOpen(true);
         }
     };
     
@@ -41,16 +45,5 @@ export function MealPlannerButton({ variant }: MealPlannerButtonProps) {
                 What Should I Eat?
             </Button>
         }
-        <SignInModal
-            title="Hey there!"
-            description="Please sign in to access personalized meal recommendations :)"
-            googleButtonText="Continue"
-            open={isSignInModalOpen}
-            onOpenChange={setIsSignInModalOpen}
-        />
-        <MealPlannerModal
-            open={isMealPlannerModalOpen}
-            onOpenChange={setIsMealPlannerModalOpen}
-        />
     </>);
 }
