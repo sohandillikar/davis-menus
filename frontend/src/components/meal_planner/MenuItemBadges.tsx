@@ -12,7 +12,7 @@ interface MenuItemBadgeProps {
 }
 
 interface MenuItemBadgesProps {
-    mealData: SelectedItem[];
+    mealItemsData: SelectedItem[];
 }
 
 function MenuItemBadge({ item, quantity, expanded, onClick }: MenuItemBadgeProps) {
@@ -24,7 +24,7 @@ function MenuItemBadge({ item, quantity, expanded, onClick }: MenuItemBadgeProps
     );
 }
 
-export function MenuItemBadges({ mealData }: MenuItemBadgesProps) {
+export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
     const [expandedItem, setExpandedItem] = useState<MenuItemData | null>(null);
 
     const toggleExpansion = (item: MenuItemData) => {
@@ -34,7 +34,7 @@ export function MenuItemBadges({ mealData }: MenuItemBadgesProps) {
     return (
         <div className="space-y-3">
             <div className="flex flex-wrap gap-2">
-                {mealData.map((item, i) =>
+                {mealItemsData.map((item, i) =>
                     <MenuItemBadge
                     key={i}
                     item={item.item}

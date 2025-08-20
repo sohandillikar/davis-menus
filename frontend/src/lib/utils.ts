@@ -77,7 +77,8 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       meal_preferences: mealPreferences,
-      date: formatDateForDB(new Date())
+      date: formatDateForDB(new Date()),
+      use: "algo"
     })
   });
 

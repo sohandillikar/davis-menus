@@ -290,7 +290,7 @@ class MealPlanner:
             .rename(columns={'item_name': 'name'}) \
             .to_dict('records')
 
-    def plan_meals2(self):
+    def plan_meals2(self, model="gpt-4.1-mini"):
         selected_meals = list(self.menu_items.keys())
         selected_meals_str = ', '.join(selected_meals)
         simplified_menu_items = self.get_simplified_menu_items(healthy=True)
@@ -301,7 +301,7 @@ class MealPlanner:
         {json.dumps(simplified_menu_items)}
 
         Combine multiple items per meal or include multiple servings of the same item if it's a healthy choice and needed to meet calorie and protein goals.
-        For each meal, provide a brief explanation (less than 200 characters) of why it is the best choice compared to other options."""
+        For each meal, provide a brief explanation (less than 200 characters) of why it is the healthiest choice."""
 
         meal_items_schema = {
             "type": "object",
@@ -325,7 +325,7 @@ class MealPlanner:
         meals_schema = {meal: meal_items_schema for meal in selected_meals}
 
         response = openai_client.chat.completions.create(
-            model="gpt-4.1-nano",
+            model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             response_format={

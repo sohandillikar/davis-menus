@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { APP_TITLE, APP_LOGO_SRC } from "@/lib/constants";
-import { SelectedItem } from "./MealPlannerModal";
+import { MealPlan } from "./MealPlannerModal";
 import { MealCard } from "./MealCard";
 
 interface MealPlanDisplayProps {
-    mealPlan: Record<string, SelectedItem[]>;
+    dayMealPlan: Record<string, MealPlan>;
 }
 
 interface DailyTotalsProps {
@@ -26,13 +27,16 @@ function DailyTotals({ totalCalories, totalProtein }: DailyTotalsProps) {
     )
 }
 
-export function MealPlanDisplay({ mealPlan }: MealPlanDisplayProps) {
-    const totalCalories = Object.values(mealPlan).reduce((acc, meal) =>
-        acc + meal.reduce((acc, item) =>
-            acc + Number(item.item.calories) * item.quantity, 0), 0);
-    const totalProtein = Object.values(mealPlan).reduce((acc, meal) =>
-        acc + meal.reduce((acc, item) =>
-            acc + Number(item.item.protein_g) * item.quantity, 0), 0);
+export function MealPlanDisplay({ dayMealPlan }: MealPlanDisplayProps) {
+    let totalCalories = 0;
+    let totalProtein = 0;
+    
+    for (const meal of Object.values(dayMealPlan)) {
+        for (const item of meal.items) {
+            totalCalories += Number(item.item.calories) * item.quantity;
+            totalProtein += Number(item.item.protein_g) * item.quantity;
+        }
+    }
 
     return (
         <div className="space-y-6">
@@ -42,8 +46,8 @@ export function MealPlanDisplay({ mealPlan }: MealPlanDisplayProps) {
                 Ta-Da!
             </h2>
             <div className="space-y-4">
-                {Object.keys(mealPlan).map((meal, i) => (
-                    <MealCard key={i} meal={meal} mealData={mealPlan[meal]} />
+                {Object.keys(dayMealPlan).map((meal, i) => (
+                    <MealCard key={i} meal={meal} mealPlanData={dayMealPlan[meal]} />
                 ))}
                 
                 <DailyTotals totalCalories={totalCalories} totalProtein={totalProtein} />

@@ -18,17 +18,22 @@ interface MealPlannerModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export interface SelectedItem {
-  item: MenuItemData;
-  quantity: number;
-}
-
 export interface MealPreferences {
   calories: string;
   protein: string;
   meals: Record<string, string>;
   diets: string[];
   allergens: string[];
+}
+
+export interface SelectedItem {
+  item: MenuItemData;
+  quantity: number;
+}
+
+export interface MealPlan {
+  items: SelectedItem[];
+  explanation: string;
 }
 
 export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) {
@@ -44,7 +49,7 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [mealPreferences, setMealPreferences] = useState<MealPreferences>(defaultMealPreferences);
-  const [mealPlan, setMealPlan] = useState<Record<string, SelectedItem[]>>({});
+  const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
   const { user } = useAuthContext();
 
@@ -70,7 +75,7 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
         return <Step3 mealPreferences={mealPreferences} setMealPreferences={setMealPreferences} />;
 
       case 4:
-        return <MealPlanDisplay mealPlan={mealPlan} />;
+        return <MealPlanDisplay dayMealPlan={dayMealPlan} />;
     }
   };
 
@@ -79,8 +84,8 @@ export function MealPlannerModal({ open, onOpenChange }: MealPlannerModalProps) 
       const fetchMealPlan = async () => {
         await db.saveMealPreferences(user.id, mealPreferences);
         const response = await utils.getMealPlan(mealPreferences);
-        setMealPlan(response);
-        setTimeout(() => setIsLoading(false), 300);
+        setDayMealPlan(response);
+        setIsLoading(false);
       }
 
       setIsLoading(true);

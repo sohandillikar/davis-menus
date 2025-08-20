@@ -31,11 +31,15 @@ app.add_middleware(
 class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences
     date: str
+    use: str = "algo"
 
 @app.post("/get_meal_plan")
 async def get_meal_plan(request: MealPlanRequest):
     meal_planner = MealPlanner(request.date, request.meal_preferences.to_dict())
-    meal_plan = meal_planner.plan_meals()
+    if request.use == "algo":
+        meal_plan = meal_planner.plan_meals()
+    else:
+        meal_plan = meal_planner.plan_meals2()
     return {"meal_plan": meal_plan, "success": True}
 
 @app.get("/ping")
