@@ -2,25 +2,32 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "@/contexts/AuthContext";
+import { useSignInModalContext } from "@/contexts/SignInModalContext";
 
-interface SignInModalProps {
-  title: string;
-  description: string;
-  googleButtonText: string;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
-export function SignInModal({ title, description, googleButtonText, open, onOpenChange }: SignInModalProps) {
+export function SignInModal() {
   const { signIn } = useAuthContext();
+  const { isOpen, setIsOpen, mode } = useSignInModalContext();
+
+  const modes = {
+    "mealPlanner": {
+      title: "Hey there!",
+      description: "Please sign in to access personalized meal recommendations :)",
+      googleButtonText: "Continue"
+    },
+    favorites: {
+      "title": "Hey there!",
+      description: "Please sign in to save your favorite menu items :)",
+      googleButtonText: "Continue"
+    }
+  }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
+          <DialogTitle className="text-2xl font-bold">{modes[mode].title}</DialogTitle>
           <DialogDescription className="text-base mt-2">
-            {description}
+            {modes[mode].description}
           </DialogDescription>
         </DialogHeader>
         
@@ -31,7 +38,7 @@ export function SignInModal({ title, description, googleButtonText, open, onOpen
             onClick={signIn}
           >
             <FcGoogle className="h-5 w-5" />
-            {googleButtonText} with Google
+            {modes[mode].googleButtonText} with Google
           </Button>
         </div>
       </DialogContent>

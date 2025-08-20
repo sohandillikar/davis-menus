@@ -7,12 +7,16 @@ import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { MealPlannerButton } from "./MealPlannerButton";
 
-function MenuButtons() {
+interface MenuButtonsProps {
+    setIsMobileMenuOpen: (isOpen: boolean) => void;
+}
+
+function MenuButtons({ setIsMobileMenuOpen }: MenuButtonsProps) {
     const { isSignedIn, signIn, signOut } = useAuthContext();
     return (
         <div className="mt-6 space-y-4">
             {/* What Should I Eat? */}
-            <MealPlannerButton variant="mobile" />
+            <MealPlannerButton variant="mobile" onClick={() => setIsMobileMenuOpen(false)} />
 
             {/* Favorites */}
             <FavoritesSheet variant="mobile" />
@@ -57,7 +61,7 @@ export function MobileMenu() {
                     <SheetHeader>
                         <SheetTitle>What's cooking, {isSignedIn ? user.user_metadata.name.split(" ")[0] : "Aggie"}?</SheetTitle>
                     </SheetHeader>
-                    <MenuButtons />
+                    <MenuButtons setIsMobileMenuOpen={setIsMobileMenuOpen} />
                 </SheetContent>
             </Sheet>
         </div>
