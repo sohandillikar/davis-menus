@@ -65,12 +65,14 @@ export function ExpandedDetails({ item, nutritionFactsLayout = "row", showDiets 
             {showDiets && item.diets.length > 0 && <BadgesList badges={item.diets} title="Diets" color="green" /> }
 
             {/* Ingredients */}
-            <div>
-                <h4 className="text-sm font-medium text-foreground mb-2">Ingredients:</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3">
-                    {item.ingredients}
-                </p>
-            </div>
+            {item.ingredients &&
+                <div>
+                    <h4 className="text-sm font-medium text-foreground mb-2">Ingredients:</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3">
+                        {item.ingredients}
+                    </p>
+                </div>
+            }
         </div>
     );
 };
