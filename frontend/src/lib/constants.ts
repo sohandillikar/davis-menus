@@ -2,6 +2,7 @@
 export const APP_TITLE = "AggieMenus";
 export const APP_TAGLINE = "UC Davis Dining Guide";
 export const APP_LOGO_SRC = "/logo.png";
+export const APP_404_LOGO_SRC = "/404.png";
 
 // Filter options
 export const DINING_HALLS = ["tercero", "segundo", "latitude", "cuarto"];
