@@ -114,7 +114,7 @@ export function MealPlannerModal() {
 
         <ProgressBar currentStep={currentStep} />
 
-        {isLoading ? <LoadingAnimation message="Lemme me cook..." submessage="Preparing your personalized meal plan" /> : renderStep()}
+        {isLoading ? <LoadingAnimation message="Let me cook..." submessage="Preparing your personalized meal plan" /> : renderStep()}
 
         <NavigationButtons
           currentStep={currentStep}
