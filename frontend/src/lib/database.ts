@@ -4,7 +4,23 @@ import * as utils from "@/lib/utils";
 import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
 import { MEALS } from "@/lib/constants";
 
-export async function getWeeklyMenuItems(firstDate: Date, lastDate: Date) {
+export async function getMenuItems(selectedDate: Date, selectedHall: string, selectedMeal: string) {
+    const { data, error } = await supabase
+    .from('menu_items')
+    .select('*')
+    .eq('date', utils.formatDateForDB(selectedDate))
+    .eq('dining_hall', selectedHall)
+    .eq('meal', selectedMeal);
+
+    if (error) {
+        console.error("Error fetching menu items:", error);
+        return [];
+    }
+
+    return data;
+}
+
+export async function getWeekMenuItems(firstDate: Date, lastDate: Date) {
     let allData: MenuItemData[] = [];
     let from = 0;
     const batchSize = 1000;
