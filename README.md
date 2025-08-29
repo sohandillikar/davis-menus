@@ -11,12 +11,12 @@ to help users hit protein and calorie goals.
 
 | Home | Menu Item | Empty Menu |
 |--------------|--------------|--------------|
-|![Screenshot 1](./screenshots/home-page.JPG)|![Screenshot 2](./screenshots/menu-item.png)|![Screenshot 3](./screenshots/empty-menu.png)|
+|![Screenshot 1](./screenshots/home-page.JPG)|![Screenshot 2](./screenshots/menu-item.PNG)|![Screenshot 3](./screenshots/empty-menu.PNG)|
 
 | Favorites | Offered This Week | Meal Planner |
 |--------------|--------------|--------------|
-|![Screenshot 4](./screenshots/favorites.png)|![Screenshot 5](./screenshots/offered-this-week.png)|![Screenshot 6](./screenshots/meal-planner-step-1.png)|
+|![Screenshot 4](./screenshots/favorites.PNG)|![Screenshot 5](./screenshots/offered-this-week.PNG)|![Screenshot 6](./screenshots/meal-planner-step-1.PNG)|
 
 | Loading Animation | Meal Plan | Meal Plan Expanded |
 |--------------|--------------|--------------|
-|![Screenshot 7](./screenshots/meal-planner-loading.png)|![Screenshot 8](./screenshots/meal-plan.png)|![Screenshot 9](./screenshots/meal-plan-expanded.png)|
+|![Screenshot 7](./screenshots/meal-planner-loading.PNG)|![Screenshot 8](./screenshots/meal-plan.PNG)|![Screenshot 9](./screenshots/meal-plan-expanded.PNG)|
