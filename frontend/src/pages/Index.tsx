@@ -33,6 +33,7 @@ const Index = () => {
 
   useEffect(() => {
     const fetchWeeklyMenuItems = async () => {
+      // const payload = await db.getWeekMenuItems(weekBoundaries.lastSunday, weekBoundaries.nextSaturday);
       const payload = await db.getMenuItems(selectedDate, selectedHall, selectedMeal);
       setMenuItems(payload);
       setLoadingMenuItems(false);
@@ -42,12 +43,14 @@ const Index = () => {
     fetchWeeklyMenuItems();
   }, [selectedDate, selectedHall, selectedMeal]);
   // ^ If fetching week menu items, change this to [weekBoundaries]
+  // Otherwise, change this to [selectedDate, selectedHall, selectedMeal]
 
   useEffect(() => {
     setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
     refreshFavorites();
   }, [menuItems, selectedDiets, selectedAllergens]);
   // ^ If fetching week menu items, change this to [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]
+  // Otherwise, change this to [menuItems, selectedDiets, selectedAllergens]
 
   return (
     <div className="min-h-screen bg-background">
