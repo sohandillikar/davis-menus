@@ -21,7 +21,7 @@ const Index = () => {
 
   const [weekBoundaries, setWeekBoundaries] = useState({lastSunday: new Date(), nextSaturday: new Date()});
   
-  const [weeklyMenuItems, setWeeklyMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState([]);
   const [loadingMenuItems, setLoadingMenuItems] = useState(true);
 
@@ -33,22 +33,21 @@ const Index = () => {
 
   useEffect(() => {
     const fetchWeeklyMenuItems = async () => {
-      const payload = await db.getWeeklyMenuItems(
-        weekBoundaries.lastSunday,
-        weekBoundaries.nextSaturday
-      );
-      setWeeklyMenuItems(payload);
+      const payload = await db.getMenuItems(selectedDate, selectedHall, selectedMeal);
+      setMenuItems(payload);
       setLoadingMenuItems(false);
     };
 
     setLoadingMenuItems(true);
     fetchWeeklyMenuItems();
-  }, [weekBoundaries]);
+  }, [selectedDate, selectedHall, selectedMeal]);
+  // ^ If fetching week menu items, change this to [weekBoundaries]
 
   useEffect(() => {
-    setFilteredMenuItems(utils.filterMenuItems(weeklyMenuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
+    setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
     refreshFavorites();
-  }, [weeklyMenuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]);
+  }, [menuItems, selectedDiets, selectedAllergens]);
+  // ^ If fetching week menu items, change this to [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]
 
   return (
     <div className="min-h-screen bg-background">
