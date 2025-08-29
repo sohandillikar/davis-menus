@@ -1,0 +1,53 @@
+[14:29:00.822] Running build in Washington, D.C., USA (East) – iad1
+[14:29:00.822] Build machine configuration: 2 cores, 8 GB
+[14:29:00.882] Cloning github.com/sohandillikar/davis-menus (Branch: experiment/fetching-menu-items, Commit: c638257)
+[14:29:01.390] Cloning completed: 507.000ms
+[14:29:02.351] Restored build cache from previous deployment (AqxXM5TaBwVLCqxM6jRa9oVfNkd1)
+[14:29:02.869] Running "vercel build"
+[14:29:03.266] Vercel CLI 46.1.0
+[14:29:03.845] Installing dependencies...
+[14:29:18.254] 
+[14:29:18.255] removed 5 packages, and changed 381 packages in 14s
+[14:29:18.256] 
+[14:29:18.256] 78 packages are looking for funding
+[14:29:18.256]   run `npm fund` for details
+[14:29:18.299] Running "npm run build"
+[14:29:18.412] 
+[14:29:18.412] > vite_react_shadcn_ts@0.0.0 build
+[14:29:18.413] > vite build
+[14:29:18.413] 
+[14:29:18.593] /vercel/path0/frontend/node_modules/rollup/dist/native.js:59
+[14:29:18.593] 		throw new Error(
+[14:29:18.593] 		      ^
+[14:29:18.593] 
+[14:29:18.593] Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+[14:29:18.593]     at requireWithFriendlyError (/vercel/path0/frontend/node_modules/rollup/dist/native.js:59:9)
+[14:29:18.594]     at Object.<anonymous> (/vercel/path0/frontend/node_modules/rollup/dist/native.js:68:76)
+[14:29:18.594]     at Module._compile (node:internal/modules/cjs/loader:1688:14)
+[14:29:18.594]     at Object..js (node:internal/modules/cjs/loader:1820:10)
+[14:29:18.594]     at Module.load (node:internal/modules/cjs/loader:1423:32)
+[14:29:18.596]     at Function._load (node:internal/modules/cjs/loader:1246:12)
+[14:29:18.596]     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+[14:29:18.596]     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+[14:29:18.596]     at cjsLoader (node:internal/modules/esm/translators:268:5)
+[14:29:18.596]     at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:202:7) {
+[14:29:18.596]   [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+[14:29:18.596]   Require stack:
+[14:29:18.596]   - /vercel/path0/frontend/node_modules/rollup/dist/native.js
+[14:29:18.596]       at Function._resolveFilename (node:internal/modules/cjs/loader:1365:15)
+[14:29:18.597]       at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+[14:29:18.597]       at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+[14:29:18.597]       at Function._load (node:internal/modules/cjs/loader:1175:37)
+[14:29:18.597]       at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+[14:29:18.597]       at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+[14:29:18.597]       at Module.require (node:internal/modules/cjs/loader:1445:12)
+[14:29:18.597]       at require (node:internal/modules/helpers:135:16)
+[14:29:18.598]       at requireWithFriendlyError (/vercel/path0/frontend/node_modules/rollup/dist/native.js:41:10)
+[14:29:18.598]       at Object.<anonymous> (/vercel/path0/frontend/node_modules/rollup/dist/native.js:68:76) {
+[14:29:18.598]     code: 'MODULE_NOT_FOUND',
+[14:29:18.598]     requireStack: [ '/vercel/path0/frontend/node_modules/rollup/dist/native.js' ]
+[14:29:18.598]   }
+[14:29:18.598] }
+[14:29:18.598] 
+[14:29:18.598] Node.js v22.18.0
+[14:29:18.611] Error: Command "npm run build" exited with 1
