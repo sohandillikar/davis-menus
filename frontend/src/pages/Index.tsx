@@ -33,22 +33,22 @@ const Index = () => {
 
   useEffect(() => {
     const fetchWeeklyMenuItems = async () => {
-      // const payload = await db.getWeekMenuItems(weekBoundaries.lastSunday, weekBoundaries.nextSaturday);
-      const payload = await db.getMenuItems(selectedDate, selectedHall, selectedMeal);
+      const payload = await db.getWeekMenuItems(weekBoundaries.lastSunday, weekBoundaries.nextSaturday);
+      // const payload = await db.getMenuItems(selectedDate, selectedHall, selectedMeal);
       setMenuItems(payload);
       setLoadingMenuItems(false);
     };
 
     setLoadingMenuItems(true);
     fetchWeeklyMenuItems();
-  }, [selectedDate, selectedHall, selectedMeal]);
+  }, [weekBoundaries]);
   // ^ If fetching week menu items, change this to [weekBoundaries]
   // Otherwise, change this to [selectedDate, selectedHall, selectedMeal]
 
   useEffect(() => {
     setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
     refreshFavorites();
-  }, [menuItems, selectedDiets, selectedAllergens]);
+  }, [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]);
   // ^ If fetching week menu items, change this to [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]
   // Otherwise, change this to [menuItems, selectedDiets, selectedAllergens]
 

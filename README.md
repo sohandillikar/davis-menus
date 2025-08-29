@@ -11,7 +11,7 @@ to help users hit protein and calorie goals.
 
 | Home | Menu Item | Empty Menu |
 |--------------|--------------|--------------|
-|![Screenshot 1](./screenshots/home-page.jpg)|![Screenshot 2](./screenshots/menu-item.png)|![Screenshot 3](./screenshots/empty-menu.png)|
+|![Screenshot 1](./screenshots/home-page.JPG)|![Screenshot 2](./screenshots/menu-item.png)|![Screenshot 3](./screenshots/empty-menu.png)|
 
 | Favorites | Offered This Week | Meal Planner |
 |--------------|--------------|--------------|
