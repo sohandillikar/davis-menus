@@ -7,10 +7,7 @@ import { Step3 } from "./Step3";
 import { NavigationButtons } from "./NavigationButtons";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { ProgressBar } from "./ProgressBar";
-import { useAuthContext } from '@/contexts/AuthContext';
 import { MenuItemData } from "@/components/menu/MenuItem";
-import * as db from "@/lib/database";
-import * as utils from "@/lib/utils";
 import { MealPlanDisplay } from "./MealPlanDisplay";
 import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 
@@ -47,7 +44,6 @@ export function MealPlannerModal() {
   const [mealPreferences, setMealPreferences] = useState<MealPreferences>(defaultMealPreferences);
   const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
-  const { user } = useAuthContext();
   const { isOpen, setIsOpen } = useMealPlannerModalContext();
 
   const resetModal = () => {
@@ -79,9 +75,8 @@ export function MealPlannerModal() {
   useEffect(() => {
     if (currentStep === 4) {
       const fetchMealPlan = async () => {
-        await db.saveMealPreferences(user.id, mealPreferences);
-        const response = await utils.getMealPlan(mealPreferences);
-        setDayMealPlan(response);
+        console.log("saveMealPreferences");
+        console.log("getMealPlan");
         setIsLoading(false);
       }
 
@@ -93,9 +88,7 @@ export function MealPlannerModal() {
   useEffect(() => {
     if (isOpen) {
       const fetchUserPreferences = async () => {
-        const response = await db.getUserPreferences(user.id);
-        if (response)
-          setMealPreferences(response);
+        console.log("fetchUserPreferences");
       }
 
       fetchUserPreferences();

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart } from "lucide-react";
 import { FavoritesList } from "./FavoritesList";
-import { useFavoritesContext } from "@/contexts/FavoritesContext";
 
 interface FavoritesSheetProps {
   variant?: "default" | "mobile";
@@ -12,10 +11,10 @@ interface FavoritesSheetProps {
 
 export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
     const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
-    const { favorites, offeredThisWeek, refreshFavorites } = useFavoritesContext();
 
     useEffect(() => {
-        refreshFavorites();
+        // refreshFavorites();
+        console.log("refreshFavorites");
     }, [isFavoritesOpen]);
 
     return (
@@ -36,18 +35,18 @@ export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
                     Favorites
                 </SheetTitle>
                 </SheetHeader>
-                <Tabs defaultValue="favorites" className="mt-6 flex flex-col flex-1 min-h-0" onValueChange={refreshFavorites}>
+                <Tabs defaultValue="favorites" className="mt-6 flex flex-col flex-1 min-h-0" onValueChange={() => console.log("refreshFavorites")}>
                     <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger value="favorites">Your favorites</TabsTrigger>
                         <TabsTrigger value="offered">Offered this week</TabsTrigger>
                     </TabsList>
                     
                     <TabsContent value="favorites" className="mt-4 flex-1 min-h-0">
-                        <FavoritesList items={favorites} hasFavorites={favorites.length > 0} />
+                        <FavoritesList items={[]} hasFavorites={false} />
                     </TabsContent>
                     
                     <TabsContent value="offered" className="mt-4 flex-1 min-h-0">
-                        <FavoritesList items={offeredThisWeek} hasFavorites={favorites.length > 0} showExtraMetadata={true} showLikeButton={false} />
+                        <FavoritesList items={[]} hasFavorites={false} showExtraMetadata={true} showLikeButton={false} />
                     </TabsContent>
                 </Tabs>
             </SheetContent>

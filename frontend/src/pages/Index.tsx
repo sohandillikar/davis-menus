@@ -5,7 +5,6 @@ import { DayPicker } from "@/components/DayPicker";
 import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
-import { SignInModal } from "@/components/SignInModal";
 import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
 import { DINING_HALLS, MEALS } from "@/lib/constants";
@@ -123,9 +122,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-
-      {/* Sign In Modal */}
-      <SignInModal />
 
       {/* Meal Planner Modal */}
       <MealPlannerModal />

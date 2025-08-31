@@ -1,7 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { MenuItemData } from "@/components/menu/MenuItem";
-import { useAuthContext } from "./AuthContext";
-import * as db from "@/lib/database";
 
 interface FavoritesContextType {
     favorites: MenuItemData[];
@@ -20,31 +18,16 @@ export function useFavoritesContext() {
 }
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-    const { user, isSignedIn } = useAuthContext();
     const [favorites, setFavorites] = useState<MenuItemData[]>([]);
     const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItemData[]>([]);
 
     const refreshFavorites = async () => {
-        if (isSignedIn) {
-            const favorites = await db.getAllLikedItems(user.id);
-            setFavorites(favorites);
-        } else {
-            setFavorites([]);
-        }
+        console.log("refreshFavorites inside FavoritesContext");
     }
 
     const refreshOfferedThisWeek = async () => {
-        if (isSignedIn) {
-            const offeredThisWeek = await db.getOfferedThisWeek(favorites);
-            setOfferedThisWeek(offeredThisWeek);
-        } else {
-            setOfferedThisWeek([]);
-        }
+        console.log("refreshOfferedThisWeek inside FavoritesContext");
     }
-
-    useEffect(() => {
-        refreshFavorites();
-    }, [isSignedIn]);
 
     useEffect(() => {
         refreshOfferedThisWeek();

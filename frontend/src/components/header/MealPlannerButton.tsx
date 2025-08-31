@@ -1,8 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Utensils } from "lucide-react";
-import { useAuthContext } from "@/contexts/AuthContext";
-import { useSignInModalContext } from "@/contexts/SignInModalContext";
-import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 
 interface MealPlannerButtonProps {
     variant: "desktop" | "mobile";
@@ -10,20 +7,12 @@ interface MealPlannerButtonProps {
 }
 
 export function MealPlannerButton({ variant, onClick }: MealPlannerButtonProps) {
-    const { isSignedIn } = useAuthContext();
-    const { setIsOpen: setSignInModalOpen, setMode: setSignInModalMode } = useSignInModalContext();
-    const { setIsOpen: setMealPlannerModalOpen } = useMealPlannerModalContext();
-
     const handleClick = () => {
         if (onClick) {
             onClick();
         }
-        if (isSignedIn) {
-            setMealPlannerModalOpen(true);
-        } else {
-            setSignInModalMode("mealPlanner");
-            setSignInModalOpen(true);
-        }
+        // setMealPlannerModalOpen(true);
+        console.log("setMealPlannerModalOpen");
     };
     
     return (<>
@@ -32,8 +21,7 @@ export function MealPlannerButton({ variant, onClick }: MealPlannerButtonProps) 
                 variant="secondary" 
                 size="sm"
                 className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
-                onClick={handleClick}
-                >
+                onClick={handleClick}>
                 <Utensils className="h-4 w-4 mr-2" />
                 What Should I Eat?
             </Button> :
