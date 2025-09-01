@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart } from "lucide-react";
 import { FavoritesList } from "./FavoritesList";
+import { useFavoritesContext } from "@/contexts/FavoritesContext";
 
 interface FavoritesSheetProps {
   variant?: "default" | "mobile";
@@ -11,10 +12,10 @@ interface FavoritesSheetProps {
 
 export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
     const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+    const { favorites, offeredThisWeek, refreshFavorites } = useFavoritesContext();
 
     useEffect(() => {
-        // refreshFavorites();
-        console.log("refreshFavorites");
+        refreshFavorites();
     }, [isFavoritesOpen]);
 
     return (
@@ -42,11 +43,11 @@ export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
                     </TabsList>
                     
                     <TabsContent value="favorites" className="mt-4 flex-1 min-h-0">
-                        <FavoritesList items={[]} hasFavorites={false} />
+                        <FavoritesList items={favorites} hasFavorites={favorites.length > 0} />
                     </TabsContent>
                     
                     <TabsContent value="offered" className="mt-4 flex-1 min-h-0">
-                        <FavoritesList items={[]} hasFavorites={false} showExtraMetadata={true} showLikeButton={false} />
+                        <FavoritesList items={offeredThisWeek} hasFavorites={favorites.length > 0} showExtraMetadata={true} showLikeButton={false} />
                     </TabsContent>
                 </Tabs>
             </SheetContent>

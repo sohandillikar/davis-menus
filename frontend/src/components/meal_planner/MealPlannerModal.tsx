@@ -7,7 +7,7 @@ import { Step3 } from "./Step3";
 import { NavigationButtons } from "./NavigationButtons";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { ProgressBar } from "./ProgressBar";
-import { MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItemData } from "@/components/menu/MenuItemCard";
 import { MealPlanDisplay } from "./MealPlanDisplay";
 import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 

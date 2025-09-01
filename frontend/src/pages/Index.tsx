@@ -6,6 +6,7 @@ import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
 import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
+import { MenuItem } from "@/models/MenuItem";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
 import { DINING_HALLS, MEALS } from "@/lib/constants";
 import * as db from "@/lib/database";
@@ -20,14 +21,14 @@ const Index = () => {
 
   const [weekBoundaries, setWeekBoundaries] = useState({lastSunday: new Date(), nextSaturday: new Date()});
   
-  const [menuItems, setMenuItems] = useState([]);
-  const [filteredMenuItems, setFilteredMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItem[]>([]);
   const [loadingMenuItems, setLoadingMenuItems] = useState(true);
 
   const { refreshFavorites } = useFavoritesContext();
 
   useEffect(() => {
-    setWeekBoundaries(utils.calculateWeekBoundaries(selectedDate));
+    setWeekBoundaries(utils.getWeekBoundaries(selectedDate));
   }, []);
 
   useEffect(() => {

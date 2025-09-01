@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { SelectedItem } from "./MealPlannerModal";
-import { MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItemData } from "@/components/menu/MenuItemCard";
 import { ExpandedDetails } from "@/components/menu/ExpandedDetails";
 
 interface MenuItemBadgeProps {

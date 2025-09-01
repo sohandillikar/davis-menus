@@ -1,10 +1,9 @@
+import { MenuItem } from "@/models/MenuItem";
 import { supabase } from "@/lib/supabase";
-import { MenuItemData } from "@/components/menu/MenuItem";
-import * as utils from "@/lib/utils";
-import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
 import { MEALS } from "@/lib/constants";
+import * as utils from "@/lib/utils";
 
-export async function getMenuItems(selectedDate: Date, selectedHall: string, selectedMeal: string) {
+export async function getMenuItems(selectedDate: Date, selectedHall: string, selectedMeal: string): Promise<MenuItem[]> {
     const { data, error } = await supabase
     .from('menu_items')
     .select('*')
@@ -17,11 +16,11 @@ export async function getMenuItems(selectedDate: Date, selectedHall: string, sel
         return [];
     }
 
-    return data;
+    return data.map(item => new MenuItem(item));
 }
 
-export async function getWeekMenuItems(firstDate: Date, lastDate: Date) {
-    let allData: MenuItemData[] = [];
+export async function getWeekMenuItems(firstDate: Date, lastDate: Date): Promise<MenuItem[]> {
+    let allData: MenuItem[] = [];
     let from = 0;
     const batchSize = 1000;
 
@@ -39,50 +38,27 @@ export async function getWeekMenuItems(firstDate: Date, lastDate: Date) {
         }
         
         if (!data || data.length === 0) break;
+
+        const menuItems = data.map(item => new MenuItem(item));
         
-        allData.push(...data);
+        allData.push(...menuItems);
         from += batchSize;
     }
+
     return allData;
 }
 
-export async function getAllLikedItems(userId: string) {
-    const { data: favItemIds, error: favItemsError } = await supabase
-        .from("favorite_items")
-        .select("item_id")
-        .eq("user_id", userId);
-
-    if (favItemsError) {
-        console.error("Error fetching liked items:", favItemsError);
-        return [];
-    }
-
-    const { data: favMenuItems, error: favMenuItemsError } = await supabase
-        .from("menu_items")
-        .select("*")
-        .in("id", favItemIds.map(item => item.item_id));
-
-    if (favMenuItemsError) {
-        console.error("Error fetching menu items:", favMenuItemsError);
-        return [];
-    }
-
-    return favMenuItems;
-}
-
-export async function getOfferedThisWeek(favoriteItems: MenuItemData[]) {
+export async function getOfferedThisWeek(favorites: MenuItem[]) {
     const today = new Date();
-    const nSaturday = new Date(today);
-    nSaturday.setDate(today.getDate() + (6 - today.getDay()));
-    
-    const favoriteItemNames = favoriteItems.map(item => item.item_name);
+    const { lastSunday, nextSaturday } = utils.getWeekBoundaries(today);
+    const itemNames = favorites.map(item => item.data.item_name);
 
     const { data, error } = await supabase
         .from("menu_items")
         .select("*")
-        .in("item_name", favoriteItemNames)
+        .in("item_name", itemNames)
         .gte("date", utils.formatDateForDB(today))
-        .lte("date", utils.formatDateForDB(nSaturday))
+        .lte("date", utils.formatDateForDB(nextSaturday))
         .order("date", { ascending: true })
         .order("item_name", { ascending: true });
 
@@ -91,71 +67,7 @@ export async function getOfferedThisWeek(favoriteItems: MenuItemData[]) {
         return [];
     }
 
-    return data;
-}
-
-export async function likeMenuItem(userId: string, itemName: string) {
-    const { data: favItemId, error: favItemIdError } = await supabase
-        .from("menu_items")
-        .select("id")
-        .eq("item_name", itemName)
-        .limit(1);
-
-    if (favItemIdError) {
-        console.error("Error fetching menu item from name:", favItemIdError);
-        return { success: false };
-    }
-
-    const { error } = await supabase
-        .from("favorite_items")
-        .insert([{ user_id: userId, item_id: favItemId[0].id }]);
-
-    if (error) {
-        console.error("Error liking menu item:", error);
-        return { success: false };
-    } else {
-        return { success: true };
-    }
-}
-
-export async function unlikeMenuItem(userId: string, itemName: string) {
-
-    // Get all the favorite item ids for the user
-    const { data: allFavIds, error: allFavIdsError } = await supabase
-        .from("favorite_items")
-        .select("item_id")
-        .eq("user_id", userId);
-    
-    if (allFavIdsError) {
-        console.error("Error fetching all user's favorite item ids:", allFavIdsError);
-        return { success: false };
-    }
-
-    // Keep the ids where name = itemName
-    const { data: filteredFavIds, error: filteredFavIdsError } = await supabase
-        .from("menu_items")
-        .select("id")
-        .in("id", allFavIds.map(item => item.item_id))
-        .eq("item_name", itemName);
-    
-    if (filteredFavIdsError) {
-        console.error("Error filtering all favorite item ids where name = itemName:", filteredFavIdsError);
-        return { success: false };
-    }
-
-    // Delete the ids where name = itemName
-    const { error: deleteError } = await supabase
-        .from("favorite_items")
-        .delete()
-        .eq("user_id", userId)
-        .in("item_id", filteredFavIds.map(item => item.id));
-
-    if (deleteError) {
-        console.error("Error deleting favorite items where name = itemName:", deleteError);
-        return { success: false };
-    }
-
-    return { success: true };
+    return data.map(item => new MenuItem(item));
 }
 
 export async function getAvailableDiningHalls(date: string) {
@@ -177,36 +89,4 @@ export async function getAvailableDiningHalls(date: string) {
     }
 
     return availableDiningHalls;
-}
-
-export async function getUserPreferences(userId: string) {
-    const { data, error } = await supabase
-        .from("meal_preferences")
-        .select("calories, protein, meals, diets, allergens")
-        .eq("user_id", userId);
-
-    if (error)
-        console.error("Error fetching user preferences:", error);
-    else if (data.length > 0)
-        return data[0];
-}
-
-export async function saveMealPreferences(userId: string, mealPreferences: MealPreferences) {
-    const { error } = await supabase
-    .from("meal_preferences")
-    .upsert({
-        "user_id": userId,
-        calories: mealPreferences.calories,
-        protein: mealPreferences.protein,
-        meals: mealPreferences.meals,
-        diets: mealPreferences.diets,
-        allergens: mealPreferences.allergens
-    });
-
-    if (error) {
-        console.error("Error saving meal preferences:", error);
-        return { success: false };
-    }
-
-    return { success: true };
 }

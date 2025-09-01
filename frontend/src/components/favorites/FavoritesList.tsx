@@ -1,6 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Heart } from "lucide-react";
-import { MenuItem, MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItemCard } from "@/components/menu/MenuItemCard";
+import { MenuItem } from "@/models/MenuItem";
 
 interface FillerComponentProps {
     header: string;
@@ -10,7 +11,7 @@ interface FillerComponentProps {
 }
 
 interface FavoritesListProps {
-    items: MenuItemData[];
+    items: MenuItem[];
     hasFavorites: boolean;
     showExtraMetadata?: boolean;
     showLikeButton?: boolean;
@@ -45,7 +46,7 @@ export function FavoritesList({ items, hasFavorites, showExtraMetadata = false, 
                     icon={<Heart className="h-12 w-12 text-muted-foreground mb-4" />}
                     /> :
                     items.map((item, i) => (
-                        <MenuItem
+                        <MenuItemCard
                         key={i}
                         item={item}
                         showExtraMetadata={showExtraMetadata}

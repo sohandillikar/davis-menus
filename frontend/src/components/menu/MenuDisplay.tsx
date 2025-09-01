@@ -1,22 +1,23 @@
-import { MenuItem, MenuItemData } from "./MenuItem";
+import { MenuItemCard } from "./MenuItemCard";
+import { MenuItem } from "@/models/MenuItem";
 import { NoMenuAvailable } from "./NoMenuAvailable";
 
 interface MenuDisplayProps {
-  items: MenuItemData[];
+  items: MenuItem[];
   diningHall: string;
   meal: string;
 }
 
 export function MenuDisplay({ items, diningHall, meal }: MenuDisplayProps) {
   // Group items by platform
-  const groupedItems = items.reduce((acc, item) => {
-    const platform = item.platform || 'General';
+  const groupedItems = items.reduce((acc, item: MenuItem) => {
+    const platform = item.data.platform || 'General';
     if (!acc[platform]) {
       acc[platform] = [];
     }
     acc[platform].push(item);
     return acc;
-  }, {} as Record<string, MenuItemData[]>);
+  }, {} as Record<string, MenuItem[]>);
 
   const platforms = Object.keys(groupedItems);
 
@@ -41,7 +42,7 @@ export function MenuDisplay({ items, diningHall, meal }: MenuDisplayProps) {
             {/* Menu Items */}
             <div className="grid gap-4">
               {groupedItems[platform].map((item, i) => (
-                <MenuItem
+                <MenuItemCard
                   key={i}
                   item={item}
                 />
