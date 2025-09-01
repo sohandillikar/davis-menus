@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Utensils } from "lucide-react";
+import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 
 interface MealPlannerButtonProps {
     variant: "desktop" | "mobile";
@@ -7,12 +8,13 @@ interface MealPlannerButtonProps {
 }
 
 export function MealPlannerButton({ variant, onClick }: MealPlannerButtonProps) {
+    const { setIsOpen } = useMealPlannerModalContext();
+    
     const handleClick = () => {
         if (onClick) {
             onClick();
         }
-        // setMealPlannerModalOpen(true);
-        console.log("setMealPlannerModalOpen");
+        setIsOpen(true);
     };
     
     return (<>

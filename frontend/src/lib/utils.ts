@@ -75,5 +75,6 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   }
 
   const data = await response.json();
+  
   return data.meal_plan;
 }

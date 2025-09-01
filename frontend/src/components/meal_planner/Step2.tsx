@@ -10,16 +10,16 @@ import * as utils from "@/lib/utils";
 import * as db from "@/lib/database";
 
 interface Step2Props {
-	mealPreferences: MealPreferences;
-	setMealPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
+	preferences: MealPreferences;
+	setPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step2({ mealPreferences, setMealPreferences }: Step2Props) {
+export function Step2({ preferences, setPreferences }: Step2Props) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [availableDiningHalls, setAvailableDiningHalls] = useState<Record<string, string[]>>({});
 	
 	const handleValueChange = (meal: string, value: string) => {
-		setMealPreferences(prev => ({
+		setPreferences(prev => ({
 			...prev,
 			meals: {
 				...prev.meals,
@@ -49,7 +49,7 @@ export function Step2({ mealPreferences, setMealPreferences }: Step2Props) {
 					<div key={i} className="space-y-2">
 						<Label className="capitalize font-medium">{meal}</Label>
 						<Select 
-						value={mealPreferences.meals[meal] || ""} 
+						value={preferences.meals[meal] || ""} 
 						onValueChange={(value) => handleValueChange(meal, value)}>
 							<SelectTrigger>
 								<SelectValue placeholder="Choose dining hall" />

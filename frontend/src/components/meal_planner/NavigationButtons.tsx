@@ -5,23 +5,23 @@ import { MealPreferences } from "./MealPlannerModal";
 interface NavigationButtonsProps {
 	currentStep: number;
 	setCurrentStep: (step: number) => void;
-	mealPreferences: MealPreferences;
+	preferences: MealPreferences;
 	minCalories: number;
 	minProtein: number;
 	isLoading: boolean;
 	onCloseModal: () => void;
 }
 
-export function NavigationButtons({ currentStep, setCurrentStep, mealPreferences, minCalories, minProtein, isLoading, onCloseModal }: NavigationButtonsProps) {
+export function NavigationButtons({ currentStep, setCurrentStep, preferences, minCalories, minProtein, isLoading, onCloseModal }: NavigationButtonsProps) {
 	const canProceedStep2 = (
-		mealPreferences.calories &&
-		mealPreferences.protein &&
-		parseInt(mealPreferences.calories) >= minCalories &&
-		parseInt(mealPreferences.protein) >= minProtein
+		preferences.calories &&
+		preferences.protein &&
+		parseInt(preferences.calories) >= minCalories &&
+		parseInt(preferences.protein) >= minProtein
 	);
 	const canProceedStep3 = (
-		Object.keys(mealPreferences.meals).length === 3 &&
-		Object.values(mealPreferences.meals).some(value => value !== "none")
+		Object.keys(preferences.meals).length === 3 &&
+		Object.values(preferences.meals).some(value => value !== "none")
 	);
 
 	return (

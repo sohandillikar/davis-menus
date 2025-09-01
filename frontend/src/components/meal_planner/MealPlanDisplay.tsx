@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { APP_TITLE, APP_LOGO_SRC } from "@/lib/constants";
 import { MealPlan } from "./MealPlannerModal";
@@ -30,7 +29,7 @@ function DailyTotals({ totalCalories, totalProtein }: DailyTotalsProps) {
 export function MealPlanDisplay({ dayMealPlan }: MealPlanDisplayProps) {
     let totalCalories = 0;
     let totalProtein = 0;
-    
+
     for (const meal of Object.values(dayMealPlan)) {
         for (const item of meal.items) {
             totalCalories += Number(item.item.calories) * item.quantity;
