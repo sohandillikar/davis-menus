@@ -5,11 +5,11 @@ import * as utils from "@/lib/utils";
 
 export async function getMenuItems(selectedDate: Date, selectedHall: string, selectedMeal: string): Promise<MenuItem[]> {
     const { data, error } = await supabase
-    .from('menu_items')
-    .select('*')
-    .eq('date', utils.formatDateForDB(selectedDate))
-    .eq('dining_hall', selectedHall)
-    .eq('meal', selectedMeal);
+        .from('menu_items')
+        .select('*')
+        .eq('date', utils.formatDateForDB(selectedDate))
+        .eq('dining_hall', selectedHall)
+        .eq('meal', selectedMeal);
 
     if (error) {
         console.error("Error fetching menu items:", error);

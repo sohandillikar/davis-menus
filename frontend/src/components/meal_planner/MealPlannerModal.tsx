@@ -89,6 +89,8 @@ export function MealPlannerModal() {
       } else {
         localStorage.setItem("aggiemenus.mealPreferences", JSON.stringify(preferences));
       }
+    } else {
+      handleClose();
     }
   }, [isOpen]);
 
