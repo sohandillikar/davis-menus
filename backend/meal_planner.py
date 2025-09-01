@@ -2,6 +2,14 @@ import json
 import pandas as pd
 from config import *
 from pydantic import BaseModel
+from pydantic import BaseModel
+
+class MealExplanation(BaseModel):
+    meal: str
+    explanation: str
+
+class MealExplanations(BaseModel):
+    explanations: list[MealExplanation]
 
 class MealPreferences(BaseModel):
     calories: int | str
@@ -207,7 +215,19 @@ class MealPlanner:
             }
 
         return default_split
-    
+
+    def generate_explanations(self, meal_plan):
+        prompt = 'Explain why each meal is the healthiest possible option in less than 200 characters.\n'
+
+        for meal, items in meal_plan.items():
+            meal_str = ', '.join([item['item']['item_name'] for item in items['items']])
+            meal_str = f'{meal.title()}: {meal_str}'
+            prompt += meal_str + '\n'
+
+        response = openai_client.responses.parse(model="gpt-4.1-mini", input=prompt, text_format=MealExplanations)
+
+        return response.output_parsed.explanations
+
     def plan_meal(self, meal, calorie_goal, protein_goal, max_repeated_items=3):
         selected_items = self.healthy_items_df.head(0).copy()
         menu_items = self.healthy_items_df[self.healthy_items_df['meal'] == meal]
@@ -273,85 +293,14 @@ class MealPlanner:
 
     def plan_meals(self, max_repeated_items=3):
         goals_by_meals = self.split_goals_by_meals()
+        meal_plan = {}
         
         for meal, goals in goals_by_meals.items():
-            meal_plan = self.plan_meal(meal, goals['calories'], goals['protein'], max_repeated_items)
-            goals_by_meals[meal] = meal_plan
+            meal_plan[meal] = self.plan_meal(meal, goals['calories'], goals['protein'], max_repeated_items)
 
-        return goals_by_meals
+        explanations = self.generate_explanations(meal_plan)
 
-    def get_simplified_menu_items(self, healthy=False):
-        if healthy:
-            df_copy = self.healthy_items_df.copy()
-        else:
-            df_copy = self.menu_items_df.copy()
-        
-        return df_copy[['id', 'item_name', 'calories', 'protein_g']] \
-            .rename(columns={'item_name': 'name'}) \
-            .to_dict('records')
-
-    def plan_meals2(self, model="gpt-4.1-mini"):
-        selected_meals = list(self.menu_items.keys())
-        selected_meals_str = ', '.join(selected_meals)
-        simplified_menu_items = self.get_simplified_menu_items(healthy=True)
-
-        prompt = f"""
-        Create the healthiest meal plan for {selected_meals_str} that meets {self.calorie_goal} calories and {self.protein_goal}g protein using these items:
-
-        {json.dumps(simplified_menu_items)}
-
-        Combine multiple items per meal or include multiple servings of the same item if it's a healthy choice and needed to meet calorie and protein goals.
-        For each meal, provide a brief explanation (less than 200 characters) of why it is the healthiest choice."""
-
-        meal_items_schema = {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {"type": "integer"},
-                            "quantity": {"type": "integer"},
-                        },
-                        "required": ["id", "quantity"]
-                    }
-                },
-                "explanation": {"type": "string"}
-            },
-            "required": ["items", "explanation"]
-        }
-
-        meals_schema = {meal: meal_items_schema for meal in selected_meals}
-
-        response = openai_client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-            response_format={
-                "type": "json_schema",
-                "json_schema": {
-                    "name": "meal_recommendation",
-                    "schema": {
-                        "type": "object",
-                        "properties": meals_schema,
-                        "required": selected_meals,
-                        "additionalProperties": False
-                    }
-                }
-            }
-        )
-
-        meal_plan = json.loads(response.choices[0].message.content)
-
-        for meal in meal_plan:
-            items = meal_plan[meal]['items']
-            for i in range(len(items)):
-                item = self.menu_items_df[self.menu_items_df['id'] == items[i]['id']].iloc[0]
-                item[self.NUMERIC_COLUMNS] = item[self.NUMERIC_COLUMNS].astype(str)
-                meal_plan[meal]['items'][i] = {
-                    'item': item.to_dict(),
-                    'quantity': items[i]['quantity']
-                }
+        for exp in explanations:
+            meal_plan[exp.meal.lower()]['explanation'] = exp.explanation
 
         return meal_plan
