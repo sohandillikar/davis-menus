@@ -41,27 +41,19 @@ export function MealPlannerModal() {
 
   const { isOpen, setIsOpen } = useMealPlannerModalContext();
 
-  const resetModal = () => {
-    setCurrentStep(1);
-    setIsLoading(false);
-  };
-
   const handleClose = () => {
     setIsOpen(false);
-    resetModal();
+    setIsLoading(false);
   };
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
         return <Step1 minCalories={minCalories} minProtein={minProtein} preferences={preferences} setPreferences={setPreferences} />;
-
       case 2:
         return <Step2 preferences={preferences} setPreferences={setPreferences} />;
-
       case 3:
         return <Step3 preferences={preferences} setPreferences={setPreferences} />;
-
       case 4:
         return <MealPlanDisplay dayMealPlan={dayMealPlan} />;
     }

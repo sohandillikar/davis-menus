@@ -40,7 +40,8 @@ export function NavigationButtons({ currentStep, setCurrentStep, preferences, mi
 					onClick={() => setCurrentStep(Math.min(currentStep + 1, 4))}
 					disabled={
 						(currentStep === 1 && !canProceedStep2) ||
-						(currentStep === 2 && !canProceedStep3)
+						(currentStep === 2 && !canProceedStep3) ||
+						isLoading
 					}
 					className="flex items-center gap-2">
 					Next
