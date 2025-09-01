@@ -2,7 +2,6 @@ import json
 import pandas as pd
 from config import *
 from pydantic import BaseModel
-from pydantic import BaseModel
 
 class MealExplanation(BaseModel):
     meal: str
