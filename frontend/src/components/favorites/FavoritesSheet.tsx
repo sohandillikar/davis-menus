@@ -36,7 +36,7 @@ export function FavoritesSheet({ variant = "default" }: FavoritesSheetProps) {
                     Favorites
                 </SheetTitle>
                 </SheetHeader>
-                <Tabs defaultValue="favorites" className="mt-6 flex flex-col flex-1 min-h-0" onValueChange={refreshFavorites}>
+                <Tabs defaultValue="favorites" className="mt-6 flex flex-col flex-1 min-h-0" onValueChange={() => console.log("refreshFavorites")}>
                     <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger value="favorites">Your favorites</TabsTrigger>
                         <TabsTrigger value="offered">Offered this week</TabsTrigger>

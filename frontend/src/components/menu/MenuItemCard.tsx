@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { ItemHeader } from "./ItemHeader";
 import { NutritionBadges } from "./NutritionBadges";
 import { ExpandedDetails } from "./ExpandedDetails";
+import { MenuItem } from "@/models/MenuItem";
 
 export interface MenuItemData {
   id: number;
@@ -24,14 +25,14 @@ export interface MenuItemData {
   ingredients: string;
 }
 
-interface MenuItemProps {
-  item: MenuItemData;
+interface MenuItemCardProps {
+  item: MenuItem;
   showExtraMetadata?: boolean; // Whether to show date, dining hall, and meal
   showLikeButton?: boolean;
   nutritionFactsLayout?: "row" | "grid";
 }
   
-export function MenuItem({ item, showExtraMetadata = false, showLikeButton = true, nutritionFactsLayout = "row" }: MenuItemProps) {
+export function MenuItemCard({ item, showExtraMetadata = false, showLikeButton = true, nutritionFactsLayout = "row" }: MenuItemCardProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (

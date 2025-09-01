@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItem } from "@/models/MenuItem";
 import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
 import { API_BASE_URL } from "@/lib/constants";
 
@@ -19,54 +19,42 @@ export function formatDateForDB(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
-export function calculateWeekBoundaries(date: Date) {
+export function getWeekBoundaries(date: Date) {
   const lastSunday = new Date(date);
   lastSunday.setDate(date.getDate() - date.getDay());
+  lastSunday.setHours(0, 0);
 
   const nextSaturday = new Date(date);
   nextSaturday.setDate(date.getDate() + (6 - date.getDay()));
+  nextSaturday.setHours(23, 59);
 
   return { lastSunday, nextSaturday };
 };
 
-function containsAllergens(item: MenuItemData, allergens: string[]): boolean {
-  for (let itemAllergen of item.allergens) {
-    itemAllergen = itemAllergen.toLowerCase().trim();
-    for (let allergen of allergens) {
-      allergen = allergen.toLowerCase().trim();
-      if (itemAllergen.includes(allergen))
-        return true;
-    }
-  }
-  return false;
-}
-
 export function filterMenuItems(
-  menuItems: MenuItemData[],
+  menuItems: MenuItem[],
   selectedDate: Date,
   selectedHall: string,
   selectedMeal: string,
   selectedDiets: string[],
   selectedAllergens: string[]
-): MenuItemData[] {
+): MenuItem[] {
   // Filter by date, hall, and meal
   menuItems = menuItems.filter(item =>
-    item.date === formatDateForDB(selectedDate) &&
-    item.dining_hall === selectedHall &&
-    item.meal === selectedMeal
+    item.data.date === formatDateForDB(selectedDate) &&
+    item.data.dining_hall === selectedHall &&
+    item.data.meal === selectedMeal
   );
 
   // Filter by diets
   if (selectedDiets.length > 0) {
     menuItems = menuItems.filter(item =>
-      selectedDiets.every(diet => item.diets.includes(diet))
+      selectedDiets.every(diet => item.data.diets.includes(diet))
     );
   }
 
   // Filter by allergens
-  menuItems = menuItems.filter(item =>
-    !containsAllergens(item, selectedAllergens)
-  );
+  menuItems = menuItems.filter(item => !item.containsAllergens(selectedAllergens));
 
   return menuItems;
 }
@@ -87,5 +75,6 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   }
 
   const data = await response.json();
+  
   return data.meal_plan;
 }

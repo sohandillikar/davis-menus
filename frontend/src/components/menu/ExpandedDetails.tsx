@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
-import { MenuItemData } from "./MenuItem";
+import { MenuItem } from "@/models/MenuItem";
 import { NutritionFacts } from "./NutritionFacts";
 
 interface ExpandedDetailsProps {
-    item: MenuItemData;
+    item: MenuItem;
     nutritionFactsLayout?: "row" | "grid";
     showDiets?: boolean;
 }
@@ -53,23 +53,23 @@ export function ExpandedDetails({ item, nutritionFactsLayout = "row", showDiets 
     return (
         <div className="pt-3 border-t border-border/30 space-y-3 animate-fade-in">
             {/* Description and Feature */}
-            <Description description={item.description} feature={item.feature} />
+            <Description description={item.data.description} feature={item.data.feature} />
             
             {/* Nutrition Facts Grid */}
             <NutritionFacts item={item} layout={nutritionFactsLayout} />
 
             {/* Allergens */}
-            {item.allergens.length > 0 && <BadgesList badges={item.allergens} title="Allergens" color="red" /> }
+            {item.data.allergens.length > 0 && <BadgesList badges={item.data.allergens} title="Allergens" color="red" /> }
 
             {/* Diets */}
-            {showDiets && item.diets.length > 0 && <BadgesList badges={item.diets} title="Diets" color="green" /> }
+            {showDiets && item.data.diets.length > 0 && <BadgesList badges={item.data.diets} title="Diets" color="green" /> }
 
             {/* Ingredients */}
-            {item.ingredients &&
+            {item.data.ingredients &&
                 <div>
                     <h4 className="text-sm font-medium text-foreground mb-2">Ingredients:</h4>
                     <p className="text-xs text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3">
-                        {item.ingredients}
+                        {item.data.ingredients}
                     </p>
                 </div>
             }

@@ -1,11 +1,10 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { MenuItemData } from "@/components/menu/MenuItem";
-import { useAuthContext } from "./AuthContext";
+import { MenuItem } from "@/models/MenuItem";
 import * as db from "@/lib/database";
 
 interface FavoritesContextType {
-    favorites: MenuItemData[];
-    offeredThisWeek: MenuItemData[];
+    favorites: MenuItem[];
+    offeredThisWeek: MenuItem[];
     refreshFavorites: () => void;
 }
 
@@ -20,33 +19,21 @@ export function useFavoritesContext() {
 }
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-    const { user, isSignedIn } = useAuthContext();
-    const [favorites, setFavorites] = useState<MenuItemData[]>([]);
-    const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItemData[]>([]);
+    const [favorites, setFavorites] = useState<MenuItem[]>([]);
+    const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItem[]>([]);
 
-    const refreshFavorites = async () => {
-        if (isSignedIn) {
-            const favorites = await db.getAllLikedItems(user.id);
-            setFavorites(favorites);
-        } else {
-            setFavorites([]);
-        }
+    const refreshFavorites = () => {
+        const currentFavs = JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]");
+        setFavorites(currentFavs.map(item => new MenuItem(item)));
     }
 
-    const refreshOfferedThisWeek = async () => {
-        if (isSignedIn) {
-            const offeredThisWeek = await db.getOfferedThisWeek(favorites);
-            setOfferedThisWeek(offeredThisWeek);
-        } else {
-            setOfferedThisWeek([]);
-        }
-    }
+    useEffect(refreshFavorites, []);
 
     useEffect(() => {
-        refreshFavorites();
-    }, [isSignedIn]);
-
-    useEffect(() => {
+        const refreshOfferedThisWeek = async () => {
+            const payload = await db.getOfferedThisWeek(favorites);
+            setOfferedThisWeek(payload);
+        };
         refreshOfferedThisWeek();
     }, [favorites]);
 

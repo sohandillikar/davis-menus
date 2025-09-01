@@ -17,7 +17,6 @@ export function useMealPlannerModalContext() {
 
 export function MealPlannerModalProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
-
     return (
         <MealPlannerModalContext.Provider value={{ isOpen, setIsOpen }}>
             {children}

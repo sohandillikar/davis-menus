@@ -5,11 +5,11 @@ import { MealPreferences } from "./MealPlannerModal";
 interface Step1Props {
 	minCalories: number;
 	minProtein: number;
-	mealPreferences: MealPreferences;
-	setMealPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
+	preferences: MealPreferences;
+	setPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step1({ minCalories, minProtein, mealPreferences, setMealPreferences }: Step1Props) {
+export function Step1({ minCalories, minProtein, preferences, setPreferences }: Step1Props) {
 	return (
 		<div>
 			<h2 className="text-xl font-semibold mb-4">What are your nutrition goals?</h2>
@@ -22,8 +22,8 @@ export function Step1({ minCalories, minProtein, mealPreferences, setMealPrefere
 					<Input
 					id="calories"
 					type="number"
-					value={mealPreferences.calories}
-					onChange={(e) => setMealPreferences(prev => ({ ...prev, calories: e.target.value }))}
+					value={preferences.calories}
+					onChange={(e) => setPreferences(prev => ({ ...prev, calories: e.target.value }))}
 					/>
 					<p className="text-xs text-muted-foreground">Minimum {minCalories} calories</p>
 				</div>
@@ -32,8 +32,8 @@ export function Step1({ minCalories, minProtein, mealPreferences, setMealPrefere
 					<Input
 					id="protein"
 					type="number"
-					value={mealPreferences.protein}
-					onChange={(e) => setMealPreferences(prev => ({ ...prev, protein: e.target.value }))}
+					value={preferences.protein}
+					onChange={(e) => setPreferences(prev => ({ ...prev, protein: e.target.value }))}
 					/>
 					<p className="text-xs text-muted-foreground">Minimum {minProtein}g protein</p>
 				</div>

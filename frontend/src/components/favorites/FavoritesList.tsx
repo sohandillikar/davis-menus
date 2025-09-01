@@ -1,9 +1,7 @@
-import { useAuthContext } from "@/contexts/AuthContext";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { FcGoogle } from "react-icons/fc";
-import { MenuItem, MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItemCard } from "@/components/menu/MenuItemCard";
+import { MenuItem } from "@/models/MenuItem";
 
 interface FillerComponentProps {
     header: string;
@@ -13,7 +11,7 @@ interface FillerComponentProps {
 }
 
 interface FavoritesListProps {
-    items: MenuItemData[];
+    items: MenuItem[];
     hasFavorites: boolean;
     showExtraMetadata?: boolean;
     showLikeButton?: boolean;
@@ -33,26 +31,10 @@ function FillerComponent({ header, body, icon, action = null }: FillerComponentP
 }
 
 export function FavoritesList({ items, hasFavorites, showExtraMetadata = false, showLikeButton = true }: FavoritesListProps) {
-    const { isSignedIn, signIn } = useAuthContext();
-
     return (
         <ScrollArea className="h-full">
             <div className="space-y-3 pr-4">
-                {!isSignedIn ?
-                    <FillerComponent
-                    header="Sign in to track your favorites"
-                    body="Please sign in to save your favorite menu items and track when they're back on the menu :)"
-                    icon={<Heart className="h-12 w-12 text-muted-foreground mb-4" />}
-                    action={
-                        <Button
-                        variant="outline"
-                        className="mt-4 hover:bg-gray-100 focus:bg-gray-100 hover:text-foreground focus:text-foreground"
-                        onClick={signIn}>
-                            <FcGoogle className="h-4 w-4 mr-2" />
-                            Sign in with Google
-                        </Button>
-                    }/> :
-                    items.length === 0 ? hasFavorites ?
+                {items.length === 0 ? hasFavorites ?
                     <FillerComponent
                     header="No favorites this week"
                     body="Your favorite menu items offered this week will appear here."
@@ -64,7 +46,7 @@ export function FavoritesList({ items, hasFavorites, showExtraMetadata = false, 
                     icon={<Heart className="h-12 w-12 text-muted-foreground mb-4" />}
                     /> :
                     items.map((item, i) => (
-                        <MenuItem
+                        <MenuItemCard
                         key={i}
                         item={item}
                         showExtraMetadata={showExtraMetadata}

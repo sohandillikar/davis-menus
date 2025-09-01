@@ -1,48 +1,35 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { useAuthContext } from "@/contexts/AuthContext";
+import { MenuItem } from "@/models/MenuItem";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
-import { useSignInModalContext } from "@/contexts/SignInModalContext";
-import * as db from "@/lib/database";
 
 interface LikeButtonProps {
-    itemName: string;
+    item: MenuItem;
 }
 
-export function LikeButton({ itemName }: LikeButtonProps) {
-    const [liked, setLiked] = useState(false);
+export function LikeButton({ item }: LikeButtonProps) {
+    const [liked, setLiked] = useState(item.isLiked());
     const [isAnimating, setIsAnimating] = useState(false);
-    const { setIsOpen, setMode } = useSignInModalContext();
-
-    const { user, isSignedIn } = useAuthContext();
     const { favorites } = useFavoritesContext();
 
     const handleLike = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        if (!isSignedIn) {
-            setMode("favorites");
-            setIsOpen(true);
-        } else {
-            let success = false;
-            if (liked) {
-                const result = await db.unlikeMenuItem(user.id, itemName);
-                success = result.success;
-            } else {
-                const result = await db.likeMenuItem(user.id, itemName);
-                success = result.success;
-            }
-            if (success) {
-                setLiked(!liked);
-                setIsAnimating(true);
-                setTimeout(() => setIsAnimating(false), 200);
-            }
-        }
+
+        if (liked)
+            item.unlike();
+        else
+            item.like();
+
+        setLiked(!liked);
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 200);
     };
 
     useEffect(() => {
-        setLiked(favorites.some(favorite => favorite.item_name === itemName));
+        setLiked(item.isLiked());
     }, [favorites]);
+    // ^ This useEffect should run every time favorites changes
 
     return (
         <Button

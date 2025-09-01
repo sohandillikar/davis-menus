@@ -7,12 +7,10 @@ import { Step3 } from "./Step3";
 import { NavigationButtons } from "./NavigationButtons";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { ProgressBar } from "./ProgressBar";
-import { useAuthContext } from '@/contexts/AuthContext';
-import { MenuItemData } from "@/components/menu/MenuItem";
-import * as db from "@/lib/database";
-import * as utils from "@/lib/utils";
+import { MenuItemData } from "@/models/MenuItem";
 import { MealPlanDisplay } from "./MealPlanDisplay";
 import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
+import { getMealPlan } from "@/lib/utils";
 
 export interface MealPreferences {
   calories: string;
@@ -35,42 +33,27 @@ export interface MealPlan {
 export function MealPlannerModal() {
   const minCalories = 500;
   const minProtein = 25;
-  const defaultMealPreferences: MealPreferences = {
-    calories: "2500",
-    protein: "75",
-    meals: {},
-    diets: [],
-    allergens: []
-  };
+
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [mealPreferences, setMealPreferences] = useState<MealPreferences>(defaultMealPreferences);
+  const [preferences, setPreferences] = useState<MealPreferences>({ calories: "2500", protein: "75", meals: {}, diets: [], allergens: [] });
   const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
-  const { user } = useAuthContext();
   const { isOpen, setIsOpen } = useMealPlannerModalContext();
-
-  const resetModal = () => {
-    setCurrentStep(1);
-    setIsLoading(false);
-  };
 
   const handleClose = () => {
     setIsOpen(false);
-    resetModal();
+    setIsLoading(false);
   };
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <Step1 minCalories={minCalories} minProtein={minProtein} mealPreferences={mealPreferences} setMealPreferences={setMealPreferences} />;
-
+        return <Step1 minCalories={minCalories} minProtein={minProtein} preferences={preferences} setPreferences={setPreferences} />;
       case 2:
-        return <Step2 mealPreferences={mealPreferences} setMealPreferences={setMealPreferences} />;
-
+        return <Step2 preferences={preferences} setPreferences={setPreferences} />;
       case 3:
-        return <Step3 mealPreferences={mealPreferences} setMealPreferences={setMealPreferences} />;
-
+        return <Step3 preferences={preferences} setPreferences={setPreferences} />;
       case 4:
         return <MealPlanDisplay dayMealPlan={dayMealPlan} />;
     }
@@ -79,9 +62,9 @@ export function MealPlannerModal() {
   useEffect(() => {
     if (currentStep === 4) {
       const fetchMealPlan = async () => {
-        await db.saveMealPreferences(user.id, mealPreferences);
-        const response = await utils.getMealPlan(mealPreferences);
-        setDayMealPlan(response);
+        localStorage.setItem("aggiemenus.mealPreferences", JSON.stringify(preferences));
+        const payload = await getMealPlan(preferences);
+        setDayMealPlan(payload);
         setIsLoading(false);
       }
 
@@ -92,13 +75,14 @@ export function MealPlannerModal() {
 
   useEffect(() => {
     if (isOpen) {
-      const fetchUserPreferences = async () => {
-        const response = await db.getUserPreferences(user.id);
-        if (response)
-          setMealPreferences(response);
+      const storedPreferences = localStorage.getItem("aggiemenus.mealPreferences");
+      if (storedPreferences) {
+        setPreferences(JSON.parse(storedPreferences));
+      } else {
+        localStorage.setItem("aggiemenus.mealPreferences", JSON.stringify(preferences));
       }
-
-      fetchUserPreferences();
+    } else {
+      handleClose();
     }
   }, [isOpen]);
 
@@ -119,7 +103,7 @@ export function MealPlannerModal() {
         <NavigationButtons
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
-          mealPreferences={mealPreferences}
+          preferences={preferences}
           minCalories={minCalories}
           minProtein={minProtein}
           isLoading={isLoading}

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { SelectedItem } from "./MealPlannerModal";
-import { MenuItemData } from "@/components/menu/MenuItem";
+import { MenuItemData } from "@/components/menu/MenuItemCard";
 import { ExpandedDetails } from "@/components/menu/ExpandedDetails";
+import { MenuItem } from "@/models/MenuItem";
 
 interface MenuItemBadgeProps {
     item: MenuItemData;
@@ -46,7 +47,7 @@ export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
             </div>
 
             {/* Expanded content for selected item */}
-            {expandedItem && <ExpandedDetails item={expandedItem} nutritionFactsLayout="row" showDiets={true} />}
+            {expandedItem && <ExpandedDetails item={new MenuItem(expandedItem)} nutritionFactsLayout="row" showDiets={true} />}
         </div>
     );
 }

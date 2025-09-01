@@ -14,15 +14,15 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
-server_url = "https://davis-menus-server.onrender.com"
+server_url = "http://localhost:8000" # TODO: change to production url
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "https://davis-menus.vercel.app",
+        "http://10.0.0.158:8080",
         server_url
-    ],
+    ], # TODO: add production url
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

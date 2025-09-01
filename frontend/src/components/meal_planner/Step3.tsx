@@ -4,8 +4,8 @@ import { MealPreferences } from "./MealPlannerModal";
 import { DIET_OPTIONS, ALLERGEN_OPTIONS } from "@/lib/constants";
 
 interface Step3Props {
-	mealPreferences: MealPreferences;
-	setMealPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
+	preferences: MealPreferences;
+	setPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
 interface CheckboxGroupProps {
@@ -36,9 +36,9 @@ function CheckboxGroup({ label, options, selectedOptions, handleCheck }: Checkbo
 	);
 }
 
-export function Step3({ mealPreferences, setMealPreferences }: Step3Props) {
+export function Step3({ preferences, setPreferences }: Step3Props) {
 	const handleDietCheck = (selectedDiet: string) => {
-		setMealPreferences(prev => ({
+		setPreferences(prev => ({
 			...prev,
 			diets: prev.diets.includes(selectedDiet) ?
 			prev.diets.filter(diet => diet !== selectedDiet) :
@@ -47,7 +47,7 @@ export function Step3({ mealPreferences, setMealPreferences }: Step3Props) {
 	};
 
 	const handleAllergenCheck = (selectedAllergen: string) => {
-		setMealPreferences(prev => ({
+		setPreferences(prev => ({
 			...prev,
 			allergens: prev.allergens.includes(selectedAllergen) ?
 			prev.allergens.filter(allergen => allergen !== selectedAllergen) :
@@ -62,13 +62,13 @@ export function Step3({ mealPreferences, setMealPreferences }: Step3Props) {
 				<CheckboxGroup
 				label="Dietary Preferences"
 				options={DIET_OPTIONS}
-				selectedOptions={mealPreferences.diets}
+				selectedOptions={preferences.diets}
 				handleCheck={handleDietCheck}
 				/>
 				<CheckboxGroup
 				label="Exclude Allergens"
 				options={ALLERGEN_OPTIONS}
-				selectedOptions={mealPreferences.allergens}
+				selectedOptions={preferences.allergens}
 				handleCheck={handleAllergenCheck}
 				/>
 			</div>

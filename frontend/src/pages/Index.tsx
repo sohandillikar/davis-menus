@@ -5,8 +5,8 @@ import { DayPicker } from "@/components/DayPicker";
 import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
-import { SignInModal } from "@/components/SignInModal";
 import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
+import { MenuItem } from "@/models/MenuItem";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
 import { DINING_HALLS, MEALS } from "@/lib/constants";
 import * as db from "@/lib/database";
@@ -21,36 +21,31 @@ const Index = () => {
 
   const [weekBoundaries, setWeekBoundaries] = useState({lastSunday: new Date(), nextSaturday: new Date()});
   
-  const [menuItems, setMenuItems] = useState([]);
-  const [filteredMenuItems, setFilteredMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItem[]>([]);
   const [loadingMenuItems, setLoadingMenuItems] = useState(true);
 
   const { refreshFavorites } = useFavoritesContext();
 
   useEffect(() => {
-    setWeekBoundaries(utils.calculateWeekBoundaries(selectedDate));
+    setWeekBoundaries(utils.getWeekBoundaries(selectedDate));
   }, []);
 
   useEffect(() => {
-    const fetchWeeklyMenuItems = async () => {
+    const fetchMenuItems = async () => {
       const payload = await db.getWeekMenuItems(weekBoundaries.lastSunday, weekBoundaries.nextSaturday);
-      // const payload = await db.getMenuItems(selectedDate, selectedHall, selectedMeal);
       setMenuItems(payload);
       setLoadingMenuItems(false);
     };
 
     setLoadingMenuItems(true);
-    fetchWeeklyMenuItems();
+    fetchMenuItems();
   }, [weekBoundaries]);
-  // ^ If fetching week menu items, change this to [weekBoundaries]
-  // Otherwise, change this to [selectedDate, selectedHall, selectedMeal]
 
   useEffect(() => {
     setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
     refreshFavorites();
   }, [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]);
-  // ^ If fetching week menu items, change this to [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]
-  // Otherwise, change this to [menuItems, selectedDiets, selectedAllergens]
 
   return (
     <div className="min-h-screen bg-background">
@@ -123,9 +118,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-
-      {/* Sign In Modal */}
-      <SignInModal />
 
       {/* Meal Planner Modal */}
       <MealPlannerModal />
