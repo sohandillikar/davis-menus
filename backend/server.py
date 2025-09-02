@@ -8,6 +8,8 @@ from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from meal_planner import MealPlanner, MealPreferences
 
+# uvicorn server:app --reload --host 0.0.0.0 --port 8000
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(ping_to_keep_server_alive())
