@@ -227,12 +227,7 @@ for dining_hall in DINING_HALLS:
 
 # If today is Sunday, clear the menu_items table
 if today.weekday() == 6:
-    # Get all favorite items ids
-    response = supabase_client.table("favorite_items").select("item_id").execute()
-    favorite_items = [item["item_id"] for item in response.data]
-
-    # Delete all menu items that are not favorite items
-    response = MENU_ITEMS_TABLE.delete().not_.in_("id", favorite_items).execute()
+    response = MENU_ITEMS_TABLE.delete().neq("id", -1).execute()
     print(f"DELETED {len(response.data)} items from menu_items table")
 else:
     for date in dates_till_saturday:
