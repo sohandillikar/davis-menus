@@ -130,7 +130,7 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
     if not span_element:
         return {}
     
-    item_name = span_element.get_text(strip=True)
+    name = span_element.get_text(strip=True)
     
     nutrition_ul = li_element.find("ul", class_="nutrition")
     
@@ -146,7 +146,7 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
         "dining_hall": dining_hall,
         "meal": meal_name.lower(),
         "platform": platform,
-        "item_name": item_name,
+        "name": name,
         "description": description,
         "feature": feature,
         "diets": diets,
