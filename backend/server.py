@@ -2,6 +2,7 @@ import asyncio
 import aiohttp
 from config import *
 from random import randint
+from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
@@ -29,6 +30,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+class MenuItemsRequest(BaseModel):
+    date: str
+    dining_hall: str
+    meal: str
+    diets: Optional[list[str]] = []
+    allergens: Optional[list[str]] = []
 
 class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences
