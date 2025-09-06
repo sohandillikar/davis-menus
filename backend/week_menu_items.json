@@ -1,0 +1,2951 @@
+[
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Basic Omelette",
+        "description": "Light and fluffy egg omelet with a variety of available toppings.",
+        "feature": "Salsa|| Cheese|| Ketchup",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg"
+        ],
+        "ingredients": "Liquid whole eggs (cage-free whole eggs, citric acid), Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil)",
+        "serving_size_oz": "4.48",
+        "calories": "238.81",
+        "fat_g": "18.48",
+        "carbohydrates_g": "2.55",
+        "protein_g": "15.33"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Fried Eggs to Order || Just Egg - Plant Based",
+        "description": "*Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg || plant based contains-soy lecithin"
+        ],
+        "ingredients": "",
+        "serving_size_oz": "2.47",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Scrambled Tofu||Tater Tots",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "prepared in a shared fryer"
+        ],
+        "ingredients": "",
+        "serving_size_oz": "3",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Saut\u00e9ed Chicken with Garlic and Onion",
+        "description": "Halal chicken thighs seasoned with fresh parsley and sauteed",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh chicken thigh sliced halal, 1/2in Diced Yellow Onions, Bottled Lemon Juice, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Fresh Italian Parsley Sprigs, Whole Peeled Garlic Cloves, Coarse Ground Black Pepper",
+        "serving_size_oz": "4",
+        "calories": "256.01",
+        "fat_g": "10.99",
+        "carbohydrates_g": "4.11",
+        "protein_g": "33.60"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Bacon",
+        "description": "Freshly-baked crispy bacon.",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Raw 10/12 sliced pork bacon (pork cured with water, salt, sugar, sodium phosphate, sodium erythorbate, flavoring, sodium nitrite)",
+        "serving_size_oz": "2",
+        "calories": "283.94",
+        "fat_g": "20.28",
+        "carbohydrates_g": "0.00",
+        "protein_g": "24.34"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Chorizo Crumbles",
+        "description": "Fresh chorizo crumbles",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Cooked chorizo crumbled (pork, water, spices, paprika, salt, dried vinegar, sugar, natural flavorings, dehydrated garlic, turmeric)",
+        "serving_size_oz": "4",
+        "calories": "351.52",
+        "fat_g": "29.60",
+        "carbohydrates_g": "5.67",
+        "protein_g": "14.74"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Baked Honey Ham",
+        "description": "Honey and mustard glazed ham, baked until tender.",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Fresh hickory smoked boneless ham (boneless cooked pit ham, water, salt, potassium lactate, sodium lactate, sugar, sodium phosphate, sodium diacetate, sodium erythorbate, sodium nitrate), Tap Water, Spicy Brown Mustard (organic vinegar, water, mustard seed, salt. Contains less than 2% of turmeric), Honey, Dried Whole Cloves",
+        "serving_size_oz": "2.95",
+        "calories": "124.79",
+        "fat_g": "4.00",
+        "carbohydrates_g": "3.86",
+        "protein_g": "18.40"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Breakfast Pork Sausage Links",
+        "description": "Freshly-baked pork sausage link.",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Frozen precooked pork sausage link (pork, water. contains 2% or less of salt, sugar, spices, chili pepper, flavoring, smoke flavor, collagen casing)",
+        "serving_size_oz": "3.2",
+        "calories": "388.78",
+        "fat_g": "37.26",
+        "carbohydrates_g": "1.61",
+        "protein_g": "9.72"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Diced Red Bell Peppers",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/4in diced red bell peppers",
+        "serving_size_oz": "100 g",
+        "calories": "30.83",
+        "fat_g": "0.3",
+        "carbohydrates_g": "6.03",
+        "protein_g": "0.99"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Diced Green Bell Peppers",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/4in diced green bell peppers",
+        "serving_size_oz": "100 g",
+        "calories": "20.08",
+        "fat_g": "0.17",
+        "carbohydrates_g": "4.64",
+        "protein_g": "0.86"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Sliced Cremini Mushrooms",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Sliced cremini mushrooms",
+        "serving_size_oz": "100 g",
+        "calories": "22.47",
+        "fat_g": "0.1",
+        "carbohydrates_g": "4.3",
+        "protein_g": "2.5"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Diced Yellow Onions",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/4in diced yellow onions",
+        "serving_size_oz": "100 g",
+        "calories": "39.67",
+        "fat_g": "0.1",
+        "carbohydrates_g": "9.34",
+        "protein_g": "1.1"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Shredded Cheddar Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Shredded feather yellow mild cheddar cheese (cultured milk, salt, enzymes, annatto, potato starch, natamycin)",
+        "serving_size_oz": "100 g",
+        "calories": "428.56",
+        "fat_g": "35.71",
+        "carbohydrates_g": "3.57",
+        "protein_g": "21.43"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Roasted House Salsa",
+        "description": "Local Russell Ranch tomatoes mixed together with onions, peppers and garlic",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Russell ranch tomatoes (Whole roma tomatoes), Fresh Whole Green Jalapeno Peppers, Whole Peeled Yellow Onions, Fresh Whole Fresno Red Peppers, Whole Peeled Garlic Cloves, Canola Salad Oil, Fresh Whole Habanero Peppers, Fresh Cilantro Sprigs, Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate)",
+        "serving_size_oz": "100 g",
+        "calories": "30.01",
+        "fat_g": "1.2",
+        "carbohydrates_g": "4.82",
+        "protein_g": "0.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Go Live",
+        "name": "Salsa Verde with Red Chile",
+        "description": "Tangy roasted tomatillos blended with onion, garlic, and red chilis",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Whole cleaned tomatillos, 1/4in Diced Yellow Onions, Bottled Lemon Juice, Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Whole Peeled Garlic Cloves, Fresh Cilantro Sprigs, Dried Whole Guajillo Chilis",
+        "serving_size_oz": "100 g",
+        "calories": "33.38",
+        "fat_g": "0.81",
+        "carbohydrates_g": "6.61",
+        "protein_g": "1.01"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Belgian Waffle",
+        "description": "Mango, Blueberry, Chocolate Chips, Rapsberry, & Whipped Cream",
+        "feature": "Maple Syrup & Triple Berry Sauce",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "soybean oil",
+            "soy lecithin"
+        ],
+        "ingredients": "4in belgian waffle (enriched wheat flour [bleached wheat flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid. may contain malted barley flour], water, eggs, sugar, soybean and/or canola oil, egg whites. contains less than 2% of leavening [sodium bicarbonate, sodium aluminum phosphate, monocalcium phosphate, sodium acid pyrophosphate], salt, soy lecithin, emulsifier blend [propylene glycol monoesters, mono- and diglycerides, sodium stearoyl lactylate], natural flavors [including from dairy])",
+        "serving_size_oz": "2",
+        "calories": "150.08",
+        "fat_g": "5.00",
+        "carbohydrates_g": "22.52",
+        "protein_g": "2.50"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Chorizo Sausage Patties",
+        "description": "Freshly-baked spicy pork chorizo sausage patty.",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sausage patty pork chorizo cooked (pork, spices, salt, paprika, sugar, dried garlic, natural flavor, paprika extract, water)",
+        "serving_size_oz": "1.5",
+        "calories": "158.96",
+        "fat_g": "14.38",
+        "carbohydrates_g": "1.01",
+        "protein_g": "6.08"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Scrambled Egg",
+        "description": "Softly scrambled cage-free eggs.",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg"
+        ],
+        "ingredients": "Liquid whole eggs (cage-free whole eggs, citric acid), Canola Salad Oil",
+        "serving_size_oz": "3.05",
+        "calories": "138.75",
+        "fat_g": "9.54",
+        "carbohydrates_g": "1.82",
+        "protein_g": "10.86"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Chorizo Sausage Patties",
+        "description": "Freshly-baked spicy pork chorizo sausage patty.",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sausage patty pork chorizo cooked (pork, spices, salt, paprika, sugar, dried garlic, natural flavor, paprika extract, water)",
+        "serving_size_oz": "1.5",
+        "calories": "158.96",
+        "fat_g": "14.38",
+        "carbohydrates_g": "1.01",
+        "protein_g": "6.08"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Scrambled Egg",
+        "description": "Softly scrambled cage-free eggs.",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg"
+        ],
+        "ingredients": "Liquid whole eggs (cage-free whole eggs, citric acid), Canola Salad Oil",
+        "serving_size_oz": "3.05",
+        "calories": "138.75",
+        "fat_g": "9.54",
+        "carbohydrates_g": "1.82",
+        "protein_g": "10.86"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Pacific Fusion",
+        "name": "Fried Tater Tots||Sticky Rice",
+        "description": "Crispy, deep fried tater tots",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soybean oil",
+            "prepared in a shared fryer"
+        ],
+        "ingredients": "Tater tots (potatoes, vegetable oil [soybean, canola, and/or cottonseed oils]. contains less than 2% of dextrose, salt, disodium dihydrogen pyrophosphate), Rice Bran Fryer Oil (NGMO rice bran oil, RDW)",
+        "serving_size_oz": "4",
+        "calories": "312.64",
+        "fat_g": "23.48",
+        "carbohydrates_g": "25.65",
+        "protein_g": "2.70"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Acai Smoothie",
+        "description": "Acai sorbet blended with bananas, mango and blueberries.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Tap water, Acai Sorbet (organic fair trade a\u00e7a\u00ed puree, filtered water, organic invert cane syrup, organic tapioca syrup, organic vegetable glycerin, organic locust bean gum, organic guar gum, organic flavor, organic sunflower lecithin, citric acid, organic fruit and vegetable juice), Frozen Whole Blueberries, Whole Yellow Bananas, Frozen Mango Chunks",
+        "serving_size_oz": "3.99",
+        "calories": "71.48",
+        "fat_g": "1.44",
+        "carbohydrates_g": "15.66",
+        "protein_g": "0.67"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Fresh Fruit Salad",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh fruit salad (pineapple, grape, melon) (cantaloupe, honeydew, pineapple, grapes)",
+        "serving_size_oz": "100 g",
+        "calories": "34",
+        "fat_g": "0.14",
+        "carbohydrates_g": "8.51",
+        "protein_g": "0.5"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Oatmeal",
+        "description": "Hot old-fashioned rolled oats",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Tap water, Old Fashioned Rolled Oats (whole grain oats. Per manufacturer, may contain soy and wheat/gluten), Coarse Flake Kosher Salt (salt, yellow prussiate of soda)",
+        "serving_size_oz": "0.98",
+        "calories": "14.81",
+        "fat_g": "0.26",
+        "carbohydrates_g": "2.65",
+        "protein_g": "0.51"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Congee Rice Porridge",
+        "description": "A hot, Asian-inspired rice porridge made with organic firm tofu and gluten-free vegetable broth",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "sesame"
+        ],
+        "ingredients": "Vegetable broth (Tap water, Paste Vegetable Soup Base (onions, celery, carrots, maltodextrin, sugar, autolyzed yeast extract, onion powder, salt, water, corn oil, potassium chloride, carrot powder, modified tapioca starch, carrot juice concentrate, tomato paste, garlic powder, disodium guanylate, disodium inosinate, natural flavor, potassium sorbate, citric acid, extractives of paprika)), Tap Water, Firm Tofu, Dried Broken Grain White Calrose Rice, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Sesame Oil, Ground White Pepper",
+        "serving_size_oz": "1.31",
+        "calories": "19.22",
+        "fat_g": "0.36",
+        "carbohydrates_g": "3.12",
+        "protein_g": "0.85"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Boiled Eggs",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg"
+        ],
+        "ingredients": "Whole large white eggs",
+        "serving_size_oz": "2",
+        "calories": "81.17",
+        "fat_g": "5.39",
+        "carbohydrates_g": "0.41",
+        "protein_g": "7.12"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Granola without Nuts or Raisins",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "soy lecithin"
+        ],
+        "ingredients": "No nuts or raisins low fat granola (whole grain oats, whole grain wheat, corn syrup, sugar, rice, contains 2% or less of modified corn starch, molasses, expeller pressed canola oil, salt, cinnamon, honey, natural flavor, malt flavor, mixed tocopherols for freshness, soy lecithin)",
+        "serving_size_oz": "100 g",
+        "calories": "385",
+        "fat_g": "4.81",
+        "carbohydrates_g": "82.69",
+        "protein_g": "7.69"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Fresh Inspirations",
+        "name": "Granola with Dried Fruits",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten"
+        ],
+        "ingredients": "Fruit granola (whole grain oats, sugar, raisins, crisp rice [rice flour, barley malt extract, salt], canola oil, cranberries, rice flour, molasses, honey, salt, baking soda, sunflower oil, natural flavor, vitamin e [mixed tocopherols] added to preserve freshness)",
+        "serving_size_oz": "100 g",
+        "calories": "396",
+        "fat_g": "7.29",
+        "carbohydrates_g": "77.08",
+        "protein_g": "8.33"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Harvest Bakery",
+        "name": "Sesame Bagel",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "sesame",
+            "vinegar"
+        ],
+        "ingredients": "Mini sesame seed bagel (enriched unbleached flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], water, brown sugar, malt [corn syrup, malt syrup], salt, enzyme [wheat flour, enzymes, ascorbic acid], yeast [yeast, sorbitan monostearate, ascorbic acid], dough improver [wheat flour, monoglycerides, ascorbic acid. contains 2% or less of enzymes, soybean oil], vinegar, sesame seeds. per manufacturer, produced in a facility that also uses dairy, eggs, fish, tree nuts, peanuts, wheat/gluten, soy, coconut, and sesame)",
+        "serving_size_oz": "2",
+        "calories": "200.71",
+        "fat_g": "2.51",
+        "carbohydrates_g": "36.63",
+        "protein_g": "7.03"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Harvest Bakery",
+        "name": "Plain Bagel",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Mini plain bagel (enriched unbleached flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], water, brown sugar, malt [corn syrup, malt syrup], salt, enzyme [wheat flour, enzymes, ascorbic acid], yeast [yeast, sorbitan monostearate, ascorbic acid], dough improver [wheat flour, monoglycerdides, ascorbic acid. contains 2% or less of enzymes, soybean oil], vinegar. per manufacturer, produced in a facility that also uses dairy, eggs, fish, tree nuts, peanuts, wheat/gluten, soy, coconut, and sesame)",
+        "serving_size_oz": "2",
+        "calories": "180.87",
+        "fat_g": "0.75",
+        "carbohydrates_g": "35.62",
+        "protein_g": "6.52"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Harvest Bakery",
+        "name": "Double Chocolate Muffin",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "soybean oil",
+            "soy lecithin"
+        ],
+        "ingredients": "Small double chocolate muffin (sugar, bleached enriched wheat flour [wheat flour, enriched with niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], cocoa processed with alkali, modified food starch, vegetable shortening [soybean oil, palm oil, vegetable mono-and diglycerides, propylene glycol esters, soy lecithin, tocopherols, polysorbate 60, vitamin c palmitate]. contains 2% or less of nonfat dry milk, sodium bicarbonate, sodium aluminum phosphate, corn starch, salt, artificial flavor, xanthan gum, guar gum, locust bean gum, egg whites, eggs, soybean salad oil, water, semisweet chocolate [sugar, unsweetened chocolate, cocoa butter, soya lecithin], potassium sorbate. per manufacturer, produced in a facility that also uses dairy, eggs, fish, tree nuts, peanuts, wheat/gluten, soy, coconut, and sesame)",
+        "serving_size_oz": "2",
+        "calories": "249.48",
+        "fat_g": "14.17",
+        "carbohydrates_g": "30.05",
+        "protein_g": "2.83"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Harvest Bakery",
+        "name": "Poppy Seed Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "tree nuts",
+            "soybean oil"
+        ],
+        "ingredients": "Poppy seed sweet bread loaf (sugar, enriched wheat flour bleached [flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], modified food starch, soybean oil, dry whey [milk], leavening [sodium aluminum phosphate, baking soda], salt, vital wheat gluten, propylene glycol mono- and diglycerides of fatty acids, mono- and diglycerides, sodium stearoyl lactylate, dextrose, corn starch, tricalcium phosphate, soya flour, dry whole eggs, natural and artificial flavor, water, ascorbic acid [dough conditioner], alpha tocopherol as preservative, citric acid, eggs, soybean salad oil, water, poppy seeds, natural almond emulsion, potassium sorbate. per manufacturer, produced in a facility that also uses milk, eggs, fish, tree nuts, wheat, soybeans, and sesame)",
+        "serving_size_oz": "4.31",
+        "calories": "493.63",
+        "fat_g": "28.38",
+        "carbohydrates_g": "58.00",
+        "protein_g": "6.17"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "breakfast",
+        "platform": "Harvest Bakery",
+        "name": "Raised Maple Donut",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "soybean oil",
+            "alcohol",
+            "soy lecithin"
+        ],
+        "ingredients": "Raised maple donut (enriched wheat flour [wheat flour, malted barley flour, enriched with niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], soybean oil, dextrose. contains 2% or less of each of dried whey, sugar, salt, sodium acid pyrophosphate, sodium bicarbonate, defatted soy flour [contains soybean oil, soy lecithin], sodium stearoyl lactylate, cellulose gum, nonfat dry milk, potato flour, soy lecithin, soy protein concentrate, calcium sulfate, ammonium sulfate, wheat flour, salt, guar gum, dried egg yolks, beta carotene, lactic acid, enzymes, natural flavor, water, yeast [sorbitan monostearate, ascorbic acid], powder sugar [sugar, maltodextrin], palm oil, corn syrup, maple extract [alcohol, sugar, maple syrup, caramel color, water], vanilla extract [alcohol, bourbon vanilla beans, water]. per manufacturer, produced in a facility that also uses dairy, eggs, fish, tree nuts, peanuts, wheat/gluten, soy, coconut, and sesame)",
+        "serving_size_oz": "2",
+        "calories": "167.83",
+        "fat_g": "6.80",
+        "carbohydrates_g": "24.95",
+        "protein_g": "1.87"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Tomato Street Grill",
+        "name": "Grilled Chicken Caesar Phesto Wrap",
+        "description": "Grilled chicken and Romaine lettuce dressed in our house Caesar dressing and arugula \"phesto\" spread, topped with Parmesan and wrapped in a flour tortilla.",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "fish",
+            "soybean oil",
+            "alcohol",
+            "vinegar",
+            "soy lecithin"
+        ],
+        "ingredients": "Grilled chicken breast (Fresh raw boneless skinless halal chicken breast, Extra Virgin Olive Oil, Coarse Flake Kosher Salt (salt, yellow prussiate of soda)), caesar dressing (Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Red Wine Vinegar (red wine vinegar, potassium metabisulfite, diluted with water to 5% acidity), Grated Parmesan Cheese (Parmesan cheese [pasteurized part-skim cow's milk, cheese cultures, salt, enzymes], powdered cellulose added to prevent caking, natamycin [a natural mold inhibitor]), Anchovy Paste (anchovies, olive oil, salt, vinegar, spices), Bottled Lemon Juice, Worcestershire Sauce (distilled vinegar, molasses, water, corn syrup, salt, caramel color, sugar, spices, anchovy, natural flavor [soy], tamarind extract, soy lecithin), Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Whole Peeled Garlic Cloves, Shaker Ground Black Pepper, Tabasco Hot Sauce (distilled vinegar, red pepper, salt)), 10in Flour Tortillas (enriched bleached flour [wheat flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], water, soybean oil, vegetable shortening [soybean oil, mono- and diglycerides, vitamin E, vitamin C palmitate], salt, mono- and diglycerides, baking powder [sodium bicarbonate, cornstarch, sodium aluminum sulfate, calcium sulfate, monocalcium phosphate], calcium propionate, wheat gluten, fumaric acid, guar gum, xanthan gum, microcrystalline cellulose, L-cysteine), arugula phesto spread (Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Wild Arugula Leaves, Fresh Basil Leaves, Whole Peeled Garlic Cloves, Roasted Sunflower Seeds (sunflower kernels, sunflower oil and/or cottonseed oil), Bottled Lemon Juice, Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Shaker Ground Black Pepper), Chopped Romaine Lettuce, caesar dressing (Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Red Wine Vinegar (red wine vinegar, potassium metabisulfite, diluted with water to 5% acidity), Grated Parmesan Cheese (Parmesan cheese [pasteurized part-skim cow's milk, cheese cultures, salt, enzymes], powdered cellulose added to prevent caking, natamycin [a natural mold inhibitor]), Anchovy Paste (anchovies, olive oil, salt, vinegar, spices), Bottled Lemon Juice, Worcestershire Sauce (distilled vinegar, molasses, water, corn syrup, salt, caramel color, sugar, spices, anchovy, natural flavor [soy], tamarind extract, soy lecithin), Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Whole Peeled Garlic Cloves, Shaker Ground Black Pepper, Tabasco Hot Sauce (distilled vinegar, red pepper, salt)), Shredded Parmesan Cheese (pasteurized part skim cow's milk, cheese cultures, salt, enzymes, potato starch, powdered cellulose, natamycin)",
+        "serving_size_oz": "13.7",
+        "calories": "1151.92",
+        "fat_g": "94.03",
+        "carbohydrates_g": "36.55",
+        "protein_g": "46.76"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Tomato Street Grill",
+        "name": "Black Bean Burger",
+        "description": "House-made vegan burger made of black beans, vegetables and grains. Served with our vegan lemon garlic aioli on a whole wheat bun.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "sesame",
+            "vinegar"
+        ],
+        "ingredients": "Black bean patty (Southwest black beans (Canned black beans (prepared black beans, water, salt, calcium chloride, ferrous gluconate), 1/4in Diced Yellow Onions, 1/4in Diced Green Bell Peppers, 1/2in Diced Tomatoes, Canola Salad Oil, Fresh Cilantro Sprigs, Bottled Lime Juice, Whole Peeled Garlic Cloves, Dried Dark Chili Powder (chili pepper, spices, salt, silicon dioxide, garlic), Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Ground Cumin, Tabasco Hot Sauce (distilled vinegar, red pepper, salt), Shaker Ground Black Pepper, Ground Cayenne Pepper), sticky rice (Dried white calrose rice, Tap Water), mexican rice (Tap water, Dried White Long Grain Rice, Canola Salad Oil, Canned Crushed Tomatoes (tomatoes, tomato puree, sea salt, citric acid), 1/4in Diced Yellow Onions, Shredded Orange Carrots, Frozen Corn Kernels (sweet white corn), Julienned Green Bell Peppers, Achiote Paste (annatto seeds, vinegar, salt, water, granulated garlic, spices, sodium benzoate, corn meal, corn flour, FD&amp;C 40), 1/4in Diced Celery, Granulated Garlic, Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Liquid Vegetable Soup Base (reconstituted vegetable juice blend [water and concentrated juices of carrot, celery, tomato], maltodextrin, salt, sugar, onion juice concentrate, yeast extract, cabbage juice, garlic powder, mushroom extract, spice, natural flavor), Ground Cayenne Pepper), Old Fashioned Rolled Oats (whole grain oats. Per manufacturer, may contain soy and wheat/gluten), 1/4in Diced Yellow Onions, garlic mash (Whole peeled garlic cloves, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate)), National Starch 465 (modified food starch), Cornstarch, Chipotle Morita Chili Paste (water, dried chiles, salt, citric acid, potassium sorbate), Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate)), 4in Plain with Sesame Seeds Hamburger Bun (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], water, sugar, yeast, soybean oil. Contains 2% or less of vital wheat gluten, salt, ammonium sulfate, sodium stearoyl lactylate, ascorbic acid, monocalcium phosphate, calcium sulfate, enzymes, calcium propionate, sesame seeds), lemon garlic aioli (Vegan mayonnaise (soybean oil, water, organic distilled vinegar, contains less than 2% of salt, modified food starch, cane sugar, spice, natural flavor, lemon juice concentrate, calcium disodium edta, oleoresin paprika), Fresh Whole Lemons, Whole Peeled Garlic Cloves, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil)), Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil)",
+        "serving_size_oz": "7.98",
+        "calories": "628.03",
+        "fat_g": "36.99",
+        "carbohydrates_g": "64.11",
+        "protein_g": "11.06"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Tomato Street Grill",
+        "name": "Shoestring Potatoes",
+        "description": "Crispy thin-cut potato fries.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soybean oil",
+            "prepared in a shared fryer"
+        ],
+        "ingredients": "1/4in frozen (shoestring) potatoes (potatoes, vegetable oil [soybean, canola, cottonseed, and/or sunflower], modified food starch. contains less than 2% of dextrose, sodium acid pyrophosphate, sodium bicarbonate, rice flour, salt, xanthan gum, disodium dihydrogen pyrophosphate), Rice Bran Fryer Oil (NGMO rice bran oil, RDW), seasoned salt (Iodized granulated salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Onion Powder (onion powder), Granulated Garlic, Domestic Paprika (paprika, silicon dioxide), Vegan Fine Granulated White Sugar, Ground White Pepper)",
+        "serving_size_oz": "4",
+        "calories": "286.08",
+        "fat_g": "17.41",
+        "carbohydrates_g": "31.06",
+        "protein_g": "2.70"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Go Live",
+        "name": "Ancho Crusted Flank Steak",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Remoulade jackfruit salad (Fresh choice beef flank steak, ancho dry rub (Dried ancho chili powder, Onion Powder (onion powder), Granulated Garlic, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper, Ground Cumin, Dried Mexican Oregano Leaves), Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil))",
+        "serving_size_oz": "3.18",
+        "calories": "141.31",
+        "fat_g": "8.10",
+        "carbohydrates_g": "7.47",
+        "protein_g": "15.22"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Go Live",
+        "name": "Al Pastor Braised Carrots",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Baby rainbow carrots with tops, al pastor marinade (Bottled lime juice, Fresh Pineapple Spears, 1/2in Diced Yellow Onions, three chile sauce (Tap water, Paste Vegetable Soup Base (onions, celery, carrots, maltodextrin, sugar, autolyzed yeast extract, onion powder, salt, water, corn oil, potassium chloride, carrot powder, modified tapioca starch, carrot juice concentrate, tomato paste, garlic powder, disodium guanylate, disodium inosinate, natural flavor, potassium sorbate, citric acid, extractives of paprika), Dried Whole New Mexico Chilis, Dried Whole Guajillo Chilis, Dried Whole Ancho Chilis, Whole Peeled Garlic Cloves, Coarse Flake Kosher Salt (salt, yellow prussiate of soda)), Apple Cider Vinegar (apple cider vinegar, diluted with water to 5% acidity<strong></strong>), Whole Peeled Garlic Cloves, Chipotle Peppers in Adobo Sauce (water, tomato paste, dried Chipotle peppers, distilled vinegar, corn oil. Contains 2% or less of iodized salt, potassium iodate, corn starch, onion powder, garlic powder, spices), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Ground Cumin, Ground Coriander, Coarse Ground Black Pepper), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper",
+        "serving_size_oz": "3.04",
+        "calories": "34.92",
+        "fat_g": "0.16",
+        "carbohydrates_g": "8.99",
+        "protein_g": "0.65"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Go Live",
+        "name": "Grilled Corn and Squash Salsa",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Whole red cherry tomatoes, Fresh Whole Medium Zucchini, Fresh Cilantro Sprigs, Bottled Lime Juice, Fresh Yellow Corn, Fresh Whole Green Jalapeno Peppers, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper",
+        "serving_size_oz": "2",
+        "calories": "32.57",
+        "fat_g": "1.94",
+        "carbohydrates_g": "3.93",
+        "protein_g": "0.91"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Bistro",
+        "name": "Carne Asada||Garlic and Onion Chicken",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Marinated carne asada (Beef carne asada, Canola and Olive Oil Blend 75/25 (75% canola oil, 25% extra virgin olive oil), Bottled Lime Juice, Whole Peeled Garlic Cloves, Fresh Fine Chopped Cilantro, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Ground Coriander, Coarse Ground Black Pepper, Dried Crushed Red Pepper Flakes)",
+        "serving_size_oz": "4",
+        "calories": "387.73",
+        "fat_g": "29.36",
+        "carbohydrates_g": "1.62",
+        "protein_g": "29.64"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Bistro",
+        "name": "Jasmine Rice||Quinoa",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [],
+        "ingredients": "",
+        "serving_size_oz": "N/A",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Bistro",
+        "name": "Chipotle Pinto Beans",
+        "description": "Pinto beans simmered with saut\u00e9ed onions, bell peppers and chipotle peppers.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Canned pinto beans (pinto beans, water, salt, calcium chloride, calcium disodium edta), Tap Water, 1/2in Diced Green and Red Bell Peppers, 1/2in Diced Yellow Onions, Bottled Lemon Juice, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Chipotle Peppers in Adobo Sauce (water, tomato paste, dried Chipotle peppers, distilled vinegar, corn oil. Contains 2% or less of iodized salt, potassium iodate, corn starch, onion powder, garlic powder, spices), Coarse Flake Kosher Salt (salt, yellow prussiate of soda)",
+        "serving_size_oz": "2",
+        "calories": "44.26",
+        "fat_g": "1.12",
+        "carbohydrates_g": "6.96",
+        "protein_g": "1.76"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Bistro",
+        "name": "Assorted Vegetables",
+        "description": "Assortment of roasted or steamed vegetables",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [],
+        "ingredients": "",
+        "serving_size_oz": "N/A",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Bistro",
+        "name": "Assorted Sauces & Toppings",
+        "description": "Cucumber, and Lemon Wedges.",
+        "feature": "Tomato Basil Vinaigrette, Mango Vinaigrette, & Chipotle Agave Vinaigrette",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "vinegar",
+            "alcohol"
+        ],
+        "ingredients": "",
+        "serving_size_oz": "N/A",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Pacific Fusion",
+        "name": "Teriyaki Tofu with Sticky Rice",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "sesame",
+            "prepared in a shared fryer",
+            "vinegar"
+        ],
+        "ingredients": "Sticky rice (Dried white calrose rice, Tap Water), teriyaki tofu (Tofu (Firm tofu), Teriyaki Glaze (soy sauce [water, soybeans, wheat, salt], sugar, water, modified corn starch, vinegar, onion juice, garlic powder, fumaric acid, yeast extract, torula yeast, sodium benzoate less than 1/10 of 1% as a preservative, salt, ginger, natural flavor), Rice Bran Fryer Oil (NGMO rice bran oil, RDW), Cornstarch, Fresh Italian Parsley Sprigs), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), wok oil blend (Canola salad oil, Asian Chili Oil (soybean oil, chili), Sesame Oil), Whole Bok Choy, Fresh Shredded Red Cabbage, Shaker Ground Black Pepper, napa cabbage saut\u00e9",
+        "serving_size_oz": "11.09",
+        "calories": "677.71",
+        "fat_g": "40.24",
+        "carbohydrates_g": "65.17",
+        "protein_g": "18.20"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Masala Cauliflower Soup",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "coconut"
+        ],
+        "ingredients": "Masala cauliflower soup (water, butternut squash, sweet potato, cauliflower, coconut milk [coconut milk, water, xanthan gum], onion, garbanzo beans, peas, cornstarch, salt, garlic [garlic, water, citric acid], extra virgin olive oil, curry powder, jalapeno pepper, fenugreek, coriander, cumin, mustard powder, cayenne pepper)",
+        "serving_size_oz": "100 g",
+        "calories": "66",
+        "fat_g": "2.64",
+        "carbohydrates_g": "9.69",
+        "protein_g": "1.32"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Organic Smoky Split Pea Soup",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Organic smoky split pea soup (daylight) (water, organic green split peas, organic diced tomatoes [organic diced tomatoes, organic tomato juice, sea salt, calcium chloride, citric acid], organic onion, organic carrot, sea salt, organic canola oil, organic cultured dextrose [organic cultured dextrose, organic maltodextrin], organic garlic, organic cumin, organic paprika, organic chipotle chile)",
+        "serving_size_oz": "100 g",
+        "calories": "102",
+        "fat_g": "0.82",
+        "carbohydrates_g": "15.92",
+        "protein_g": "7.35"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Fresh Fruit Salad",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh fruit salad (pineapple, grape, melon) (cantaloupe, honeydew, pineapple, grapes)",
+        "serving_size_oz": "100 g",
+        "calories": "34",
+        "fat_g": "0.14",
+        "carbohydrates_g": "8.51",
+        "protein_g": "0.5"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Watermelon",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh whole red watermelon",
+        "serving_size_oz": "3.94",
+        "calories": "33.90",
+        "fat_g": "0.17",
+        "carbohydrates_g": "8.43",
+        "protein_g": "0.68"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Chef Choice - Salad",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Place holder - sub recipes",
+        "serving_size_oz": "100 g",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Caesar Salad",
+        "description": "Traditional Caesar salad with Romaine lettuce, Parmesan cheese, croutons, and Caesar dressing",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "fish",
+            "alcohol",
+            "vinegar",
+            "soy lecithin"
+        ],
+        "ingredients": "Chopped romaine lettuce, caesar dressing (Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Red Wine Vinegar (red wine vinegar, potassium metabisulfite, diluted with water to 5% acidity), Grated Parmesan Cheese (Parmesan cheese [pasteurized part-skim cow's milk, cheese cultures, salt, enzymes], powdered cellulose added to prevent caking, natamycin [a natural mold inhibitor]), Anchovy Paste (anchovies, olive oil, salt, vinegar, spices), Bottled Lemon Juice, Worcestershire Sauce (distilled vinegar, molasses, water, corn syrup, salt, caramel color, sugar, spices, anchovy, natural flavor [soy], tamarind extract, soy lecithin), Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Whole Peeled Garlic Cloves, Shaker Ground Black Pepper, Tabasco Hot Sauce (distilled vinegar, red pepper, salt)), Shredded Parmesan Cheese (pasteurized part skim cow's milk, cheese cultures, salt, enzymes, potato starch, powdered cellulose, natamycin), Seasoned Homestyle Crouton (enriched flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], canola and/or sunflower oil [with rosemary extract and ascorbic acid {to preserve freshness}], whey, salt, sugar, yeast, 2% or less of spices, dehydrated parsley, onion powder, paprika [color], turmeric [color], extractive of paprika [color], spice extractive, enzymes)",
+        "serving_size_oz": "7.93",
+        "calories": "556.99",
+        "fat_g": "48.92",
+        "carbohydrates_g": "20.80",
+        "protein_g": "16.07"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Red Skin Potato Salad",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Red skin potato salad (red potatoes, mayonnaise [soybean oil, water, egg yolks, vinegar, salt], onion, water, vinegar, salt, modified corn starch, sugar, black pepper, dehydrated parsley, potassium sorbate, sodium benzoate, xanthan gum)",
+        "serving_size_oz": "100 g",
+        "calories": "185.71",
+        "fat_g": "12.86",
+        "carbohydrates_g": "15.71",
+        "protein_g": "2.14"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Traditional Hummus",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "sesame"
+        ],
+        "ingredients": "Traditional hummus (cooked chickpeas, water, sesame tahini, olive oil. contains 2% or less of lemon juice, salt, garlic puree [garlic, citric acid, ascorbic acid], spices. per manufacturer, may contain soy)",
+        "serving_size_oz": "100 g",
+        "calories": "249.99",
+        "fat_g": "16.07",
+        "carbohydrates_g": "17.86",
+        "protein_g": "7.14"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Seafood Salad",
+        "description": "Shrimp with imitation crab, celery, and mayonnaise",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "egg",
+            "fish",
+            "shellfish",
+            "soybean oil",
+            "alcohol",
+            "vinegar"
+        ],
+        "ingredients": "Frozen imitation crab flakes (alaska pollock, water, corn starch, potato starch, egg whites, sugar, sorbitol, mirin wine [sake, sugar, salt, water, yeast extract]. contains 2% or less of snow crab meat, natural and artificial crab flavors [swimming crab, maltodextrin, disodium guanylate, disodium inosinate], salt, soy protein isolate, soybean oil, carrageenan, sodium tripolyphosphate, tetrasodium pyrophosphate, carmine, paprika oleoresin), 150/200 Frozen Cooked P&D Shrimp (shrimp, water, salt, sodium tripolyphosphate), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), 1/4in Diced Celery, Bottled Lemon Juice",
+        "serving_size_oz": "100 g",
+        "calories": "204.81",
+        "fat_g": "16.99",
+        "carbohydrates_g": "6.73",
+        "protein_g": "6.24"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Tuna Salad",
+        "description": "Tuna with celery, onion, relish, and mayonnaise.",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "egg",
+            "fish",
+            "soybean oil",
+            "alcohol",
+            "vinegar"
+        ],
+        "ingredients": "Precooked wild ahi yellowfin tuna (albacore tuna, water, salt), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), 1/4in Diced Celery, Sweet Green Pickle Relish (pickles, high fructose corn syrup, corn syrup, distilled vinegar, salt. Contains less than 2% of xanthan gum, spices, sodium benzoate, natural flavor, dehydrated red pepper, turmeric, polysorbate 80), 1/4in Diced Yellow Onions, Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Bottled Lemon Juice, Ground White Pepper",
+        "serving_size_oz": "100 g",
+        "calories": "266.2",
+        "fat_g": "19.9",
+        "carbohydrates_g": "1.69",
+        "protein_g": "18.73"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Egg Salad",
+        "description": "Hard boiled cage-free eggs with mustard, relish, and mayonnaise",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Whole peeled hard boiled eggs (cage-free egg), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), Sweet Green Pickle Relish (pickles, high fructose corn syrup, corn syrup, distilled vinegar, salt. Contains less than 2% of xanthan gum, spices, sodium benzoate, natural flavor, dehydrated red pepper, turmeric, polysorbate 80), Yellow Mustard (distilled vinegar, water, mustard seed, salt, turmeric, paprika, spice, natural flavor, garlic powder), Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Shaker Ground Black Pepper",
+        "serving_size_oz": "100 g",
+        "calories": "287.5",
+        "fat_g": "25.76",
+        "carbohydrates_g": "1.58",
+        "protein_g": "11.3"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Tofu",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy"
+        ],
+        "ingredients": "Firm tofu",
+        "serving_size_oz": "100 g",
+        "calories": "144.12",
+        "fat_g": "8.72",
+        "carbohydrates_g": "2.78",
+        "protein_g": "17.27"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Deli Bar",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "",
+        "serving_size_oz": "N/A",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced White Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced white bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, yeast, sugar, contains 2% or less of each of the following salt, soybean oil, yeast nutrient [ammonium sulfate], dough conditioners [sodium stearoyl lactylate, ascorbic acid, monocalcium phosphate], extract of malted barley, dextrose, calcium propionate [mold inhibitor], enzymes)",
+        "serving_size_oz": "1",
+        "calories": "94.52",
+        "fat_g": "0.94",
+        "carbohydrates_g": "17.97",
+        "protein_g": "2.83"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Wheat Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced wheat bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, whole wheat flour, yeast, sugar. contains 2% or less of salt, vegetable oil [canola and/or soy], yeast nutrient [ammonium sulfate], dough conditioners [sodium stearoyl lactylate, ascorbic acid, monocalcium phosphate], caramel color, extract of malted barley, dextrose, calcium propionate, calcium sulfate, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "70.87",
+        "fat_g": "0.89",
+        "carbohydrates_g": "13.29",
+        "protein_g": "1.77"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sourdough Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced sourdough bread (unbleached enriched flour [wheat flour, malted barley flour, niacin, iron, thiamin mononitrate, riboflavin, folic acid], water, yeast, wheat gluten. contains 2% or less of acetic acid, lactic acid, fumaric acid, soybean oil, high fructose corn syrup, sugar, salt, calcium propionate and potassium sorbate, datem, wheat flour, calcium sulfate, ascorbic acid, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "76.06",
+        "fat_g": "0.69",
+        "carbohydrates_g": "14.52",
+        "protein_g": "2.77"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Nine Grain Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Sliced nine grain bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, granola mix [wheat, oats, triticale, barley, amaranth, rye, wheat germ, flax seeds, sunflower seeds, cornmeal], yeast, sugar, vital wheat gluten, brown sugar. contains 2% or less of vegetable oil [canola and/or soy], raisin paste, sunflower seeds, cultured wheat flour, distilled vinegar, xanthan gum, salt, ascorbic acid, calcium sulfate, enzymes, nonfat dry milk, soy flour)",
+        "serving_size_oz": "1",
+        "calories": "72.52",
+        "fat_g": "0.99",
+        "carbohydrates_g": "13.85",
+        "protein_g": "3.30"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Multigrain Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten"
+        ],
+        "ingredients": "Sliced multigrain bread (water, enriched unbleached flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], whole wheat flour, nine grain mix [blended wheat, barley, corn, millet, soybeans, rye, oats, rice, and flaxseed], sugar, flaxseed. contains 2% or less of oats, molasses, extra virgin olive oil, canola oil, sea salt, millet seeds, sunflower seeds, yeast, enzymes, ascorbic acid, caramel color)",
+        "serving_size_oz": "1",
+        "calories": "80.00",
+        "fat_g": "1.25",
+        "carbohydrates_g": "15.00",
+        "protein_g": "2.50"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Muenster Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced muenster cheese (cultured pasteurized milk, salt, annatto, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "101.25",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.00",
+        "protein_g": "7.09"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Monterey Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced monterey jack cheese (pasteurized milk, cheese cultures, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "107.99",
+        "fat_g": "8.10",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Swiss Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced deli swiss cheese (pasteurized part-skim milk, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "108.01",
+        "fat_g": "9.45",
+        "carbohydrates_g": "0.00",
+        "protein_g": "8.10"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Pepper Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": ".5oz presliced pepper jack cheese (pasteurized milk, jalapeno peppers, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "101.21",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.01",
+        "protein_g": "7.09"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Cheddar Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "3/4oz sliced cheddar cheese (pasteurized milk, cheese cultures, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "107.99",
+        "fat_g": "9.45",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Provolone Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "3/4oz presliced provolone cheese (cultured pasteurized milk, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "94.40",
+        "fat_g": "8.10",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Monterey Pepper Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": ".75oz presliced monterey pepper jack cheese (pasteurized milk, red and green jalapeno peppers, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "108.01",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.35",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Smoked Turkey",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Presliced deli smoked turkey halal (turkey breast meat, water. contains 2% or less of salt, vinegar, sugar)",
+        "serving_size_oz": "1",
+        "calories": "27.17",
+        "fat_g": "0.27",
+        "carbohydrates_g": "0.00",
+        "protein_g": "5.45"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Smoked Ham",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Presliced deli smoked ham (ham. cured with water, salt, sugar, dextrose, sodium phosphates, sodium erythorbate, sodium nitrite)",
+        "serving_size_oz": "1",
+        "calories": "30.37",
+        "fat_g": "1.01",
+        "carbohydrates_g": "0.51",
+        "protein_g": "4.56"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Roast Beef",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Bottom round sliced roast beef (beef, water, vinegar, salt, natural flavorings, sodium phosphate. rubbed with salt, natural flavorings, caramel color)",
+        "serving_size_oz": "1",
+        "calories": "38.92",
+        "fat_g": "1.11",
+        "carbohydrates_g": "1.67",
+        "protein_g": "6.11"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Genoa Salami",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sliced genoa salami (pork, beef, salt. contains 2% or less of dextrose, water, natural spices, sodium ascorbate, lactic acid starter culture, sodium nitrite, garlic powder, bha, bht, citric acid)",
+        "serving_size_oz": "1",
+        "calories": "136.47",
+        "fat_g": "11.70",
+        "carbohydrates_g": "0.00",
+        "protein_g": "7.80"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Salami",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sliced pastrami (beef, smoke flavoring, caramel color, spices, salt, sugar. cured with water, salt, sugar, sodium phosphates, sodium erythorbate, sodium nitrite, flavoring)",
+        "serving_size_oz": "1",
+        "calories": "35.44",
+        "fat_g": "2.02",
+        "carbohydrates_g": "0.00",
+        "protein_g": "4.56"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Harvest Bakery",
+        "name": "Frosted Brownie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "soybean oil",
+            "soy lecithin"
+        ],
+        "ingredients": "Frosted brownie (sugar, bleached enriched wheat flour [wheat flour, enriched with niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], vegetable shortening [soybean oil, vegetable mono- and diglycerides, tocopherols, vitamin c palmitate], cocoa processed with alkali, dried egg whites, corn starch, dried whey, soy flour, artificial flavor, salt, water, soybean salad oil, fudge icing [sugar, corn syrup, palm oil vegetable shortening, water, cocoa. contains 2% or less of each of mono- and diglycerides, salt, soybean oil, soy lecithin, polysorbate 60, potassium sorbate, artificial flavor]. per manufacturer, produced in a facility that also uses dairy, eggs, fish, tree nuts, peanuts, wheat/gluten, soy, coconut, and sesame)",
+        "serving_size_oz": "2",
+        "calories": "234.73",
+        "fat_g": "11.06",
+        "carbohydrates_g": "34.59",
+        "protein_g": "1.77"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Harvest Bakery",
+        "name": "Dark Chocolate Cranberry Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "alcohol"
+        ],
+        "ingredients": "Dark chocolate cranberry cookie (unbleached wheat flour, pure cane sugars, guittard bittersweet chocolate [fair trade cocoa beans, sugar, sunflower lecithin, pure vanilla], dried cranberries, butter [made from milk], eggs [pasteurized, may contain citric acid], grape juice, rice dextrins, pure vanilla, baking soda, sea salt. per manufacturer, this product is made in a facility that uses peanuts, tree nuts, milk, and soy)",
+        "serving_size_oz": "2",
+        "calories": "233.03",
+        "fat_g": "8.95",
+        "carbohydrates_g": "38.79",
+        "protein_g": "2.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Harvest Bakery",
+        "name": "Double Chocolate Chip Mint Condition Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "alcohol"
+        ],
+        "ingredients": "Double chocolate chip mint condition cookie (pure cane sugars, unbleached wheat flour, green mint chips [sugar, palm kernel and palm oils, whey, nonfat milk, added color, sunflower lecithin, natural flavor and vanilla], salt, natural flavor], butter [made from milk], palm oil [rspo-certified palm oil], eggs [pasteurized, may contain citric acid], cocoa powder [processed with potassium carbonate], grape juice, rice dextrins, guittard chocolate syrup [fructose, water, cocoa, chocolate, pure vanilla, lactic acid, potassium sorbate, a preservative], pure vanilla, sea salt, baking soda)",
+        "serving_size_oz": "2",
+        "calories": "242.67",
+        "fat_g": "11.94",
+        "carbohydrates_g": "33.82",
+        "protein_g": "2.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Harvest Bakery",
+        "name": "Lemon Drop Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "alcohol"
+        ],
+        "ingredients": "Vegan lemon drop cookie (unbleached wheat flour, organic evaporated cane sugar, sustainable rspo palm oil shortening, pure lemon extract, grape juice, rice dextrin, sea salt, baking powder)",
+        "serving_size_oz": "2",
+        "calories": "155.92",
+        "fat_g": "9.95",
+        "carbohydrates_g": "36.80",
+        "protein_g": "1.99"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "lunch",
+        "platform": "Harvest Bakery",
+        "name": "Chocolate Chip Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "alcohol",
+            "soy lecithin"
+        ],
+        "ingredients": "Vegan chocolate chip cookie (vegan chocolate chips [organic cane sugar, unsweetened chocolate, cocoa butter, soy lecithin, vanilla bean seeds], unbleached wheat flour, organic evaporated cane sugar, sustainable rspo palm oil shortening, vegan molasses, grape juice, rice dextrins, sea salt, pure vanilla, baking soda. per manufacturer, this product is made in a facility that uses peanuts, tree nuts, milk, and soy)",
+        "serving_size_oz": "2",
+        "calories": "188.81",
+        "fat_g": "10.94",
+        "carbohydrates_g": "37.80",
+        "protein_g": "2.29"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Tomato Street Grill",
+        "name": "Philly Cheesesteak Sandwich",
+        "description": "Sandwich stuffed with mushrooms, onions, beef with a slather of mayo and Provolone cheese",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Philly breakaway beef steak (beef sirloin prepared with up to 20% of a solution of water, salt, dextrose, sodium phosphate, natural flavor), 5.75in Brioche Hot Dog Bun (unbleached, enriched flour [wheat flour, malted barley flour, niacin, iron, thiamin mononitrate, riboflavin, folic acid], water, sugar, eggs, glaze [water, pea protein, wheat protein, potato protein, rice protein, sunflower oil, dextrose, maltodextrins, cornstarch], yeast, wheat gluten, soybean oil, palm oil. Contains 2% or less of oat flour, potato flakes, salt, natural and artificial flavors, calcium sulfate, ascorbic acid, enzymes, calcium propionate, potassium sorbate, corn flour, turmeric, paprika, mono- and diglycerides, monocalcium phosphate, ammonium sulfate), Canola Salad Oil, 3/4oz Presliced Provolone Cheese (cultured pasteurized milk, salt, enzymes), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), Sliced Button Mushrooms, Julienned Yellow Onions",
+        "serving_size_oz": "8.26",
+        "calories": "785.61",
+        "fat_g": "61.19",
+        "carbohydrates_g": "27.12",
+        "protein_g": "33.67"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Tomato Street Grill",
+        "name": "Mushroom Street Taco",
+        "description": "Mushrooms saut\u00e9ed with onions and peppers, served over corn tortillas and drizzled with our cilantro-cashew sauce.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "tree nuts"
+        ],
+        "ingredients": "Fresh whole portobello mushrooms, 1/4in Pico De Gallo (tomatoes, onion, fresh cilantro, Jalapeno pepper), 4.5in White Corn Tortillas (water, stone ground corn masa flour, stone ground fresh corn. Contains less than 2% of cellulose gum, fumaric acid, potassium sorbate, calcium propionate, propionic acid, phosphoric acid, guar gum, sorbic acid, trace of lime), 1/2in Diced Green Bell Peppers, cilantro cashew sauce (Tap water, Unsalted Large Roasted Cashews, Tap Water, Fresh Cilantro Sprigs, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), soaked cashews), Frozen Corn Kernels (sweet white corn), 1/4in Diced Red Onions, Fresh Cilantro Sprigs, Tamari (water, soybeans, salt, sugar), Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Shaker Ground Black Pepper",
+        "serving_size_oz": "5.25",
+        "calories": "104.42",
+        "fat_g": "3.47",
+        "carbohydrates_g": "17.07",
+        "protein_g": "3.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Tomato Street Grill",
+        "name": "Curly Fries",
+        "description": "Crispy deep-fried seasoned curly cut potato fries.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "prepared in a shared fryer"
+        ],
+        "ingredients": "Frozen 1/4in spicy curly cut potatoes (potatoes, vegetable oil [soybean, canola, cottonseed, and/or sunflower], enriched flour [bleached wheat flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid]. contains less than 2% of cellulose gum, paprika oleoresin, turmeric oleoresin, degermed yellow corn meal, dextrose, modified food starch, garlic powder, onion powder, rice flour, salt, spices, disodium dihydrogen pyrophosphate), Rice Bran Fryer Oil (NGMO rice bran oil, RDW)",
+        "serving_size_oz": "4.4",
+        "calories": "313.17",
+        "fat_g": "20.78",
+        "carbohydrates_g": "28.35",
+        "protein_g": "2.69"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Go Live",
+        "name": "Baja Style Fish Tacos",
+        "description": "Beer-battered cod, wrapped in a flour tortilla. Topped with a creamy cilantro coleslaw and a spicy dill-Chipotle sauce.",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "fish",
+            "soybean oil",
+            "alcohol",
+            "prepared in a shared fryer",
+            "vinegar",
+            "soy lecithin"
+        ],
+        "ingredients": "2oz beer battered cod filet (cod fish, vegetable oil [canola, cottonseed, soybean], water, wheat flour, yellow corn flour, modified corn starch, enriched wheat flour [flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], beer [water, pale malt, barley, brewer's caramel, brewer's syrup, hops, yeast]. contains 2% or less of salt, malt syrup [corn syrup, barley, malt extract], soy flour, tricalcium phosphate, sodium bicarbonate, sodium aluminum phosphate, sugar, malted barley flour, arabic gum, garlic powder, natural flavor, artificial flavors, spices, natural beer flavor, artificial beer flavor, whey, dextrose, maltodextrin), cilantro coleslaw (Vegan fine granulated white sugar, Fresh Shredded Green Cabbage, Whole Avocados, Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), Fresh Whole Limes, White Wine Vinegar (white wine vinegar, potassium metabisulfite, water), Apple Cider Vinegar (apple cider vinegar, diluted with water to 5% acidity<strong></strong>), Fresh Cilantro Sprigs, Tajin Seasoning (chili peppers, sea salt, citric acid, dehydrated lime juice, silicon dioxide [to prevent caking]), Coarse Flake Kosher Salt (salt, yellow prussiate of soda)), 6in Flour Tortillas (enriched bleached flour [flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], water, vegetable shortening [interesterified and hydrogenated soybean oils]. Contains 2% or less of salt, baking soda, sodium acid pyrophosphate, distilled monoglycerides, enzymes, cellulose gum, fumaric acid, calcium propionate, sorbic acid), spicy dill sauce (Heavy duty mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. contains less than 2% of salt, mustard seed, calcium disodium edta), Sour Cream (cultured cream. Contains less than 2% of whey, modified corn starch, sodium tripolyphosphate, carrageenan, calcium sulfate, locust bean gum, guar gum, potassium sorbate), Chipotle Peppers in Adobo Sauce (water, tomato paste, dried Chipotle peppers, distilled vinegar, corn oil. Contains 2% or less of iodized salt, potassium iodate, corn starch, onion powder, garlic powder, spices), Half and Half (milk, cream), Worcestershire Sauce (distilled vinegar, molasses, water, corn syrup, salt, caramel color, sugar, spices, anchovy, natural flavor [soy], tamarind extract, soy lecithin), Tabasco Hot Sauce (distilled vinegar, red pepper, salt), Fresh Whole Dill Sprigs), 1/4in Pico De Gallo (tomatoes, onion, fresh cilantro, Jalapeno pepper), Rice Bran Fryer Oil (NGMO rice bran oil, RDW), Frozen Mango Chunks, Asian Chili Oil (soybean oil, chili), Fresh Whole Limes, Fresh Whole Habanero Peppers, Bottled Lime Juice",
+        "serving_size_oz": "13.38",
+        "calories": "914.00",
+        "fat_g": "58.79",
+        "carbohydrates_g": "81.44",
+        "protein_g": "17.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Brown Rice",
+        "description": "Steamed Brown Rice",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Tap water, Dried Brown Calrose Rice",
+        "serving_size_oz": "3",
+        "calories": "102.65",
+        "fat_g": "0.76",
+        "carbohydrates_g": "21.59",
+        "protein_g": "2.13"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Plain Cauliflower Rice",
+        "description": "Lightly salted cauliflower rice.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh cauliflower rice, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda)",
+        "serving_size_oz": "3",
+        "calories": "54.04",
+        "fat_g": "4.20",
+        "carbohydrates_g": "4.00",
+        "protein_g": "1.55"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Saut\u00e9ed Chicken with Garlic and Onion",
+        "description": "Halal chicken thighs seasoned with fresh parsley and sauteed",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh chicken thigh sliced halal, 1/2in Diced Yellow Onions, Bottled Lemon Juice, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Fresh Italian Parsley Sprigs, Whole Peeled Garlic Cloves, Coarse Ground Black Pepper",
+        "serving_size_oz": "4",
+        "calories": "256.01",
+        "fat_g": "10.99",
+        "carbohydrates_g": "4.11",
+        "protein_g": "33.60"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Carne Asada",
+        "description": "Marinated beef seasoned with the flavors of Mexico.",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Marinated carne asada (Beef carne asada, Canola and Olive Oil Blend 75/25 (75% canola oil, 25% extra virgin olive oil), Bottled Lime Juice, Whole Peeled Garlic Cloves, Fresh Fine Chopped Cilantro, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Ground Coriander, Coarse Ground Black Pepper, Dried Crushed Red Pepper Flakes)",
+        "serving_size_oz": "4",
+        "calories": "387.73",
+        "fat_g": "29.36",
+        "carbohydrates_g": "1.62",
+        "protein_g": "29.64"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Chipotle Pinto Beans",
+        "description": "Pinto beans simmered with saut\u00e9ed onions, bell peppers and chipotle peppers.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Canned pinto beans (pinto beans, water, salt, calcium chloride, calcium disodium edta), Tap Water, 1/2in Diced Green and Red Bell Peppers, 1/2in Diced Yellow Onions, Bottled Lemon Juice, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Chipotle Peppers in Adobo Sauce (water, tomato paste, dried Chipotle peppers, distilled vinegar, corn oil. Contains 2% or less of iodized salt, potassium iodate, corn starch, onion powder, garlic powder, spices), Coarse Flake Kosher Salt (salt, yellow prussiate of soda)",
+        "serving_size_oz": "2",
+        "calories": "44.26",
+        "fat_g": "1.12",
+        "carbohydrates_g": "6.96",
+        "protein_g": "1.76"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Corn and Mushroom Saut\u00e9",
+        "description": "Lightly seasoned saut\u00e9ed corn and mushrooms.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Frozen corn kernels (sweet white corn), Sliced Button Mushrooms, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper",
+        "serving_size_oz": "2",
+        "calories": "65.67",
+        "fat_g": "2.85",
+        "carbohydrates_g": "8.01",
+        "protein_g": "1.66"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Roasted Paprika Sweet Potatoes",
+        "description": "Sweet potatoes tossed and roasted with paprika",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "3/4in diced peeled sweet potatoes, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Smoked Paprika (paprika, silicon dioxide), Coarse Ground Black Pepper",
+        "serving_size_oz": "2",
+        "calories": "74.88",
+        "fat_g": "2.80",
+        "carbohydrates_g": "12.01",
+        "protein_g": "0.94"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Roasted Butternut Squash",
+        "description": "Butternut squash lightly seasoned and roasted.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/2in diced peeled butternut squash, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper",
+        "serving_size_oz": "2",
+        "calories": "47.98",
+        "fat_g": "2.68",
+        "carbohydrates_g": "6.63",
+        "protein_g": "0.57"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Tajin Cucumbers",
+        "description": "Diced cucumber mixed with a little salt and Tajin",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/2in diced peeled cucumbers, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Tajin Seasoning (chili peppers, sea salt, citric acid, dehydrated lime juice, silicon dioxide [to prevent caking])",
+        "serving_size_oz": "2",
+        "calories": "7.05",
+        "fat_g": "0.09",
+        "carbohydrates_g": "1.22",
+        "protein_g": "0.33"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Saut\u00e9ed Zucchini",
+        "description": "Zucchini lightly seasoned and saut\u00e9ed",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "1/2in diced zucchini, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Whole Peeled Garlic Cloves, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Coarse Ground Black Pepper",
+        "serving_size_oz": "2",
+        "calories": "26.86",
+        "fat_g": "1.96",
+        "carbohydrates_g": "2.25",
+        "protein_g": "0.82"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Chipotle Agave Vinaigrette",
+        "description": "Sweet and spicy vinaigrette",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Red Wine Vinegar (red wine vinegar, potassium metabisulfite, diluted with water to 5% acidity), Agave Nectar Lite Syrup, Chipotle Peppers in Adobo Sauce (water, tomato paste, dried Chipotle peppers, distilled vinegar, corn oil. Contains 2% or less of iodized salt, potassium iodate, corn starch, onion powder, garlic powder, spices), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Whole Peeled Garlic Cloves, Dried Mexican Oregano Leaves, Coarse Ground Black Pepper",
+        "serving_size_oz": "1",
+        "calories": "134.75",
+        "fat_g": "14.48",
+        "carbohydrates_g": "2.66",
+        "protein_g": "0.01"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Mango Vinaigrette",
+        "description": "Sweet and tangy vinaigrette to compliment your dish.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Frozen Mango Chunks, Bottled Lime Juice, Natural Rice Vinegar, Agave Nectar Lite Syrup, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Dried Crushed Red Pepper Flakes",
+        "serving_size_oz": "1",
+        "calories": "108.92",
+        "fat_g": "11.80",
+        "carbohydrates_g": "2.10",
+        "protein_g": "0.09"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Bistro",
+        "name": "Tomatillo Avocado Salsa",
+        "description": "House tomatillo & avocado salsa.",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Whole cleaned tomatillos, Whole Avocados, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Tap Water, Fresh Cilantro Sprigs",
+        "serving_size_oz": "1",
+        "calories": "44.84",
+        "fat_g": "4.49",
+        "carbohydrates_g": "1.59",
+        "protein_g": "0.31"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Pacific Fusion",
+        "name": "Curry Chips",
+        "description": "England-inspired fries with Chinese-style curry sauce, pickled spicy peppers and cilantro microgreens",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "soybean oil",
+            "coconut",
+            "prepared in a shared fryer",
+            "vinegar"
+        ],
+        "ingredients": "Frozen spicy waffle cut potatoes (potatoes, vegetable oil [soybean, canola, cottonseed, sunflower], enriched flour [bleached wheat flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid]. contains less than 2% of cellulose gum, color [paprika oleoresin, turmeric oleoresin], degermed yellow corn meal, dextrose, modified food starch, garlic powder, onion powder, rice flour, salt, spices, disodium dihydrogen pyrophosphate), coconut lime sauce (Vegan sour cream (water, palm oil, maltodextrin, non-gmo [soy protein, tofu], non-dairy lactic acid sugar, locust bean, guar, xantham gums, salt), Canned Coconut Milk, Vegan Mayonnaise (soybean oil, water, organic distilled vinegar, contains less than 2% of salt, modified food starch, cane sugar, spice, natural flavor, lemon juice concentrate, calcium disodium EDTA, oleoresin paprika), Bottled Lime Juice, Fresh Cilantro Sprigs, Agave Nectar Lite Syrup, Fresh Whole Limes, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Granulated Garlic), pickled pepper chips (Tap water, Whole Peeled Shallots, Fresh Whole Fresno Red Peppers, Bottled Lime Juice, Distilled White Vinegar, Chopped Ginger, Coarse Flake Kosher Salt (salt, yellow prussiate of soda), Shaker Ground Black Pepper), curry sauce for curry chips (Vegetable broth (Tap water, Liquid Vegetable Soup Base (reconstituted vegetable juice blend [water and concentrated juices of carrot, celery, tomato], maltodextrin, salt, sugar, onion juice concentrate, yeast extract, cabbage juice, garlic powder, mushroom extract, spice, natural flavor)), Chili Garlic Sauce (water, sugar, red chili pepper, garlic, salt, modified tapioca starch, sugar vinegar, acetic acid, yeast extract, caramel color), Vegan Fine Granulated White Sugar, Canola and Olive Oil Blend 90/10 (canola oil, extra virgin olive oil), Regular Soy Sauce (water, soybeans, wheat, salt. Contains less than 1% of sodium benzoate), Cornstarch, Curry Powder (coriander, fenugreek, turmeric, cumin, black pepper, bay leaves, celery seed, nutmeg, clove, onion, ginger, red pepper), Chinese Five Spice (spices), Dried Ground Ginger (ginger, sulfur dioxide. Per manufacturer, contains sulfites), Granulated Garlic), Cilantro Micro Greens, Rice Bran Fryer Oil (NGMO rice bran oil, RDW)",
+        "serving_size_oz": "10.29",
+        "calories": "457.15",
+        "fat_g": "28.68",
+        "carbohydrates_g": "46.76",
+        "protein_g": "3.97"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Masala Cauliflower Soup",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "coconut"
+        ],
+        "ingredients": "Masala cauliflower soup (water, butternut squash, sweet potato, cauliflower, coconut milk [coconut milk, water, xanthan gum], onion, garbanzo beans, peas, cornstarch, salt, garlic [garlic, water, citric acid], extra virgin olive oil, curry powder, jalapeno pepper, fenugreek, coriander, cumin, mustard powder, cayenne pepper)",
+        "serving_size_oz": "100 g",
+        "calories": "66",
+        "fat_g": "2.64",
+        "carbohydrates_g": "9.69",
+        "protein_g": "1.32"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Organic Smoky Split Pea Soup",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Organic smoky split pea soup (daylight) (water, organic green split peas, organic diced tomatoes [organic diced tomatoes, organic tomato juice, sea salt, calcium chloride, citric acid], organic onion, organic carrot, sea salt, organic canola oil, organic cultured dextrose [organic cultured dextrose, organic maltodextrin], organic garlic, organic cumin, organic paprika, organic chipotle chile)",
+        "serving_size_oz": "100 g",
+        "calories": "102",
+        "fat_g": "0.82",
+        "carbohydrates_g": "15.92",
+        "protein_g": "7.35"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Fresh Fruit Salad",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh fruit salad (pineapple, grape, melon) (cantaloupe, honeydew, pineapple, grapes)",
+        "serving_size_oz": "100 g",
+        "calories": "34",
+        "fat_g": "0.14",
+        "carbohydrates_g": "8.51",
+        "protein_g": "0.5"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Watermelon",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [],
+        "ingredients": "Fresh whole red watermelon",
+        "serving_size_oz": "3.94",
+        "calories": "33.90",
+        "fat_g": "0.17",
+        "carbohydrates_g": "8.43",
+        "protein_g": "0.68"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Chef Choice - Salad",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Place holder - sub recipes",
+        "serving_size_oz": "100 g",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Caesar Salad",
+        "description": "Traditional Caesar salad with Romaine lettuce, Parmesan cheese, croutons, and Caesar dressing",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "fish",
+            "alcohol",
+            "vinegar",
+            "soy lecithin"
+        ],
+        "ingredients": "Chopped romaine lettuce, caesar dressing (Canola and olive oil blend 90/10 (canola oil, extra virgin olive oil), Red Wine Vinegar (red wine vinegar, potassium metabisulfite, diluted with water to 5% acidity), Grated Parmesan Cheese (Parmesan cheese [pasteurized part-skim cow's milk, cheese cultures, salt, enzymes], powdered cellulose added to prevent caking, natamycin [a natural mold inhibitor]), Anchovy Paste (anchovies, olive oil, salt, vinegar, spices), Bottled Lemon Juice, Worcestershire Sauce (distilled vinegar, molasses, water, corn syrup, salt, caramel color, sugar, spices, anchovy, natural flavor [soy], tamarind extract, soy lecithin), Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Whole Peeled Garlic Cloves, Shaker Ground Black Pepper, Tabasco Hot Sauce (distilled vinegar, red pepper, salt)), Shredded Parmesan Cheese (pasteurized part skim cow's milk, cheese cultures, salt, enzymes, potato starch, powdered cellulose, natamycin), Seasoned Homestyle Crouton (enriched flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], canola and/or sunflower oil [with rosemary extract and ascorbic acid {to preserve freshness}], whey, salt, sugar, yeast, 2% or less of spices, dehydrated parsley, onion powder, paprika [color], turmeric [color], extractive of paprika [color], spice extractive, enzymes)",
+        "serving_size_oz": "7.93",
+        "calories": "556.99",
+        "fat_g": "48.92",
+        "carbohydrates_g": "20.80",
+        "protein_g": "16.07"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Red Skin Potato Salad",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Red skin potato salad (red potatoes, mayonnaise [soybean oil, water, egg yolks, vinegar, salt], onion, water, vinegar, salt, modified corn starch, sugar, black pepper, dehydrated parsley, potassium sorbate, sodium benzoate, xanthan gum)",
+        "serving_size_oz": "100 g",
+        "calories": "185.71",
+        "fat_g": "12.86",
+        "carbohydrates_g": "15.71",
+        "protein_g": "2.14"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Traditional Hummus",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "sesame"
+        ],
+        "ingredients": "Traditional hummus (cooked chickpeas, water, sesame tahini, olive oil. contains 2% or less of lemon juice, salt, garlic puree [garlic, citric acid, ascorbic acid], spices. per manufacturer, may contain soy)",
+        "serving_size_oz": "100 g",
+        "calories": "249.99",
+        "fat_g": "16.07",
+        "carbohydrates_g": "17.86",
+        "protein_g": "7.14"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Egg Salad",
+        "description": "Hard boiled cage-free eggs with mustard, relish, and mayonnaise",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "egg",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Whole peeled hard boiled eggs (cage-free egg), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), Sweet Green Pickle Relish (pickles, high fructose corn syrup, corn syrup, distilled vinegar, salt. Contains less than 2% of xanthan gum, spices, sodium benzoate, natural flavor, dehydrated red pepper, turmeric, polysorbate 80), Yellow Mustard (distilled vinegar, water, mustard seed, salt, turmeric, paprika, spice, natural flavor, garlic powder), Iodized Granulated Salt (salt, sodium silicoaluminate, dextrose, potassium iodine, sodium bicarbonate), Shaker Ground Black Pepper",
+        "serving_size_oz": "100 g",
+        "calories": "287.5",
+        "fat_g": "25.76",
+        "carbohydrates_g": "1.58",
+        "protein_g": "11.3"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Tuna Salad",
+        "description": "Tuna with celery, onion, relish, and mayonnaise.",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "egg",
+            "fish",
+            "soybean oil",
+            "alcohol",
+            "vinegar"
+        ],
+        "ingredients": "Precooked wild ahi yellowfin tuna (albacore tuna, water, salt), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), 1/4in Diced Celery, Sweet Green Pickle Relish (pickles, high fructose corn syrup, corn syrup, distilled vinegar, salt. Contains less than 2% of xanthan gum, spices, sodium benzoate, natural flavor, dehydrated red pepper, turmeric, polysorbate 80), 1/4in Diced Yellow Onions, Dijon Mustard (distilled white vinegar, mustard seed, water, salt, white wine, citric acid, tartaric acid, fruit pectin, sugar, spices), Bottled Lemon Juice, Ground White Pepper",
+        "serving_size_oz": "100 g",
+        "calories": "266.2",
+        "fat_g": "19.9",
+        "carbohydrates_g": "1.69",
+        "protein_g": "18.73"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Seafood Salad",
+        "description": "Shrimp with imitation crab, celery, and mayonnaise",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "soy",
+            "egg",
+            "fish",
+            "shellfish",
+            "soybean oil",
+            "alcohol",
+            "vinegar"
+        ],
+        "ingredients": "Frozen imitation crab flakes (alaska pollock, water, corn starch, potato starch, egg whites, sugar, sorbitol, mirin wine [sake, sugar, salt, water, yeast extract]. contains 2% or less of snow crab meat, natural and artificial crab flavors [swimming crab, maltodextrin, disodium guanylate, disodium inosinate], salt, soy protein isolate, soybean oil, carrageenan, sodium tripolyphosphate, tetrasodium pyrophosphate, carmine, paprika oleoresin), 150/200 Frozen Cooked P&D Shrimp (shrimp, water, salt, sodium tripolyphosphate), Heavy Duty Mayonnaise (soybean oil, water, corn syrup, egg yolks, distilled vinegar. Contains less than 2% of salt, mustard seed, calcium disodium EDTA), 1/4in Diced Celery, Bottled Lemon Juice",
+        "serving_size_oz": "100 g",
+        "calories": "204.81",
+        "fat_g": "16.99",
+        "carbohydrates_g": "6.73",
+        "protein_g": "6.24"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Tofu",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy"
+        ],
+        "ingredients": "Firm tofu",
+        "serving_size_oz": "100 g",
+        "calories": "144.12",
+        "fat_g": "8.72",
+        "carbohydrates_g": "2.78",
+        "protein_g": "17.27"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Deli Bar",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "",
+        "serving_size_oz": "N/A",
+        "calories": "N/A",
+        "fat_g": "N/A",
+        "carbohydrates_g": "N/A",
+        "protein_g": "N/A"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced White Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced white bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, yeast, sugar, contains 2% or less of each of the following salt, soybean oil, yeast nutrient [ammonium sulfate], dough conditioners [sodium stearoyl lactylate, ascorbic acid, monocalcium phosphate], extract of malted barley, dextrose, calcium propionate [mold inhibitor], enzymes)",
+        "serving_size_oz": "1",
+        "calories": "94.52",
+        "fat_g": "0.94",
+        "carbohydrates_g": "17.97",
+        "protein_g": "2.83"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Wheat Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced wheat bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, whole wheat flour, yeast, sugar. contains 2% or less of salt, vegetable oil [canola and/or soy], yeast nutrient [ammonium sulfate], dough conditioners [sodium stearoyl lactylate, ascorbic acid, monocalcium phosphate], caramel color, extract of malted barley, dextrose, calcium propionate, calcium sulfate, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "70.87",
+        "fat_g": "0.89",
+        "carbohydrates_g": "13.29",
+        "protein_g": "1.77"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sourdough Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "soybean oil"
+        ],
+        "ingredients": "Sliced sourdough bread (unbleached enriched flour [wheat flour, malted barley flour, niacin, iron, thiamin mononitrate, riboflavin, folic acid], water, yeast, wheat gluten. contains 2% or less of acetic acid, lactic acid, fumaric acid, soybean oil, high fructose corn syrup, sugar, salt, calcium propionate and potassium sorbate, datem, wheat flour, calcium sulfate, ascorbic acid, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "76.06",
+        "fat_g": "0.69",
+        "carbohydrates_g": "14.52",
+        "protein_g": "2.77"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Nine Grain Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "dairy",
+            "soybean oil",
+            "vinegar"
+        ],
+        "ingredients": "Sliced nine grain bread (enriched unbleached wheat flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin and folic acid], water, granola mix [wheat, oats, triticale, barley, amaranth, rye, wheat germ, flax seeds, sunflower seeds, cornmeal], yeast, sugar, vital wheat gluten, brown sugar. contains 2% or less of vegetable oil [canola and/or soy], raisin paste, sunflower seeds, cultured wheat flour, distilled vinegar, xanthan gum, salt, ascorbic acid, calcium sulfate, enzymes, nonfat dry milk, soy flour)",
+        "serving_size_oz": "1",
+        "calories": "72.52",
+        "fat_g": "0.99",
+        "carbohydrates_g": "13.85",
+        "protein_g": "3.30"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Multigrain Bread",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan",
+            "halal"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten"
+        ],
+        "ingredients": "Sliced multigrain bread (water, enriched unbleached flour [wheat flour, malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid], whole wheat flour, nine grain mix [blended wheat, barley, corn, millet, soybeans, rye, oats, rice, and flaxseed], sugar, flaxseed. contains 2% or less of oats, molasses, extra virgin olive oil, canola oil, sea salt, millet seeds, sunflower seeds, yeast, enzymes, ascorbic acid, caramel color)",
+        "serving_size_oz": "1",
+        "calories": "80.00",
+        "fat_g": "1.25",
+        "carbohydrates_g": "15.00",
+        "protein_g": "2.50"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Muenster Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced muenster cheese (cultured pasteurized milk, salt, annatto, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "101.25",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.00",
+        "protein_g": "7.09"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Monterey Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced monterey jack cheese (pasteurized milk, cheese cultures, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "107.99",
+        "fat_g": "8.10",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Swiss Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "Presliced deli swiss cheese (pasteurized part-skim milk, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "108.01",
+        "fat_g": "9.45",
+        "carbohydrates_g": "0.00",
+        "protein_g": "8.10"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Pepper Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": ".5oz presliced pepper jack cheese (pasteurized milk, jalapeno peppers, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "101.21",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.01",
+        "protein_g": "7.09"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Cheddar Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "3/4oz sliced cheddar cheese (pasteurized milk, cheese cultures, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "107.99",
+        "fat_g": "9.45",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Provolone Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": "3/4oz presliced provolone cheese (cultured pasteurized milk, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "94.40",
+        "fat_g": "8.10",
+        "carbohydrates_g": "0.00",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Monterey Pepper Jack Cheese",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "ingredients": ".75oz presliced monterey pepper jack cheese (pasteurized milk, red and green jalapeno peppers, cheese culture, salt, enzymes)",
+        "serving_size_oz": "1",
+        "calories": "108.01",
+        "fat_g": "8.10",
+        "carbohydrates_g": "1.35",
+        "protein_g": "6.75"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Smoked Turkey",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "halal"
+        ],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Presliced deli smoked turkey halal (turkey breast meat, water. contains 2% or less of salt, vinegar, sugar)",
+        "serving_size_oz": "1",
+        "calories": "27.17",
+        "fat_g": "0.27",
+        "carbohydrates_g": "0.00",
+        "protein_g": "5.45"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Smoked Ham",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Presliced deli smoked ham (ham. cured with water, salt, sugar, dextrose, sodium phosphates, sodium erythorbate, sodium nitrite)",
+        "serving_size_oz": "1",
+        "calories": "30.37",
+        "fat_g": "1.01",
+        "carbohydrates_g": "0.51",
+        "protein_g": "4.56"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Roast Beef",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [
+            "vinegar"
+        ],
+        "ingredients": "Bottom round sliced roast beef (beef, water, vinegar, salt, natural flavorings, sodium phosphate. rubbed with salt, natural flavorings, caramel color)",
+        "serving_size_oz": "1",
+        "calories": "38.92",
+        "fat_g": "1.11",
+        "carbohydrates_g": "1.67",
+        "protein_g": "6.11"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Genoa Salami",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sliced genoa salami (pork, beef, salt. contains 2% or less of dextrose, water, natural spices, sodium ascorbate, lactic acid starter culture, sodium nitrite, garlic powder, bha, bht, citric acid)",
+        "serving_size_oz": "1",
+        "calories": "136.47",
+        "fat_g": "11.70",
+        "carbohydrates_g": "0.00",
+        "protein_g": "7.80"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Fresh Inspirations",
+        "name": "Sliced Salami",
+        "description": "",
+        "feature": "",
+        "diets": [],
+        "allergens": [],
+        "ingredients": "Sliced pastrami (beef, smoke flavoring, caramel color, spices, salt, sugar. cured with water, salt, sugar, sodium phosphates, sodium erythorbate, sodium nitrite, flavoring)",
+        "serving_size_oz": "1",
+        "calories": "35.44",
+        "fat_g": "2.02",
+        "carbohydrates_g": "0.00",
+        "protein_g": "4.56"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Tres Leches Cake",
+        "description": "Tres Leches Cake.",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "alcohol",
+            "soy lecithin"
+        ],
+        "ingredients": "Frozen tres leches cake (sugar, enriched flour bleached [wheat flour, niacin, iron, thiamin mononitrate, riboflavin, folic acid], palm oil, egg white, egg yolk with sodium silicoaluminate, nonfat milk, leavening [baking soda, sodium aluminum phosphate, monocalcium phosphate], dextrose, modified tapioca starch, salt, propylene glycol, mono- and diesters of fatty acids, sorbitan monostearate, tetrasodium pyrophosphate, xanthan gum, cellulose gum, artificial flavor, egg, water, condensed milk [whole milk, sugar, whipping cream], icing [water, hydrogenated palm kernel oil, sugar, corn syrup, contains less than 2% of polysorbate 60, artificial flavor, carbohydrate gum, salt, sodium stearoyl lactylate, sorbitan monostearate, sodium citrate, soy lecithin, xanthan gum], milk [sugar, cream, skim milk, corn syrup, whey protein concentrate], contains less than 2% of water, sweetened condensed milk [milk, sugar, skim milk], salt, mono- and diglycerides, cellulose gum, high fructose corn syrup, natural flavor, dextrose, sodium pyrophosphate, natural and artificial flavor, carrageenan, sodium bicarbonate, disodium phosphate, colored with [caramel color, annatto], vanilla extract)",
+        "serving_size_oz": "1.83",
+        "calories": "143.19",
+        "fat_g": "6.65",
+        "carbohydrates_g": "16.96",
+        "protein_g": "3.33"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Strawberry Shortcake",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian",
+            "halal"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg"
+        ],
+        "ingredients": "Frozen strawberry shortcake (whipping cream [cream, milk, cellulose gel, carrageenan, cellulose gum], sweetened strawberries [strawberries, sugar], sugar, water, enriched bleached wheat flour [wheat flour, niacin, iron, thiamin, riboflavin, folic acid], eggs, confectioner's sugar [sugar, corn starch], canola oil, modified corn starch, nonfat dry milk, baking powder [sodium acid pyrophosphate, sodium bicarbonate, corn starch, monocalcium phosphate, calcium sulfate], modified tapioca starch, alginate blend [sodium alginate, sugar, sodium hexametaphosphate, calcium hydrogen phosphate], salt, natural flavors, concentrated lemon juice, alginate blend [tetrasodium diphosphate, sodium alginate], xanthan gum. per manufacturer, may contain peanuts, tree nuts, and soy)",
+        "serving_size_oz": "3.85",
+        "calories": "306.13",
+        "fat_g": "15.97",
+        "carbohydrates_g": "37.27",
+        "protein_g": "2.66"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Dark Chocolate Cranberry Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "alcohol"
+        ],
+        "ingredients": "Dark chocolate cranberry cookie (unbleached wheat flour, pure cane sugars, guittard bittersweet chocolate [fair trade cocoa beans, sugar, sunflower lecithin, pure vanilla], dried cranberries, butter [made from milk], eggs [pasteurized, may contain citric acid], grape juice, rice dextrins, pure vanilla, baking soda, sea salt. per manufacturer, this product is made in a facility that uses peanuts, tree nuts, milk, and soy)",
+        "serving_size_oz": "2",
+        "calories": "233.03",
+        "fat_g": "8.95",
+        "carbohydrates_g": "38.79",
+        "protein_g": "2.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Double Chocolate Chip Mint Condition Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegetarian"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "dairy",
+            "egg",
+            "alcohol"
+        ],
+        "ingredients": "Double chocolate chip mint condition cookie (pure cane sugars, unbleached wheat flour, green mint chips [sugar, palm kernel and palm oils, whey, nonfat milk, added color, sunflower lecithin, natural flavor and vanilla], salt, natural flavor], butter [made from milk], palm oil [rspo-certified palm oil], eggs [pasteurized, may contain citric acid], cocoa powder [processed with potassium carbonate], grape juice, rice dextrins, guittard chocolate syrup [fructose, water, cocoa, chocolate, pure vanilla, lactic acid, potassium sorbate, a preservative], pure vanilla, sea salt, baking soda)",
+        "serving_size_oz": "2",
+        "calories": "242.67",
+        "fat_g": "11.94",
+        "carbohydrates_g": "33.82",
+        "protein_g": "2.98"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Lemon Drop Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "wheat",
+            "gluten",
+            "alcohol"
+        ],
+        "ingredients": "Vegan lemon drop cookie (unbleached wheat flour, organic evaporated cane sugar, sustainable rspo palm oil shortening, pure lemon extract, grape juice, rice dextrin, sea salt, baking powder)",
+        "serving_size_oz": "2",
+        "calories": "155.92",
+        "fat_g": "9.95",
+        "carbohydrates_g": "36.80",
+        "protein_g": "1.99"
+    },
+    {
+        "date": "2025-09-06",
+        "dining_hall": "tercero",
+        "meal": "dinner",
+        "platform": "Harvest Bakery",
+        "name": "Chocolate Chip Cookie",
+        "description": "",
+        "feature": "",
+        "diets": [
+            "vegan"
+        ],
+        "allergens": [
+            "soy",
+            "wheat",
+            "gluten",
+            "alcohol",
+            "soy lecithin"
+        ],
+        "ingredients": "Vegan chocolate chip cookie (vegan chocolate chips [organic cane sugar, unsweetened chocolate, cocoa butter, soy lecithin, vanilla bean seeds], unbleached wheat flour, organic evaporated cane sugar, sustainable rspo palm oil shortening, vegan molasses, grape juice, rice dextrins, sea salt, pure vanilla, baking soda. per manufacturer, this product is made in a facility that uses peanuts, tree nuts, milk, and soy)",
+        "serving_size_oz": "2",
+        "calories": "188.81",
+        "fat_g": "10.94",
+        "carbohydrates_g": "37.80",
+        "protein_g": "2.29"
+    }
+]

@@ -95,7 +95,14 @@ def parse_nutrition_value(value: str, key: str) -> Any:
     elif key == "Contains":
         if value.upper() == "NO MAJOR ALLERGENS":
             return []
-        return [a.strip().lower() for a in value.split(",") if a.strip()]
+        allergens = []
+        for a in value.split(","):
+            if "/" in a:
+                a = [_.strip().lower() for _ in a.split("/") if _.strip()]
+                allergens.extend(a)
+            elif a.strip():
+                allergens.append(a.strip().lower())
+        return allergens
     return value
 
 def extract_nutrition_info(nutrition_ul: Any) -> Dict[str, Any]:
