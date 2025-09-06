@@ -1,6 +1,6 @@
 import asyncio
 import aiohttp
-from config import *
+import database as db
 from random import randint
 from typing import Optional
 from fastapi import FastAPI
@@ -31,12 +31,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class MenuItemsRequest(BaseModel):
-    date: str
-    dining_hall: str
-    meal: str
-    diets: Optional[list[str]] = []
-    allergens: Optional[list[str]] = []
+@app.get("/menu_items/all")
+async def get_all_menu_items():
+    menu_items = db.get_all_menu_items()
+    dates = [item['date'] for item in menu_items]
+    from_date = min(dates)
+    to_date = max(dates)
+    return {
+        "menu_items": menu_items,
+        "from_date": from_date,
+        "to_date": to_date,
+        "success": True
+    }
+
 
 class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences

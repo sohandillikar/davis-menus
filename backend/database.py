@@ -128,6 +128,32 @@ def insert_json_menu_items(menu_items: list[dict]):
         cursor.close()
         conn.close()
 
+def get_all_menu_items():
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("SELECT * FROM menu_items")
+        
+        rows = cursor.fetchall()
+        col_names = cursor.description
+        
+        menu_items = []
+        
+        for i in range(len(rows)):
+            menu_item = {}
+            for j in range(len(col_names)):
+                menu_item[col_names[j][0]] = rows[i][j]
+            menu_items.append(menu_item)
+        
+        return menu_items
+    
+    except Exception as e:
+        print(f"Error getting all menu items: {e}")
+        conn.rollback()
+    finally:
+        cursor.close()
+        conn.close()
+
 def main():
     # Create tables if they don't exist
     for table_name in ["menu_items"]:
