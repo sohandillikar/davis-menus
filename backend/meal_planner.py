@@ -1,7 +1,9 @@
 import os
 import json
 import pandas as pd
+import database as db
 from openai import OpenAI
+from typing import Literal
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -10,7 +12,7 @@ load_dotenv()
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY").strip())
 
 class MealExplanation(BaseModel):
-    meal: str
+    meal: Literal["breakfast", "lunch", "dinner"]
     explanation: str
 
 class MealExplanations(BaseModel):
@@ -87,18 +89,10 @@ class MealPlanner:
         "naan", "pita", "sourdough", "toast", "muffin", "waffle", "pancake", "cereal"
     ] + WHOLE_GRAINS
 
-    @staticmethod
-    def contains_allergen(item, exclude_allergens):
-        item_allergens = ', '.join(item['allergens'])
-        for allergen in exclude_allergens:
-            if item_allergens.find(allergen) != -1:
-                return True
-        return False
-
     @classmethod
     def is_food_type(cls, menu_item, food_group):
         return (
-            any(food in menu_item['item_name'].lower() for food in food_group) or
+            any(food in menu_item['name'].lower() for food in food_group) or
             any(food in menu_item['description'].lower() for food in food_group)
         )
 
@@ -123,34 +117,21 @@ class MealPlanner:
         self.healthy_items_df = self.filter_healthy_items()
 
     def fetch_menu_items(self):
-        filtered_menu_items = {}
-
-        for meal in self.meals:
-            filtered_menu_items[meal] = []
-            meal_items = supabase_client.table('menu_items') \
-                .select('*') \
-                .eq('date', self.date) \
-                .eq('meal', meal) \
-                .eq('dining_hall', self.meals[meal]) \
-                .contains('diets', json.dumps(self.diets)) \
-                .not_.in_('calories', ['N/A', '0']) \
-                .not_.in_('protein_g', ['N/A', '0']) \
-                .execute().data
-
-            # Filter out items that contain user's allergens
-            for item in meal_items:
-                if not self.contains_allergen(item, self.allergens):
-                    filtered_menu_items[meal].append(item)
-
-        return filtered_menu_items
+        meals_str = " OR ".join([f"(meal = '{meal}' AND dining_hall = '{dining_hall}')" for meal, dining_hall in self.meals.items()])
+        query = f""" WHERE date = CURRENT_DATE
+            AND ({meals_str})
+            AND calories NOT IN ('N/A', '0') AND calories IS NOT NULL
+            AND protein_g NOT IN ('N/A', '0') AND protein_g IS NOT NULL
+        """
+        if len(self.diets) > 0:
+            diets_str = str(self.diets).replace("'",'"')
+            query += f" AND diets @> '{diets_str}'::jsonb"
+        if len(self.allergens) > 0:
+            query += f" AND (allergens IS NULL OR NOT (allergens ?| ARRAY{str(self.allergens)}))"
+        return db.get_menu_items(options=query)
 
     def menu_items_to_df(self):
-        flattened_menu_items = []
-        
-        for meal in self.menu_items:
-            flattened_menu_items.extend(self.menu_items[meal])
-        
-        df = pd.DataFrame(flattened_menu_items)
+        df = pd.DataFrame(self.menu_items)
         numeric_columns = ['calories', 'protein_g', 'fat_g', 'carbohydrates_g']
 
         for col in numeric_columns:
@@ -225,12 +206,11 @@ class MealPlanner:
         prompt = 'Explain why each meal is the healthiest possible option in less than 200 characters.\n'
 
         for meal, items in meal_plan.items():
-            meal_str = ', '.join([item['item']['item_name'] for item in items['items']])
+            meal_str = ', '.join([item['item']['name'] for item in items['items']])
             meal_str = f'{meal.title()}: {meal_str}'
             prompt += meal_str + '\n'
 
         response = openai_client.responses.parse(model="gpt-4.1-mini", input=prompt, text_format=MealExplanations)
-
         return response.output_parsed.explanations
 
     def plan_meal(self, meal, calorie_goal, protein_goal, max_repeated_items=3):
