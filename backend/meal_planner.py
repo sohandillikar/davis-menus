@@ -1,7 +1,13 @@
+import os
 import json
 import pandas as pd
-from config import *
+from openai import OpenAI
 from pydantic import BaseModel
+from dotenv import load_dotenv
+
+load_dotenv()
+
+openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY").strip())
 
 class MealExplanation(BaseModel):
     meal: str
