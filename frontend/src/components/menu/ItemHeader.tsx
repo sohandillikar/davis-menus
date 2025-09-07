@@ -1,6 +1,6 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { LikeButton } from "./LikeButton";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 
 interface ItemHeaderProps {
     item: MenuItem;
@@ -23,11 +23,11 @@ export function ItemHeader({ item, expanded, showExtraMetadata, showLikeButton }
         <div className="flex items-start justify-between">
             <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-foreground text-lg leading-tight">
-                {item.data.item_name}
+                {item.name}
                 </h3>
                 {showExtraMetadata && (
                     <div className="capitalize text-xs text-muted-foreground mt-1 truncate">
-                        {formatDate(item.data.date)} • {item.data.meal} • {item.data.dining_hall}
+                        {formatDate(item.date)} • {item.meal} • {item.dining_hall}
                     </div>
                 )}
             </div>

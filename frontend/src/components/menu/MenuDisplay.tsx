@@ -1,5 +1,5 @@
 import { MenuItemCard } from "./MenuItemCard";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 import { NoMenuAvailable } from "./NoMenuAvailable";
 
 interface MenuDisplayProps {
@@ -11,7 +11,7 @@ interface MenuDisplayProps {
 export function MenuDisplay({ items, diningHall, meal }: MenuDisplayProps) {
   // Group items by platform
   const groupedItems = items.reduce((acc, item: MenuItem) => {
-    const platform = item.data.platform || 'General';
+    const platform = item.platform || 'General';
     if (!acc[platform]) {
       acc[platform] = [];
     }

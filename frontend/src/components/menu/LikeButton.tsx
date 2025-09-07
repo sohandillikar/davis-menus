@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
+import * as utils from "@/lib/utils";
 
 interface LikeButtonProps {
     item: MenuItem;
 }
 
 export function LikeButton({ item }: LikeButtonProps) {
-    const [liked, setLiked] = useState(item.isLiked());
+    const [liked, setLiked] = useState(utils.isFavorite(item));
     const [isAnimating, setIsAnimating] = useState(false);
     const { favorites } = useFavoritesContext();
 
@@ -17,9 +18,9 @@ export function LikeButton({ item }: LikeButtonProps) {
         e.stopPropagation();
 
         if (liked)
-            item.unlike();
+            utils.removeFavorite(item);
         else
-            item.like();
+            utils.addFavorite(item);
 
         setLiked(!liked);
         setIsAnimating(true);
@@ -27,7 +28,7 @@ export function LikeButton({ item }: LikeButtonProps) {
     };
 
     useEffect(() => {
-        setLiked(item.isLiked());
+        setLiked(utils.isFavorite(item));
     }, [favorites]);
     // ^ This useEffect should run every time favorites changes
 

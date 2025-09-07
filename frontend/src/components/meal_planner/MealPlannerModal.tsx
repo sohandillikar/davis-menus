@@ -7,7 +7,7 @@ import { Step3 } from "./Step3";
 import { NavigationButtons } from "./NavigationButtons";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { ProgressBar } from "./ProgressBar";
-import { MenuItemData } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 import { MealPlanDisplay } from "./MealPlanDisplay";
 import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
 import { getMealPlan } from "@/lib/utils";
@@ -21,7 +21,7 @@ export interface MealPreferences {
 }
 
 export interface SelectedItem {
-  item: MenuItemData;
+  item: MenuItem;
   quantity: number;
 }
 

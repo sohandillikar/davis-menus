@@ -1,7 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Heart } from "lucide-react";
 import { MenuItemCard } from "@/components/menu/MenuItemCard";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 
 interface FillerComponentProps {
     header: string;

@@ -3,27 +3,7 @@ import { Card } from "@/components/ui/card";
 import { ItemHeader } from "./ItemHeader";
 import { NutritionBadges } from "./NutritionBadges";
 import { ExpandedDetails } from "./ExpandedDetails";
-import { MenuItem } from "@/models/MenuItem";
-
-export interface MenuItemData {
-  id: number;
-  created_at: string;
-  date: string;
-  dining_hall: string;
-  meal: string;
-  platform: string;
-  item_name: string;
-  description: string;
-  feature: string;
-  serving_size_oz: string;
-  calories: string;
-  fat_g: string;
-  carbohydrates_g: string;
-  protein_g: string;
-  allergens: string[];
-  diets: string[];
-  ingredients: string;
-}
+import MenuItem from "@/types/MenuItem";
 
 interface MenuItemCardProps {
   item: MenuItem;

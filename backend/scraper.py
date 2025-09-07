@@ -1,5 +1,5 @@
 import requests
-from config import *
+import database as db
 from pytz import timezone
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
@@ -17,8 +17,6 @@ NUTRITION_KEYS = {
     "Contains": "allergens",
     "Ingredients": "ingredients"
 }
-
-MENU_ITEMS_TABLE = supabase_client.table("menu_items")
 
 # Configure a resilient HTTP session (retries, timeouts, headers)
 def _build_http_session() -> requests.Session:
@@ -97,7 +95,14 @@ def parse_nutrition_value(value: str, key: str) -> Any:
     elif key == "Contains":
         if value.upper() == "NO MAJOR ALLERGENS":
             return []
-        return [a.strip().lower() for a in value.split(",") if a.strip()]
+        allergens = []
+        for a in value.split(","):
+            if "/" in a:
+                a = [_.strip().lower() for _ in a.split("/") if _.strip()]
+                allergens.extend(a)
+            elif a.strip():
+                allergens.append(a.strip().lower())
+        return allergens
     return value
 
 def extract_nutrition_info(nutrition_ul: Any) -> Dict[str, Any]:
@@ -130,7 +135,7 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
     if not span_element:
         return {}
     
-    item_name = span_element.get_text(strip=True)
+    name = span_element.get_text(strip=True)
     
     nutrition_ul = li_element.find("ul", class_="nutrition")
     
@@ -146,7 +151,7 @@ def extract_menu_item(li_element: Any, date: datetime, dining_hall: str,
         "dining_hall": dining_hall,
         "meal": meal_name.lower(),
         "platform": platform,
-        "item_name": item_name,
+        "name": name,
         "description": description,
         "feature": feature,
         "diets": diets,
@@ -211,7 +216,7 @@ def extract_menu_items(html: str, date: datetime, dining_hall: str) -> List[Dict
     
     return menu_items
 
-today = datetime.now(timezone("US/Pacific")).date() # datetime(2025, 8, 4).date()
+today = datetime.now(timezone("US/Pacific")).date() # datetime(2025, 8, 31).date()
 dates_till_saturday = get_dates_till_saturday(today)
 
 week_menu_items = []
@@ -227,17 +232,16 @@ for dining_hall in DINING_HALLS:
 
 # If today is Sunday, clear the menu_items table
 if today.weekday() == 6:
-    response = MENU_ITEMS_TABLE.delete().neq("id", -1).execute()
-    print(f"DELETED {len(response.data)} items from menu_items table")
+    db.clear_table("menu_items")
 else:
     for date in dates_till_saturday:
-        response = MENU_ITEMS_TABLE.delete().eq("date", date.strftime("%Y-%m-%d")).execute()
-        if len(response.data) > 0:
-            print(f"DELETED {len(response.data)} items from menu_items where date was {date.strftime('%Y-%m-%d')}")
+        date_formatted = date.strftime('%Y-%m-%d')
+        rows_deleted = db.execute(f"DELETE FROM menu_items WHERE date='{date_formatted}'", return_type="rowcount")
+        print(f"DELETED {rows_deleted} rows from menu_items where date was {date_formatted}")
+
 
 # Insert all menu items
 if len(week_menu_items) > 0:
-    response = MENU_ITEMS_TABLE.insert(week_menu_items).execute()
-    print(f'INSERTED {len(response.data)} items into menu_items table')
+    db.insert_json_menu_items(week_menu_items)
 else:
     print("NO ITEMS TO INSERT")

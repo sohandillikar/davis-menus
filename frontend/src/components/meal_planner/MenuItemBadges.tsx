@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { SelectedItem } from "./MealPlannerModal";
-import { MenuItemData } from "@/components/menu/MenuItemCard";
 import { ExpandedDetails } from "@/components/menu/ExpandedDetails";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 
 interface MenuItemBadgeProps {
-    item: MenuItemData;
+    item: MenuItem;
     quantity: number;
     expanded: boolean;
     onClick: () => void;
@@ -19,16 +18,16 @@ interface MenuItemBadgesProps {
 function MenuItemBadge({ item, quantity, expanded, onClick }: MenuItemBadgeProps) {
     return (
         <span className="bg-muted px-2 py-1 rounded-md text-sm cursor-pointer hover:bg-muted/80 transition-colors inline-flex items-center gap-1" onClick={onClick}>
-            {item.item_name} {quantity > 1 && `x${quantity}`}
+            {item.name} {quantity > 1 && `x${quantity}`}
             <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? 'rotate-180' : ''}`} />
         </span>
     );
 }
 
 export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
-    const [expandedItem, setExpandedItem] = useState<MenuItemData | null>(null);
+    const [expandedItem, setExpandedItem] = useState<MenuItem | null>(null);
 
-    const toggleExpansion = (item: MenuItemData) => {
+    const toggleExpansion = (item: MenuItem) => {
         setExpandedItem(expandedItem?.id === item.id ? null : item);
     }
 
@@ -47,7 +46,7 @@ export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
             </div>
 
             {/* Expanded content for selected item */}
-            {expandedItem && <ExpandedDetails item={new MenuItem(expandedItem)} nutritionFactsLayout="row" showDiets={true} />}
+            {expandedItem && <ExpandedDetails item={expandedItem} nutritionFactsLayout="row" showDiets={true} />}
         </div>
     );
 }

@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { MealPreferences } from "./MealPlannerModal";
 import { LoadingAnimation } from "./LoadingAnimation";
 import * as utils from "@/lib/utils";
-import * as db from "@/lib/database";
 
 interface Step2Props {
 	preferences: MealPreferences;
@@ -30,8 +29,7 @@ export function Step2({ preferences, setPreferences }: Step2Props) {
 
 	useEffect(() => {
 		const fetchAvailableDiningHalls = async () => {
-			const today = utils.formatDateForDB(new Date());
-			const response = await db.getAvailableDiningHalls(today);
+			const response = await utils.getAvailableDiningHalls(new Date());
 			setAvailableDiningHalls(response);
 			setTimeout(() => setIsLoading(false), 300);
 		}

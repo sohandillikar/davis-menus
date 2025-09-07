@@ -1,11 +1,12 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { MenuItem } from "@/models/MenuItem";
-import * as db from "@/lib/database";
+import MenuItem from "@/types/MenuItem";
+import { API_BASE_URL } from "@/lib/constants";
 
 interface FavoritesContextType {
     favorites: MenuItem[];
     offeredThisWeek: MenuItem[];
     refreshFavorites: () => void;
+    refreshOfferedThisWeek: () => void;
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
@@ -23,22 +24,28 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItem[]>([]);
 
     const refreshFavorites = () => {
-        const currentFavs = JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]");
-        setFavorites(currentFavs.map(item => new MenuItem(item)));
+        setFavorites(JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]"));
+    }
+
+    const refreshOfferedThisWeek = async () => {
+        const response = await fetch(`${API_BASE_URL}/offered_this_week`, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ item_names: favorites.map(favorite => favorite.name) }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch favorites offered this week");
+        }
+
+        const data = await response.json();
+        setOfferedThisWeek(data.menu_items);
     }
 
     useEffect(refreshFavorites, []);
 
-    useEffect(() => {
-        const refreshOfferedThisWeek = async () => {
-            const payload = await db.getOfferedThisWeek(favorites);
-            setOfferedThisWeek(payload);
-        };
-        refreshOfferedThisWeek();
-    }, [favorites]);
-
     return (
-        <FavoritesContext.Provider value={{ favorites, offeredThisWeek, refreshFavorites }}>
+        <FavoritesContext.Provider value={{ favorites, offeredThisWeek, refreshFavorites, refreshOfferedThisWeek }}>
             {children}
         </FavoritesContext.Provider>
     );
