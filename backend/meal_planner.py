@@ -1,5 +1,4 @@
 import os
-import json
 import pandas as pd
 import database as db
 from openai import OpenAI
