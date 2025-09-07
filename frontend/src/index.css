@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AggieMenus Design System - Based on UC Davis dining hall logo
-All colors MUST be HSL.
-*/
+/* AggieMenus Design System - All colors MUST be HSL. */
 
 @layer base {
   :root {
