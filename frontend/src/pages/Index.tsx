@@ -119,7 +119,7 @@ const Index = () => {
       <Footer />
 
       {/* Meal Planner Modal */}
-      {/* <MealPlannerModal /> */}
+      <MealPlannerModal />
     </div>
   );
 };

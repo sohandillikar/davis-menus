@@ -22,7 +22,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "http://10.0.0.158:8080",
+        "http://10.0.0.158:8080", # 919 Drake Dr.
+        "http://10.0.0.57:8080",  # Parkside Apartments
         server_url
     ], # TODO: add production url
     allow_credentials=True,
@@ -39,9 +40,9 @@ async def get_all_menu_items():
     return {
         "menu_items": menu_items,
         "from_date": from_date,
-        "to_date": to_date,
-        "success": True
+        "to_date": to_date
     }
+
 
 class OfferedThisWeekRequest(BaseModel):
     item_names: list[str]
@@ -53,7 +54,20 @@ async def offered_this_week(request: OfferedThisWeekRequest):
         menu_items = db.get_menu_items(options=query)
     else:
         menu_items = []
-    return {"menu_items": menu_items, "success": True}
+    return {"menu_items": menu_items}
+
+
+class AvailableDiningHallsRequest(BaseModel):
+    date: str
+
+@app.post("/get_available_dining_halls")
+async def get_available_dining_halls(request: AvailableDiningHallsRequest):
+    available_dining_halls = {}
+    for meal in ["breakfast", "lunch", "dinner"]:
+        response = db.execute(f"SELECT DISTINCT dining_hall FROM menu_items WHERE date = '{request.date}' AND meal = '{meal}'")
+        available_dining_halls[meal] = [r[0] for r in response]
+    return {"available_dining_halls": available_dining_halls}
+
 
 class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences
@@ -63,11 +77,12 @@ class MealPlanRequest(BaseModel):
 async def get_meal_plan(request: MealPlanRequest):
     meal_planner = MealPlanner(request.date, request.meal_preferences.to_dict())
     meal_plan = meal_planner.plan_meals()
-    return {"meal_plan": meal_plan, "success": True}
+    return {"meal_plan": meal_plan}
+
 
 @app.get("/ping")
 async def ping():
-    return {"message": "pong", "success": True}
+    return {"message": "pong"}
 
 async def ping_to_keep_server_alive():
     async with aiohttp.ClientSession() as session:

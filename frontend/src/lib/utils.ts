@@ -80,6 +80,21 @@ export function removeFavorite(item: MenuItem) {
   localStorage.setItem("aggiemenus.favoriteItems", JSON.stringify(favorites));
 }
 
+export async function getAvailableDiningHalls(date: Date) {
+  const response = await fetch(`${API_BASE_URL}/get_available_dining_halls`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({date: formatDateForDB(date)})
+  });  
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.available_dining_halls;
+}
+
 export async function getMealPlan(mealPreferences: MealPreferences) {
   const response = await fetch(`${API_BASE_URL}/get_meal_plan`, {
     method: 'POST',
