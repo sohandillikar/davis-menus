@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 import { MealPreferences } from "@/components/meal_planner/MealPlannerModal";
 import { API_BASE_URL } from "@/lib/constants";
 
@@ -19,17 +19,16 @@ export function formatDateForDB(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
-export function getWeekBoundaries(date: Date) {
-  const lastSunday = new Date(date);
-  lastSunday.setDate(date.getDate() - date.getDay());
-  lastSunday.setHours(0, 0);
+export async function getMenuItems() {
+  const response = await fetch(`${API_BASE_URL}/menu_items/all`);
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-  const nextSaturday = new Date(date);
-  nextSaturday.setDate(date.getDate() + (6 - date.getDay()));
-  nextSaturday.setHours(23, 59);
-
-  return { lastSunday, nextSaturday };
-};
+  const data = await response.json();
+  return data;
+}
 
 export function filterMenuItems(
   menuItems: MenuItem[],
@@ -41,22 +40,44 @@ export function filterMenuItems(
 ): MenuItem[] {
   // Filter by date, hall, and meal
   menuItems = menuItems.filter(item =>
-    item.data.date === formatDateForDB(selectedDate) &&
-    item.data.dining_hall === selectedHall &&
-    item.data.meal === selectedMeal
+    item.date === formatDateForDB(selectedDate) &&
+    item.dining_hall === selectedHall &&
+    item.meal === selectedMeal
   );
 
   // Filter by diets
   if (selectedDiets.length > 0) {
     menuItems = menuItems.filter(item =>
-      selectedDiets.every(diet => item.data.diets.includes(diet))
+      selectedDiets.every(diet => item.diets.includes(diet))
     );
   }
 
   // Filter by allergens
-  menuItems = menuItems.filter(item => !item.containsAllergens(selectedAllergens));
+  if (selectedAllergens.length > 0) {
+    menuItems = menuItems.filter(item =>
+      !item.allergens.some(allergen => selectedAllergens.includes(allergen))
+    );
+  }
 
   return menuItems;
+}
+
+export function isFavorite(item: MenuItem) {
+  const favorites = JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]");
+  return favorites.some((fav: MenuItem) => fav.name === item.name);
+}
+
+export function addFavorite(item: MenuItem) {
+  if (isFavorite(item)) return;
+  const favorites = JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]");
+  favorites.push(item);
+  localStorage.setItem("aggiemenus.favoriteItems", JSON.stringify(favorites));
+}
+
+export function removeFavorite(item: MenuItem) {
+  let favorites = JSON.parse(localStorage.getItem("aggiemenus.favoriteItems") || "[]");
+  favorites = favorites.filter((fav: MenuItem) => fav.name !== item.name);
+  localStorage.setItem("aggiemenus.favoriteItems", JSON.stringify(favorites));
 }
 
 export async function getMealPlan(mealPreferences: MealPreferences) {
@@ -74,6 +95,5 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   }
 
   const data = await response.json();
-  
   return data.meal_plan;
 }

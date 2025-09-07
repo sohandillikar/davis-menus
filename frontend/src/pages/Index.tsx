@@ -6,10 +6,9 @@ import { TabSelector } from "@/components/TabSelector";
 import { FilterControls } from "@/components/filters/FilterControls";
 import { MenuDisplay } from "@/components/menu/MenuDisplay";
 import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
-import { MenuItem } from "@/models/MenuItem";
+import MenuItem from "@/types/MenuItem";
 import { useFavoritesContext } from "@/contexts/FavoritesContext";
 import { DINING_HALLS, MEALS } from "@/lib/constants";
-import * as db from "@/lib/database";
 import * as utils from "@/lib/utils";
 
 const Index = () => {
@@ -19,7 +18,7 @@ const Index = () => {
   const [selectedDiets, setSelectedDiets] = useState<string[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
-  const [weekBoundaries, setWeekBoundaries] = useState({lastSunday: new Date(), nextSaturday: new Date()});
+  const [weekBoundaries, setWeekBoundaries] = useState({fromDate: new Date(), toDate: new Date()});
   
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItem[]>([]);
@@ -28,19 +27,19 @@ const Index = () => {
   const { refreshFavorites } = useFavoritesContext();
 
   useEffect(() => {
-    setWeekBoundaries(utils.getWeekBoundaries(selectedDate));
-  }, []);
-
-  useEffect(() => {
     const fetchMenuItems = async () => {
-      const payload = await db.getWeekMenuItems(weekBoundaries.lastSunday, weekBoundaries.nextSaturday);
-      setMenuItems(payload);
+      const payload = await utils.getMenuItems();
+      setWeekBoundaries({
+        fromDate: new Date(payload.from_date + "T00:00:00"),
+        toDate: new Date(payload.to_date + "T00:00:00")
+      });
+      setMenuItems(payload.menu_items);
       setLoadingMenuItems(false);
     };
 
     setLoadingMenuItems(true);
     fetchMenuItems();
-  }, [weekBoundaries]);
+  }, []);
 
   useEffect(() => {
     setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
@@ -57,8 +56,8 @@ const Index = () => {
         {/* Date Picker */}
         <div className="animate-fade-in">
           <DayPicker
-            firstDate={weekBoundaries.lastSunday}
-            lastDate={weekBoundaries.nextSaturday}
+            firstDate={weekBoundaries.fromDate}
+            lastDate={weekBoundaries.toDate}
             selectedDate={selectedDate}
             onDateChange={setSelectedDate}
           />
@@ -120,7 +119,7 @@ const Index = () => {
       <Footer />
 
       {/* Meal Planner Modal */}
-      <MealPlannerModal />
+      {/* <MealPlannerModal /> */}
     </div>
   );
 };

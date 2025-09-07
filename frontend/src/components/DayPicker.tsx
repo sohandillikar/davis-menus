@@ -21,6 +21,7 @@ export function DayPicker({ firstDate, lastDate, selectedDate, onDateChange }: D
   const changeDate = (days: number) => {
     const newDate = new Date(selectedDate);
     newDate.setDate(newDate.getDate() + days);
+    newDate.setHours(0, 0, 0, 0);
     onDateChange(newDate);
   };
 

@@ -128,11 +128,11 @@ def insert_json_menu_items(menu_items: list[dict]):
         cursor.close()
         conn.close()
 
-def get_all_menu_items():
+def get_menu_items(options: str = ""):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("SELECT * FROM menu_items")
+        cursor.execute(f"SELECT * FROM menu_items {options}")
         
         rows = cursor.fetchall()
         col_names = cursor.description

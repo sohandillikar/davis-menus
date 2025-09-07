@@ -19,7 +19,7 @@ interface MenuItemBadgesProps {
 function MenuItemBadge({ item, quantity, expanded, onClick }: MenuItemBadgeProps) {
     return (
         <span className="bg-muted px-2 py-1 rounded-md text-sm cursor-pointer hover:bg-muted/80 transition-colors inline-flex items-center gap-1" onClick={onClick}>
-            {item.item_name} {quantity > 1 && `x${quantity}`}
+            {item.name} {quantity > 1 && `x${quantity}`}
             <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? 'rotate-180' : ''}`} />
         </span>
     );

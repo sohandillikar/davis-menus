@@ -2,7 +2,6 @@ import asyncio
 import aiohttp
 import database as db
 from random import randint
-from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
@@ -33,7 +32,7 @@ app.add_middleware(
 
 @app.get("/menu_items/all")
 async def get_all_menu_items():
-    menu_items = db.get_all_menu_items()
+    menu_items = db.get_menu_items()
     dates = [item['date'] for item in menu_items]
     from_date = min(dates)
     to_date = max(dates)
@@ -44,6 +43,17 @@ async def get_all_menu_items():
         "success": True
     }
 
+class OfferedThisWeekRequest(BaseModel):
+    item_names: list[str]
+
+@app.post("/offered_this_week")
+async def offered_this_week(request: OfferedThisWeekRequest):
+    if len(request.item_names) > 0:
+        query = f"WHERE name IN ({str(request.item_names)[1:-1]}) AND date >= CURRENT_DATE"
+        menu_items = db.get_menu_items(options=query)
+    else:
+        menu_items = []
+    return {"menu_items": menu_items, "success": True}
 
 class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences
