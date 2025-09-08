@@ -10,7 +10,7 @@ import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';
 import { NavigationButtons } from './NavigationButtons';
-import { LoadingAnimation } from './LoadingAnimation';
+import { LoadingAnimation } from '../LoadingAnimation';
 import { ProgressBar } from './ProgressBar';
 import MenuItem from '@/types/MenuItem';
 import { MealPlanDisplay } from './MealPlanDisplay';

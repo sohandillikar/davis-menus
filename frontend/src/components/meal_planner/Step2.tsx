@@ -5,7 +5,7 @@ import { SelectContent } from '@/components/ui/select';
 import { Select } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { MealPreferences } from './MealPlannerModal';
-import { LoadingAnimation } from './LoadingAnimation';
+import { LoadingAnimation } from '../LoadingAnimation';
 import * as utils from '@/lib/utils';
 
 interface Step2Props {

@@ -4,6 +4,7 @@ import { Footer } from '@/components/footer/Footer';
 import { DayPicker } from '@/components/DayPicker';
 import { TabSelector } from '@/components/TabSelector';
 import { FilterControls } from '@/components/filters/FilterControls';
+import { LoadingAnimation } from '@/components/LoadingAnimation';
 import { MenuDisplay } from '@/components/menu/MenuDisplay';
 import { MealPlannerModal } from '@/components/meal_planner/MealPlannerModal';
 import MenuItem from '@/types/MenuItem';
@@ -119,10 +120,7 @@ const Index = () => {
         {/* Menu Display */}
         <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
           {loadingMenuItems ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-              <p className="text-muted-foreground">Loading menu items...</p>
-            </div>
+            <LoadingAnimation message="Loading menu items..." submessage="Please wait while I fetch this week's menu items" />
           ) : (
             <MenuDisplay
               items={filteredMenuItems}
