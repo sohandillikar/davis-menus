@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Filter, X } from "lucide-react";
-import { FilterButton } from "./FilterButton";
-import { ActiveFilterPills } from "./ActiveFilterPills";
-import { DIET_OPTIONS, ALLERGEN_OPTIONS } from "@/lib/constants";
+import { Button } from '@/components/ui/button';
+import { Filter, X } from 'lucide-react';
+import { FilterButton } from './FilterButton';
+import { ActiveFilterPills } from './ActiveFilterPills';
+import { DIET_OPTIONS, ALLERGEN_OPTIONS } from '@/lib/constants';
 
 interface FilterControlsProps {
   selectedDiets: string[];
@@ -12,14 +12,13 @@ interface FilterControlsProps {
   totalItems: number;
 }
 
-export function FilterControls({ 
-  selectedDiets, 
-  selectedAllergens, 
-  setSelectedDiets, 
+export function FilterControls({
+  selectedDiets,
+  selectedAllergens,
+  setSelectedDiets,
   setSelectedAllergens,
-  totalItems
+  totalItems,
 }: FilterControlsProps) {
-
   const clearAllFilters = () => {
     setSelectedDiets([]);
     setSelectedAllergens([]);
@@ -35,7 +34,9 @@ export function FilterControls({
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium text-foreground">Filters:</span>
+              <span className="text-sm font-medium text-foreground">
+                Filters:
+              </span>
             </div>
 
             {/* Diets Filter */}
@@ -60,8 +61,8 @@ export function FilterControls({
 
             {/* Clear Filters */}
             {totalFilters > 0 && (
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="sm"
                 onClick={clearAllFilters}
                 className="h-8 px-2 text-muted-foreground hover:text-white"

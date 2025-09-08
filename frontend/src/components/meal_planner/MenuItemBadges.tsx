@@ -1,52 +1,68 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { SelectedItem } from "./MealPlannerModal";
-import { ExpandedDetails } from "@/components/menu/ExpandedDetails";
-import MenuItem from "@/types/MenuItem";
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { SelectedItem } from './MealPlannerModal';
+import { ExpandedDetails } from '@/components/menu/ExpandedDetails';
+import MenuItem from '@/types/MenuItem';
 
 interface MenuItemBadgeProps {
-    item: MenuItem;
-    quantity: number;
-    expanded: boolean;
-    onClick: () => void;
+  item: MenuItem;
+  quantity: number;
+  expanded: boolean;
+  onClick: () => void;
 }
 
 interface MenuItemBadgesProps {
-    mealItemsData: SelectedItem[];
+  mealItemsData: SelectedItem[];
 }
 
-function MenuItemBadge({ item, quantity, expanded, onClick }: MenuItemBadgeProps) {
-    return (
-        <span className="bg-muted px-2 py-1 rounded-md text-sm cursor-pointer hover:bg-muted/80 transition-colors inline-flex items-center gap-1" onClick={onClick}>
-            {item.name} {quantity > 1 && `x${quantity}`}
-            <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? 'rotate-180' : ''}`} />
-        </span>
-    );
+function MenuItemBadge({
+  item,
+  quantity,
+  expanded,
+  onClick,
+}: MenuItemBadgeProps) {
+  return (
+    <span
+      className="bg-muted px-2 py-1 rounded-md text-sm cursor-pointer hover:bg-muted/80 transition-colors inline-flex items-center gap-1"
+      onClick={onClick}
+    >
+      {item.name} {quantity > 1 && `x${quantity}`}
+      <ChevronDown
+        className={`h-3 w-3 transition-transform ${expanded ? 'rotate-180' : ''}`}
+      />
+    </span>
+  );
 }
 
 export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
-    const [expandedItem, setExpandedItem] = useState<MenuItem | null>(null);
+  const [expandedItem, setExpandedItem] = useState<MenuItem | null>(null);
 
-    const toggleExpansion = (item: MenuItem) => {
-        setExpandedItem(expandedItem?.id === item.id ? null : item);
-    }
+  const toggleExpansion = (item: MenuItem) => {
+    setExpandedItem(expandedItem?.id === item.id ? null : item);
+  };
 
-    return (
-        <div className="space-y-3">
-            <div className="flex flex-wrap gap-2">
-                {mealItemsData.map((item, i) =>
-                    <MenuItemBadge
-                    key={i}
-                    item={item.item}
-                    quantity={item.quantity}
-                    expanded={expandedItem?.id === item.item.id}
-                    onClick={() => toggleExpansion(item.item)}
-                    />
-                )}
-            </div>
+  return (
+    <div className="space-y-3">
+      <div className="flex flex-wrap gap-2">
+        {mealItemsData.map((item, i) => (
+          <MenuItemBadge
+            key={i}
+            item={item.item}
+            quantity={item.quantity}
+            expanded={expandedItem?.id === item.item.id}
+            onClick={() => toggleExpansion(item.item)}
+          />
+        ))}
+      </div>
 
-            {/* Expanded content for selected item */}
-            {expandedItem && <ExpandedDetails item={expandedItem} nutritionFactsLayout="row" showDiets={true} />}
-        </div>
-    );
+      {/* Expanded content for selected item */}
+      {expandedItem && (
+        <ExpandedDetails
+          item={expandedItem}
+          nutritionFactsLayout="row"
+          showDiets={true}
+        />
+      )}
+    </div>
+  );
 }

@@ -1,16 +1,21 @@
-import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Utensils } from "lucide-react";
-import { Step1 } from "./Step1";
-import { Step2 } from "./Step2";
-import { Step3 } from "./Step3";
-import { NavigationButtons } from "./NavigationButtons";
-import { LoadingAnimation } from "./LoadingAnimation";
-import { ProgressBar } from "./ProgressBar";
-import MenuItem from "@/types/MenuItem";
-import { MealPlanDisplay } from "./MealPlanDisplay";
-import { useMealPlannerModalContext } from "@/contexts/MealPlannerModalContext";
-import { getMealPlan } from "@/lib/utils";
+import { useState, useEffect } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Utensils } from 'lucide-react';
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { NavigationButtons } from './NavigationButtons';
+import { LoadingAnimation } from './LoadingAnimation';
+import { ProgressBar } from './ProgressBar';
+import MenuItem from '@/types/MenuItem';
+import { MealPlanDisplay } from './MealPlanDisplay';
+import { useMealPlannerModalContext } from '@/contexts/MealPlannerModalContext';
+import { getMealPlan } from '@/lib/utils';
 
 export interface MealPreferences {
   calories: string;
@@ -36,7 +41,13 @@ export function MealPlannerModal() {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [preferences, setPreferences] = useState<MealPreferences>({ calories: "2500", protein: "75", meals: {}, diets: [], allergens: [] });
+  const [preferences, setPreferences] = useState<MealPreferences>({
+    calories: '2500',
+    protein: '75',
+    meals: {},
+    diets: [],
+    allergens: [],
+  });
   const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
   const { isOpen, setIsOpen } = useMealPlannerModalContext();
@@ -49,11 +60,22 @@ export function MealPlannerModal() {
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <Step1 minCalories={minCalories} minProtein={minProtein} preferences={preferences} setPreferences={setPreferences} />;
+        return (
+          <Step1
+            minCalories={minCalories}
+            minProtein={minProtein}
+            preferences={preferences}
+            setPreferences={setPreferences}
+          />
+        );
       case 2:
-        return <Step2 preferences={preferences} setPreferences={setPreferences} />;
+        return (
+          <Step2 preferences={preferences} setPreferences={setPreferences} />
+        );
       case 3:
-        return <Step3 preferences={preferences} setPreferences={setPreferences} />;
+        return (
+          <Step3 preferences={preferences} setPreferences={setPreferences} />
+        );
       case 4:
         return <MealPlanDisplay dayMealPlan={dayMealPlan} />;
     }
@@ -62,11 +84,14 @@ export function MealPlannerModal() {
   useEffect(() => {
     if (currentStep === 4) {
       const fetchMealPlan = async () => {
-        localStorage.setItem("aggiemenus.mealPreferences", JSON.stringify(preferences));
+        localStorage.setItem(
+          'aggiemenus.mealPreferences',
+          JSON.stringify(preferences)
+        );
         const payload = await getMealPlan(preferences);
         setDayMealPlan(payload);
         setIsLoading(false);
-      }
+      };
 
       setIsLoading(true);
       fetchMealPlan();
@@ -75,11 +100,16 @@ export function MealPlannerModal() {
 
   useEffect(() => {
     if (isOpen) {
-      const storedPreferences = localStorage.getItem("aggiemenus.mealPreferences");
+      const storedPreferences = localStorage.getItem(
+        'aggiemenus.mealPreferences'
+      );
       if (storedPreferences) {
         setPreferences(JSON.parse(storedPreferences));
       } else {
-        localStorage.setItem("aggiemenus.mealPreferences", JSON.stringify(preferences));
+        localStorage.setItem(
+          'aggiemenus.mealPreferences',
+          JSON.stringify(preferences)
+        );
       }
     } else {
       handleClose();
@@ -98,7 +128,14 @@ export function MealPlannerModal() {
 
         <ProgressBar currentStep={currentStep} />
 
-        {isLoading ? <LoadingAnimation message="Let me cook..." submessage="Preparing your personalized meal plan" /> : renderStep()}
+        {isLoading ? (
+          <LoadingAnimation
+            message="Let me cook..."
+            submessage="Preparing your personalized meal plan"
+          />
+        ) : (
+          renderStep()
+        )}
 
         <NavigationButtons
           currentStep={currentStep}

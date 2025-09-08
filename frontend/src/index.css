@@ -49,16 +49,20 @@
     --diet-kosher: 221 83% 53%;
     --calorie-badge: 25 95% 53%;
     --protein-badge: 207 44% 49%;
-    
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(207 44% 49%), hsl(207 60% 65%));
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(207 44% 49%),
+      hsl(207 60% 65%)
+    );
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
-    
+
     /* Shadows */
     --shadow-soft: 0 2px 8px hsl(207 44% 49% / 0.1);
     --shadow-medium: 0 4px 16px hsl(207 44% 49% / 0.15);
     --shadow-glow: 0 0 20px hsl(207 60% 65% / 0.3);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);

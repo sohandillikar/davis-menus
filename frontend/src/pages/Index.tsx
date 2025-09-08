@@ -1,25 +1,28 @@
-import { useState, useEffect } from "react";
-import { Header } from "@/components/header/Header";
-import { Footer } from "@/components/footer/Footer";
-import { DayPicker } from "@/components/DayPicker";
-import { TabSelector } from "@/components/TabSelector";
-import { FilterControls } from "@/components/filters/FilterControls";
-import { MenuDisplay } from "@/components/menu/MenuDisplay";
-import { MealPlannerModal } from "@/components/meal_planner/MealPlannerModal";
-import MenuItem from "@/types/MenuItem";
-import { useFavoritesContext } from "@/contexts/FavoritesContext";
-import { DINING_HALLS, MEALS } from "@/lib/constants";
-import * as utils from "@/lib/utils";
+import { useState, useEffect } from 'react';
+import { Header } from '@/components/header/Header';
+import { Footer } from '@/components/footer/Footer';
+import { DayPicker } from '@/components/DayPicker';
+import { TabSelector } from '@/components/TabSelector';
+import { FilterControls } from '@/components/filters/FilterControls';
+import { MenuDisplay } from '@/components/menu/MenuDisplay';
+import { MealPlannerModal } from '@/components/meal_planner/MealPlannerModal';
+import MenuItem from '@/types/MenuItem';
+import { useFavoritesContext } from '@/contexts/FavoritesContext';
+import { DINING_HALLS, MEALS } from '@/lib/constants';
+import * as utils from '@/lib/utils';
 
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedHall, setSelectedHall] = useState("tercero");
-  const [selectedMeal, setSelectedMeal] = useState("breakfast");
+  const [selectedHall, setSelectedHall] = useState('tercero');
+  const [selectedMeal, setSelectedMeal] = useState('breakfast');
   const [selectedDiets, setSelectedDiets] = useState<string[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
-  const [weekBoundaries, setWeekBoundaries] = useState({fromDate: new Date(), toDate: new Date()});
-  
+  const [weekBoundaries, setWeekBoundaries] = useState({
+    fromDate: new Date(),
+    toDate: new Date(),
+  });
+
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItem[]>([]);
   const [loadingMenuItems, setLoadingMenuItems] = useState(true);
@@ -30,8 +33,8 @@ const Index = () => {
     const fetchMenuItems = async () => {
       const payload = await utils.getMenuItems();
       setWeekBoundaries({
-        fromDate: new Date(payload.from_date + "T00:00:00"),
-        toDate: new Date(payload.to_date + "T00:00:00")
+        fromDate: new Date(payload.from_date + 'T00:00:00'),
+        toDate: new Date(payload.to_date + 'T00:00:00'),
       });
       setMenuItems(payload.menu_items);
       setLoadingMenuItems(false);
@@ -42,9 +45,25 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredMenuItems(utils.filterMenuItems(menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens));
+    setFilteredMenuItems(
+      utils.filterMenuItems(
+        menuItems,
+        selectedDate,
+        selectedHall,
+        selectedMeal,
+        selectedDiets,
+        selectedAllergens
+      )
+    );
     refreshFavorites();
-  }, [menuItems, selectedDate, selectedHall, selectedMeal, selectedDiets, selectedAllergens]);
+  }, [
+    menuItems,
+    selectedDate,
+    selectedHall,
+    selectedMeal,
+    selectedDiets,
+    selectedAllergens,
+  ]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,9 +83,7 @@ const Index = () => {
         </div>
 
         {/* Dining Hall Tabs */}
-        <div
-          className="animate-fade-in"
-          style={{ animationDelay: "0.1s" }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
           <TabSelector
             selectedValue={selectedHall}
             onValueChange={setSelectedHall}
@@ -76,9 +93,7 @@ const Index = () => {
         </div>
 
         {/* Meal Tabs */}
-        <div
-          className="animate-fade-in"
-          style={{ animationDelay: "0.2s" }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <TabSelector
             selectedValue={selectedMeal}
             onValueChange={setSelectedMeal}
@@ -88,7 +103,7 @@ const Index = () => {
         </div>
 
         {/* Filter Controls */}
-        <div className="animate-fade-in" style={{ animationDelay: "0.25s" }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.25s' }}>
           <FilterControls
             selectedDiets={selectedDiets}
             selectedAllergens={selectedAllergens}
@@ -99,19 +114,19 @@ const Index = () => {
         </div>
 
         {/* Menu Display */}
-        <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
           {loadingMenuItems ? (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
               <p className="text-muted-foreground">Loading menu items...</p>
             </div>
-          ) :
+          ) : (
             <MenuDisplay
               items={filteredMenuItems}
               diningHall={selectedHall}
               meal={selectedMeal}
             />
-          }
+          )}
         </div>
       </main>
 

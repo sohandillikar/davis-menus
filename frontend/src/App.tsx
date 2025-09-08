@@ -1,9 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import { MealPlannerModalProvider } from "@/contexts/MealPlannerModalContext";
-import { FavoritesProvider } from "@/contexts/FavoritesContext";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import NotFound from './pages/NotFound';
+import { MealPlannerModalProvider } from '@/contexts/MealPlannerModalContext';
+import { FavoritesProvider } from '@/contexts/FavoritesContext';
 
 const queryClient = new QueryClient();
 
@@ -23,6 +23,6 @@ const App = () => {
       </MealPlannerModalProvider>
     </QueryClientProvider>
   );
-}
+};
 
 export default App;
