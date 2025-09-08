@@ -34,7 +34,7 @@ export function MenuItemCard({
             className="p-4 bg-gradient-card border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 cursor-pointer"
             onClick={() => expandable && setExpanded(!expanded)}
           >
-            <div className="space-y-3">
+            <div className="space-y-1">
               <ItemHeader
                 item={item}
                 expanded={expandable ? expanded : null}
