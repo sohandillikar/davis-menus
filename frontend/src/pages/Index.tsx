@@ -120,7 +120,10 @@ const Index = () => {
         {/* Menu Display */}
         <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
           {loadingMenuItems ? (
-            <LoadingAnimation message="Loading menu items..." submessage="Please wait while I fetch this week's menu items" />
+            <LoadingAnimation
+              message="Loading menu items..."
+              submessage="Please wait while I fetch this week's menu items"
+            />
           ) : (
             <MenuDisplay
               items={filteredMenuItems}

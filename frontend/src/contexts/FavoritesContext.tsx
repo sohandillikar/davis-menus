@@ -7,12 +7,11 @@ import {
 } from 'react';
 import MenuItem from '@/types/MenuItem';
 import { API_BASE_URL } from '@/lib/constants';
+import * as utils from '@/lib/utils';
 
 interface FavoritesContextType {
   favorites: MenuItem[];
-  offeredThisWeek: MenuItem[];
   refreshFavorites: () => void;
-  refreshOfferedThisWeek: () => void;
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
@@ -31,42 +30,15 @@ export function useFavoritesContext() {
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<MenuItem[]>([]);
-  const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItem[]>([]);
 
-  const refreshFavorites = () => {
-    setFavorites(
-      JSON.parse(localStorage.getItem('aggiemenus.favoriteItems') || '[]')
-    );
-  };
+  const refreshFavorites = () => setFavorites(utils.getFavorites());
 
-  const refreshOfferedThisWeek = async () => {
-    const response = await fetch(`${API_BASE_URL}/offered_this_week`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        item_names: favorites.map((favorite) => favorite.name),
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch favorites offered this week');
-    }
-
-    const data = await response.json();
-    setOfferedThisWeek(data.menu_items);
-  };
-
-  useEffect(refreshFavorites, []);
+  useEffect(() => {
+    refreshFavorites();
+  }, []);
 
   return (
-    <FavoritesContext.Provider
-      value={{
-        favorites,
-        offeredThisWeek,
-        refreshFavorites,
-        refreshOfferedThisWeek,
-      }}
-    >
+    <FavoritesContext.Provider value={{ favorites, refreshFavorites }}>
       {children}
     </FavoritesContext.Provider>
   );
