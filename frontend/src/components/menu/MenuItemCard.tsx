@@ -19,7 +19,7 @@ export function MenuItemCard({
   display = 'card',
   showExtraMetadata = false,
   showLikeButton = true,
-  nutritionFactsLayout = 'row'
+  nutritionFactsLayout = 'row',
 }: MenuItemCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,18 +33,13 @@ export function MenuItemCard({
             onClick={() => setExpanded(!expanded)}
           >
             <div className="space-y-3">
-              {/* Header */}
               <ItemHeader
                 item={item}
                 expanded={expanded}
                 showExtraMetadata={showExtraMetadata}
                 showLikeButton={showLikeButton}
               />
-    
-              {/* Badges Row */}
               <NutritionBadges item={item} />
-    
-              {/* Expanded Details */}
               {expanded && (
                 <ExpandedDetails
                   item={item}
@@ -68,12 +63,16 @@ export function MenuItemCard({
           </div>
         );
     }
-  }
+  };
 
   return (
     <div>
       {renderComponent(display)}
-      <MenuItemModal item={item} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      <MenuItemModal
+        item={item}
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+      />
     </div>
   );
 }

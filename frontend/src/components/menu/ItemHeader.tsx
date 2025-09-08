@@ -5,14 +5,14 @@ import * as utils from '@/lib/utils';
 
 interface ItemHeaderProps {
   item: MenuItem;
-  expanded: boolean;
+  expanded?: boolean | null;
   showExtraMetadata: boolean;
   showLikeButton: boolean;
 }
 
 export function ItemHeader({
   item,
-  expanded,
+  expanded = null,
   showExtraMetadata,
   showLikeButton,
 }: ItemHeaderProps) {
@@ -30,11 +30,13 @@ export function ItemHeader({
       </div>
       <div className="ml-3 flex-shrink-0 flex items-center gap-2">
         {showLikeButton && <LikeButton item={item} />}
-        {expanded ? (
-          <ChevronUp className="h-5 w-5 text-muted-foreground" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-muted-foreground" />
-        )}
+        {expanded !== null ? (
+          expanded ? (
+            <ChevronUp className="h-5 w-5 text-muted-foreground" />
+          ) : (
+            <ChevronDown className="h-5 w-5 text-muted-foreground" />
+          )
+        ) : null}
       </div>
     </div>
   );
