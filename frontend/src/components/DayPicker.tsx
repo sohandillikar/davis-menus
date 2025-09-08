@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface DayPickerProps {
   firstDate: Date;
@@ -8,13 +8,18 @@ interface DayPickerProps {
   onDateChange: (date: Date) => void;
 }
 
-export function DayPicker({ firstDate, lastDate, selectedDate, onDateChange }: DayPickerProps) {
+export function DayPicker({
+  firstDate,
+  lastDate,
+  selectedDate,
+  onDateChange,
+}: DayPickerProps) {
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
       weekday: 'short',
       month: 'short',
       day: '2-digit',
-      timeZone: 'America/Los_Angeles'
+      timeZone: 'America/Los_Angeles',
     });
   };
 
@@ -36,11 +41,11 @@ export function DayPicker({ firstDate, lastDate, selectedDate, onDateChange }: D
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
-      
+
       <div className="text-lg font-semibold text-foreground min-w-[120px] text-center">
         {formatDate(selectedDate)}
       </div>
-      
+
       <Button
         variant="ghost"
         size="sm"
