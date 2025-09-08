@@ -26,8 +26,8 @@ export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
   } = useFavoritesContext();
 
   useEffect(() => {
+    refreshFavorites();
     if (isFavoritesOpen) {
-      refreshFavorites();
       refreshOfferedThisWeek();
     }
   }, [isFavoritesOpen]);
