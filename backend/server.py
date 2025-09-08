@@ -25,6 +25,7 @@ app.add_middleware(
         "http://10.0.0.158:8080",
         "https://davis-menus.vercel.app",
         "https://preview--aggie-menu-explorer.lovable.app",
+        "https://id-preview--4ea52c37-f0fd-4136-a8d0-5298bcd9c431.lovable.app",
         server_url
     ], # TODO: add production url
     allow_credentials=True,
