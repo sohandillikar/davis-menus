@@ -74,28 +74,43 @@ export function filterMenuItems(
   return menuItems;
 }
 
+export function getFavorites() {
+  return JSON.parse(localStorage.getItem('aggiemenus.favoriteItems') || '[]');
+}
+
 export function isFavorite(item: MenuItem) {
-  const favorites = JSON.parse(
-    localStorage.getItem('aggiemenus.favoriteItems') || '[]'
-  );
+  const favorites = getFavorites();
   return favorites.some((fav: MenuItem) => fav.name === item.name);
 }
 
 export function addFavorite(item: MenuItem) {
   if (isFavorite(item)) return;
-  const favorites = JSON.parse(
-    localStorage.getItem('aggiemenus.favoriteItems') || '[]'
-  );
+  const favorites = getFavorites();
   favorites.push(item);
   localStorage.setItem('aggiemenus.favoriteItems', JSON.stringify(favorites));
 }
 
 export function removeFavorite(item: MenuItem) {
-  let favorites = JSON.parse(
-    localStorage.getItem('aggiemenus.favoriteItems') || '[]'
-  );
+  let favorites = getFavorites();
   favorites = favorites.filter((fav: MenuItem) => fav.name !== item.name);
   localStorage.setItem('aggiemenus.favoriteItems', JSON.stringify(favorites));
+}
+
+export async function getOfferedThisWeek() {
+  const favorites = getFavorites();
+  const favoriteNames = favorites.map((favorite) => favorite.name);
+  const response = await fetch(`${API_BASE_URL}/offered_this_week`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ item_names: favoriteNames }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch favorites offered this week');
+  }
+
+  const data = await response.json();
+  return data.menu_items;
 }
 
 export async function getAvailableDiningHalls(date: Date) {

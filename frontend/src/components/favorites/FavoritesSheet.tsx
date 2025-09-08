@@ -8,9 +8,12 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { LoadingAnimation } from '@/components/LoadingAnimation';
 import { Heart } from 'lucide-react';
 import { FavoritesList } from './FavoritesList';
 import { useFavoritesContext } from '@/contexts/FavoritesContext';
+import MenuItem from '@/types/MenuItem';
+import * as utils from '@/lib/utils';
 
 interface FavoritesSheetProps {
   variant?: 'default' | 'mobile';
@@ -18,18 +21,22 @@ interface FavoritesSheetProps {
 
 export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
-  const {
-    favorites,
-    offeredThisWeek,
-    refreshFavorites,
-    refreshOfferedThisWeek,
-  } = useFavoritesContext();
+  const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItem[]>([]);
+  const [isOfferedThisWeekLoading, setIsOfferedThisWeekLoading] =
+    useState(false);
+  const { favorites, refreshFavorites } = useFavoritesContext();
+
+  const handleTabChange = async (value: string) => {
+    if (value === 'offeredThisWeek') {
+      setIsOfferedThisWeekLoading(true);
+      const payload = await utils.getOfferedThisWeek();
+      setOfferedThisWeek(payload);
+      setIsOfferedThisWeekLoading(false);
+    }
+  };
 
   useEffect(() => {
     refreshFavorites();
-    if (isFavoritesOpen) {
-      refreshOfferedThisWeek();
-    }
   }, [isFavoritesOpen]);
 
   return (
@@ -61,6 +68,7 @@ export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
         <Tabs
           defaultValue="favorites"
           className="mt-6 flex flex-col flex-1 min-h-0"
+          onValueChange={handleTabChange}
         >
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="favorites">Your favorites</TabsTrigger>
@@ -75,13 +83,20 @@ export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
           </TabsContent>
 
           <TabsContent value="offeredThisWeek" className="mt-4 flex-1 min-h-0">
-            <FavoritesList
-              items={offeredThisWeek}
-              hasFavorites={favorites.length > 0}
-              expandable={false}
-              showExtraMetadata={true}
-              showLikeButton={false}
-            />
+            {isOfferedThisWeekLoading ? (
+              <LoadingAnimation
+                message="Gimme a sec..."
+                submessage="Fetching favorites offered this week"
+              />
+            ) : (
+              <FavoritesList
+                items={offeredThisWeek}
+                hasFavorites={favorites.length > 0}
+                expandable={false}
+                showExtraMetadata={true}
+                showLikeButton={false}
+              />
+            )}
           </TabsContent>
         </Tabs>
       </SheetContent>
