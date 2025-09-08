@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Filter, X } from 'lucide-react';
+import { Filter, X, Grid3X3, List } from 'lucide-react';
 import { FilterButton } from './FilterButton';
 import { ActiveFilterPills } from './ActiveFilterPills';
 import { DIET_OPTIONS, ALLERGEN_OPTIONS } from '@/lib/constants';
@@ -9,6 +9,8 @@ interface FilterControlsProps {
   selectedAllergens: string[];
   setSelectedDiets: (diets: string[]) => void;
   setSelectedAllergens: (allergens: string[]) => void;
+  displayView: 'card' | 'compact';
+  setDisplayView: (view: 'card' | 'compact') => void;
   totalItems: number;
 }
 
@@ -17,11 +19,17 @@ export function FilterControls({
   selectedAllergens,
   setSelectedDiets,
   setSelectedAllergens,
+  displayView,
+  setDisplayView,
   totalItems,
 }: FilterControlsProps) {
   const clearAllFilters = () => {
     setSelectedDiets([]);
     setSelectedAllergens([]);
+  };
+
+  const toggleDisplayView = () => {
+    setDisplayView(displayView === 'card' ? 'compact' : 'card');
   };
 
   const totalFilters = selectedDiets.length + selectedAllergens.length;
@@ -91,9 +99,31 @@ export function FilterControls({
           )}
         </div>
       </div>
-      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <span className="font-medium">{totalItems}</span>
-        <span>items</span>
+
+      <div className="flex items-center gap-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={toggleDisplayView}
+          className="h-8 px-3 gap-2"
+        >
+          {displayView === 'card' ? (
+            <>
+              <List className="h-4 w-4" />
+              <span className="hidden sm:inline">Compact View</span>
+            </>
+          ) : (
+            <>
+              <Grid3X3 className="h-4 w-4" />
+              <span className="hidden sm:inline">Card View</span>
+            </>
+          )}
+        </Button>
+
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span className="font-medium">{totalItems}</span>
+          <span>items</span>
+        </div>
       </div>
     </div>
   );
