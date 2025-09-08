@@ -33,7 +33,9 @@ app.add_middleware(
 
 @app.get("/menu_items/all")
 async def get_all_menu_items():
-    menu_items = db.get_menu_items()
+    query = f"""WHERE calories NOT IN ('N/A', '0') AND calories IS NOT NULL
+                AND protein_g NOT IN ('N/A', '0') AND protein_g IS NOT NULL"""
+    menu_items = db.get_menu_items(options=query)
     dates = [item['date'] for item in menu_items]
     from_date = min(dates)
     to_date = max(dates)

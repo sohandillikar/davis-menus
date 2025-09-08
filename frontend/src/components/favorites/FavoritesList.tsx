@@ -13,6 +13,7 @@ interface FillerComponentProps {
 interface FavoritesListProps {
   items: MenuItem[];
   hasFavorites: boolean;
+  expandable?: boolean;
   showExtraMetadata?: boolean;
   showLikeButton?: boolean;
 }
@@ -36,6 +37,7 @@ function FillerComponent({
 export function FavoritesList({
   items,
   hasFavorites,
+  expandable = true,
   showExtraMetadata = false,
   showLikeButton = true,
 }: FavoritesListProps) {
@@ -61,6 +63,7 @@ export function FavoritesList({
             <MenuItemCard
               key={i}
               item={item}
+              expandable={expandable}
               showExtraMetadata={showExtraMetadata}
               showLikeButton={showLikeButton}
               nutritionFactsLayout="grid"

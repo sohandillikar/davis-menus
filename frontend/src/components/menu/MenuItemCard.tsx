@@ -9,6 +9,7 @@ import MenuItem from '@/types/MenuItem';
 interface MenuItemCardProps {
   item: MenuItem;
   display?: 'card' | 'compact';
+  expandable?: boolean;
   showExtraMetadata?: boolean; // Whether to show date, dining hall, and meal
   showLikeButton?: boolean;
   nutritionFactsLayout?: 'row' | 'grid';
@@ -17,6 +18,7 @@ interface MenuItemCardProps {
 export function MenuItemCard({
   item,
   display = 'card',
+  expandable = true,
   showExtraMetadata = false,
   showLikeButton = true,
   nutritionFactsLayout = 'row',
@@ -30,12 +32,12 @@ export function MenuItemCard({
         return (
           <Card
             className="p-4 bg-gradient-card border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 cursor-pointer"
-            onClick={() => setExpanded(!expanded)}
+            onClick={() => expandable && setExpanded(!expanded)}
           >
-            <div className="space-y-3">
+            <div className="space-y-1">
               <ItemHeader
                 item={item}
-                expanded={expanded}
+                expanded={expandable ? expanded : null}
                 showExtraMetadata={showExtraMetadata}
                 showLikeButton={showLikeButton}
               />

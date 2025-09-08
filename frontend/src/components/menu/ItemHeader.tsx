@@ -24,7 +24,8 @@ export function ItemHeader({
         </h3>
         {showExtraMetadata && (
           <div className="capitalize text-xs text-muted-foreground mt-1 truncate">
-            {utils.formatDateFromDB(item.date)} • {item.meal} • {item.dining_hall}
+            {utils.formatDateFromDB(item.date)} • {item.meal} •{' '}
+            {item.dining_hall}
           </div>
         )}
       </div>
