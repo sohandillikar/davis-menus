@@ -78,6 +78,7 @@ export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
             <FavoritesList
               items={offeredThisWeek}
               hasFavorites={favorites.length > 0}
+              expandable={false}
               showExtraMetadata={true}
               showLikeButton={false}
             />
