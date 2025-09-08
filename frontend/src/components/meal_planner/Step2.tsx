@@ -33,7 +33,7 @@ export function Step2({ preferences, setPreferences }: Step2Props) {
     const fetchAvailableDiningHalls = async () => {
       const response = await utils.getAvailableDiningHalls(new Date());
       setAvailableDiningHalls(response);
-      setTimeout(() => setIsLoading(false), 300);
+      setIsLoading(false);
     };
 
     setIsLoading(true);
