@@ -23,6 +23,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:8080",
         "http://10.0.0.158:8080",
+        "https://davis-menus.vercel.app",
         server_url
     ], # TODO: add production url
     allow_credentials=True,
