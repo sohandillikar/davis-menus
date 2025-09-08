@@ -19,6 +19,16 @@ export function formatDateForDB(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+export function formatDateFromDB(date: string): string {
+  const dateObj = new Date(date + 'T00:00:00');
+  return dateObj.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'America/Los_Angeles',
+  });
+}
+
 export async function getMenuItems() {
   const response = await fetch(`${API_BASE_URL}/menu_items/all`);
 

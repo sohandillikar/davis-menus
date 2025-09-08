@@ -25,6 +25,7 @@ const Index = () => {
 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItem[]>([]);
+  const [displayView, setDisplayView] = useState<'card' | 'compact'>('card');
   const [loadingMenuItems, setLoadingMenuItems] = useState(true);
 
   const { refreshFavorites } = useFavoritesContext();
@@ -109,6 +110,8 @@ const Index = () => {
             selectedAllergens={selectedAllergens}
             setSelectedDiets={setSelectedDiets}
             setSelectedAllergens={setSelectedAllergens}
+            displayView={displayView}
+            setDisplayView={setDisplayView}
             totalItems={filteredMenuItems.length}
           />
         </div>
@@ -125,6 +128,7 @@ const Index = () => {
               items={filteredMenuItems}
               diningHall={selectedHall}
               meal={selectedMeal}
+              displayView={displayView}
             />
           )}
         </div>

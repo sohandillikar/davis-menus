@@ -6,9 +6,15 @@ interface MenuDisplayProps {
   items: MenuItem[];
   diningHall: string;
   meal: string;
+  displayView: 'card' | 'compact';
 }
 
-export function MenuDisplay({ items, diningHall, meal }: MenuDisplayProps) {
+export function MenuDisplay({
+  items,
+  diningHall,
+  meal,
+  displayView,
+}: MenuDisplayProps) {
   // Group items by platform
   const groupedItems = items.reduce(
     (acc, item: MenuItem) => {
@@ -45,9 +51,15 @@ export function MenuDisplay({ items, diningHall, meal }: MenuDisplayProps) {
               </div>
 
               {/* Menu Items */}
-              <div className="grid gap-4">
+              <div
+                className={
+                  displayView === 'card'
+                    ? 'grid gap-4'
+                    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'
+                }
+              >
                 {groupedItems[platform].map((item, i) => (
-                  <MenuItemCard key={i} item={item} />
+                  <MenuItemCard key={i} item={item} display={displayView} />
                 ))}
               </div>
             </div>
