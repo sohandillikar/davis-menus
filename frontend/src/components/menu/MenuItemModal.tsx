@@ -14,7 +14,11 @@ export function MenuItemModal({ item, isOpen, setIsOpen }: MenuItemModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-        <ItemHeader item={item} showExtraMetadata={false} showLikeButton={true} />
+        <ItemHeader
+          item={item}
+          showExtraMetadata={false}
+          showLikeButton={true}
+        />
         <NutritionBadges item={item} />
         <ExpandedDetails item={item} />
       </DialogContent>
