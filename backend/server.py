@@ -24,7 +24,7 @@ app.add_middleware(
         "http://localhost:8080",
         "http://10.0.0.158:8080",
         "https://davis-menus.vercel.app",
-        "https://preview--aggie-menu-explorer.lovable.app/",
+        "https://preview--aggie-menu-explorer.lovable.app",
         server_url
     ], # TODO: add production url
     allow_credentials=True,
