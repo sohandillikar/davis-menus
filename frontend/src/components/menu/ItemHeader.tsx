@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { LikeButton } from './LikeButton';
 import MenuItem from '@/types/MenuItem';
+import * as utils from '@/lib/utils';
 
 interface ItemHeaderProps {
   item: MenuItem;
@@ -15,15 +16,6 @@ export function ItemHeader({
   showExtraMetadata,
   showLikeButton,
 }: ItemHeaderProps) {
-  const formatDate = (date: string): string => {
-    const dateObj = new Date(date + 'T00:00:00');
-    return dateObj.toLocaleDateString('en-US', {
-      weekday: 'short',
-      month: 'short',
-      day: '2-digit',
-      timeZone: 'America/Los_Angeles',
-    });
-  };
   return (
     <div className="flex items-start justify-between">
       <div className="flex-1 min-w-0">
@@ -32,7 +24,7 @@ export function ItemHeader({
         </h3>
         {showExtraMetadata && (
           <div className="capitalize text-xs text-muted-foreground mt-1 truncate">
-            {formatDate(item.date)} • {item.meal} • {item.dining_hall}
+            {utils.formatDateFromDB(item.date)} • {item.meal} • {item.dining_hall}
           </div>
         )}
       </div>

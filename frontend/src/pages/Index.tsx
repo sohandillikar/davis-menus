@@ -128,6 +128,7 @@ const Index = () => {
               items={filteredMenuItems}
               diningHall={selectedHall}
               meal={selectedMeal}
+              displayView={displayView}
             />
           )}
         </div>
