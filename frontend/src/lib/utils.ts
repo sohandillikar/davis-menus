@@ -89,7 +89,7 @@ export function removeFavorite(item: MenuItem) {
 }
 
 export async function getAvailableDiningHalls(date: Date) {
-  const response = await fetch(`${API_BASE_URL}/get_available_dining_halls`, {
+  const response = await fetch(`${API_BASE_URL}/available_dining_halls`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ date: formatDateForDB(date) }),
@@ -104,7 +104,7 @@ export async function getAvailableDiningHalls(date: Date) {
 }
 
 export async function getMealPlan(mealPreferences: MealPreferences) {
-  const response = await fetch(`${API_BASE_URL}/get_meal_plan`, {
+  const response = await fetch(`${API_BASE_URL}/meal_plan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

@@ -24,8 +24,6 @@ app.add_middleware(
         "http://localhost:8080",
         "http://10.0.0.158:8080",
         "https://davis-menus.vercel.app",
-        "https://preview--aggie-menu-explorer.lovable.app",
-        "https://id-preview--4ea52c37-f0fd-4136-a8d0-5298bcd9c431.lovable.app",
         server_url
     ], # TODO: add production url
     allow_credentials=True,
@@ -62,8 +60,8 @@ async def offered_this_week(request: OfferedThisWeekRequest):
 class AvailableDiningHallsRequest(BaseModel):
     date: str
 
-@app.post("/get_available_dining_halls")
-async def get_available_dining_halls(request: AvailableDiningHallsRequest):
+@app.post("/available_dining_halls")
+async def available_dining_halls(request: AvailableDiningHallsRequest):
     available_dining_halls = {}
     for meal in ["breakfast", "lunch", "dinner"]:
         response = db.execute(f"SELECT DISTINCT dining_hall FROM menu_items WHERE date = '{request.date}' AND meal = '{meal}'")
@@ -75,8 +73,8 @@ class MealPlanRequest(BaseModel):
     meal_preferences: MealPreferences
     date: str
 
-@app.post("/get_meal_plan")
-async def get_meal_plan(request: MealPlanRequest):
+@app.post("/meal_plan")
+async def meal_plan(request: MealPlanRequest):
     meal_planner = MealPlanner(request.date, request.meal_preferences.to_dict())
     meal_plan = meal_planner.plan_meals()
     return {"meal_plan": meal_plan}
