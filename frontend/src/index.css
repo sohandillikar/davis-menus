@@ -59,9 +59,9 @@
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
 
     /* Shadows */
-    --shadow-soft: 0 2px 8px hsl(207 44% 49% / 0.1);
-    --shadow-medium: 0 4px 16px hsl(207 44% 49% / 0.15);
-    --shadow-glow: 0 0 20px hsl(207 60% 65% / 0.3);
+    --shadow-soft: 0 1px 3px hsl(207 44% 49% / 0.05);
+    --shadow-medium: 0 2px 6px hsl(207 44% 49% / 0.08);
+    --shadow-glow: 0 0 8px hsl(207 60% 65% / 0.15);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
