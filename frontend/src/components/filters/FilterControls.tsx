@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { IconSwitch } from '@/components/ui/icon-switch';
-import { Filter, X, Grid3X3, List } from 'lucide-react';
-import { FilterButton } from './FilterButton';
-import { ActiveFilterPills } from './ActiveFilterPills';
+import { Filter, X } from 'lucide-react';
+import FilterButton from './FilterButton';
+import ActiveFilterPills from './ActiveFilterPills';
 import { DIET_OPTIONS, ALLERGEN_OPTIONS } from '@/lib/constants';
 
 interface FilterControlsProps {
@@ -15,7 +15,7 @@ interface FilterControlsProps {
   totalItems: number;
 }
 
-export function FilterControls({
+export default function FilterControls({
   selectedDiets,
   selectedAllergens,
   setSelectedDiets,

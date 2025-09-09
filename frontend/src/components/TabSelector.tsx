@@ -22,7 +22,7 @@ interface TabSelectorProps {
   type: 'primary' | 'secondary';
 }
 
-export function TabSelector(props: TabSelectorProps) {
+export default function TabSelector(props: TabSelectorProps) {
   const styles = tabStyles[props.type];
   return (
     <Tabs

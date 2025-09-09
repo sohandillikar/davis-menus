@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import MenuItem from '@/types/MenuItem';
-import { NutritionFacts } from './NutritionFacts';
+import NutritionFacts from './NutritionFacts';
 
 interface ExpandedDetailsProps {
   item: MenuItem;
@@ -56,7 +56,7 @@ function BadgesList({ badges, title, color }: BadgesListProps) {
   );
 }
 
-export function ExpandedDetails({
+export default function ExpandedDetails({
   item,
   nutritionFactsLayout = 'row',
   showDiets = false,

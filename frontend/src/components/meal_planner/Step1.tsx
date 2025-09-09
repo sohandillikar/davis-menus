@@ -9,7 +9,7 @@ interface Step1Props {
   setPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step1({
+export default function Step1({
   minCalories,
   minProtein,
   preferences,

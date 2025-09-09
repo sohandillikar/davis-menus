@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { LikeButton } from './LikeButton';
+import LikeButton from './LikeButton';
 import MenuItem from '@/types/MenuItem';
 import * as utils from '@/lib/utils';
 
@@ -10,7 +10,7 @@ interface ItemHeaderProps {
   showLikeButton: boolean;
 }
 
-export function ItemHeader({
+export default function ItemHeader({
   item,
   expanded = null,
   showExtraMetadata,

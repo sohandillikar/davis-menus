@@ -16,7 +16,7 @@ function FooterLink({ label, href }: FooterLinkProps) {
   );
 }
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-gradient-primary shadow-glow">
       <div className="max-w-6xl mx-auto px-4 py-6">

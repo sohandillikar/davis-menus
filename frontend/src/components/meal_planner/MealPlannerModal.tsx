@@ -6,14 +6,14 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Utensils } from 'lucide-react';
-import { Step1 } from './Step1';
-import { Step2 } from './Step2';
-import { Step3 } from './Step3';
-import { NavigationButtons } from './NavigationButtons';
-import { LoadingAnimation } from '../LoadingAnimation';
-import { ProgressBar } from './ProgressBar';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import NavigationButtons from './NavigationButtons';
+import LoadingAnimation from '../LoadingAnimation';
+import ProgressBar from './ProgressBar';
 import MenuItem from '@/types/MenuItem';
-import { MealPlanDisplay } from './MealPlanDisplay';
+import MealPlanDisplay from './MealPlanDisplay';
 import { useMealPlannerModalContext } from '@/contexts/MealPlannerModalContext';
 import { getMealPlan } from '@/lib/utils';
 
@@ -35,7 +35,7 @@ export interface MealPlan {
   explanation: string;
 }
 
-export function MealPlannerModal() {
+export default function MealPlannerModal() {
   const minCalories = 500;
   const minProtein = 25;
 

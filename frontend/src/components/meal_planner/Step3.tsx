@@ -42,7 +42,7 @@ function CheckboxGroup({
   );
 }
 
-export function Step3({ preferences, setPreferences }: Step3Props) {
+export default function Step3({ preferences, setPreferences }: Step3Props) {
   const handleDietCheck = (selectedDiet: string) => {
     setPreferences((prev) => ({
       ...prev,

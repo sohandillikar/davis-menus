@@ -2,7 +2,7 @@ interface ProgressBarProps {
   currentStep: number;
 }
 
-export function ProgressBar({ currentStep }: ProgressBarProps) {
+export default function ProgressBar({ currentStep }: ProgressBarProps) {
   return (
     <>
       {currentStep < 4 && (

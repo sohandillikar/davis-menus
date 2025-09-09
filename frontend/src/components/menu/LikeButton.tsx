@@ -9,7 +9,7 @@ interface LikeButtonProps {
   item: MenuItem;
 }
 
-export function LikeButton({ item }: LikeButtonProps) {
+export default function LikeButton({ item }: LikeButtonProps) {
   const [liked, setLiked] = useState(utils.isFavorite(item));
   const [isAnimating, setIsAnimating] = useState(false);
   const { favorites } = useFavoritesContext();

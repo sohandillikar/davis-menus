@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { MealPlan } from './MealPlannerModal';
-import { MenuItemBadges } from './MenuItemBadges';
+import MenuItemBadges from './MenuItemBadges';
 import * as utils from '@/lib/utils';
 
 interface MealCardProps {
@@ -14,7 +14,7 @@ interface MealCardProps {
   mealPlanData: MealPlan;
 }
 
-export function MealCard({ meal, mealPlanData }: MealCardProps) {
+export default function MealCard({ meal, mealPlanData }: MealCardProps) {
   let totalCalories = 0;
   let totalProtein = 0;
 

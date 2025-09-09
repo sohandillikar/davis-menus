@@ -1,8 +1,8 @@
-import { LogoAndTitle } from './LogoAndTitle';
-import { DesktopButtons } from './DesktopButtons';
-import { MobileMenu } from './MobileMenu';
+import LogoAndTitle from './LogoAndTitle';
+import DesktopButtons from './DesktopButtons';
+import MobileMenu from './MobileMenu';
 
-export function Header() {
+export default function Header() {
   return (
     <header className="bg-gradient-primary shadow-glow sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-4">

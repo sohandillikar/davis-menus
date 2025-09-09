@@ -8,7 +8,7 @@ interface DayPickerProps {
   onDateChange: (date: Date) => void;
 }
 
-export function DayPicker({
+export default function DayPicker({
   firstDate,
   lastDate,
   selectedDate,

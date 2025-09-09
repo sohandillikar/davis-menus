@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { SelectedItem } from './MealPlannerModal';
-import { ExpandedDetails } from '@/components/menu/ExpandedDetails';
+import ExpandedDetails from '@/components/menu/ExpandedDetails';
 import MenuItem from '@/types/MenuItem';
 
 interface MenuItemBadgeProps {
@@ -34,7 +34,7 @@ function MenuItemBadge({
   );
 }
 
-export function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
+export default function MenuItemBadges({ mealItemsData }: MenuItemBadgesProps) {
   const [expandedItem, setExpandedItem] = useState<MenuItem | null>(null);
 
   const toggleExpansion = (item: MenuItem) => {

@@ -8,10 +8,10 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
-import { FavoritesSheet } from '../favorites/FavoritesSheet';
-import { MealPlannerButton } from './MealPlannerButton';
+import FavoritesSheet from '../favorites/FavoritesSheet';
+import MealPlannerButton from './MealPlannerButton';
 
-export function MobileMenu() {
+export default function MobileMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div className="md:hidden">

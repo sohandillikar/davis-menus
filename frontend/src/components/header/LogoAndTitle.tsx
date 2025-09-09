@@ -1,6 +1,6 @@
 import { APP_TITLE, APP_TAGLINE, APP_LOGO_SRC } from '@/lib/constants';
 
-export function LogoAndTitle() {
+export default function LogoAndTitle() {
   return (
     <div className="flex items-center gap-3">
       <img

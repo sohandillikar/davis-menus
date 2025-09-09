@@ -5,7 +5,7 @@ interface NutritionFactsProps {
   layout: 'row' | 'grid';
 }
 
-export function NutritionFacts({ item, layout }: NutritionFactsProps) {
+export default function NutritionFacts({ item, layout }: NutritionFactsProps) {
   const parseFact = (fact: string) =>
     fact === 'N/A' ? 'N/A' : Math.round(parseFloat(fact));
   const facts = [
