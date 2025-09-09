@@ -5,10 +5,10 @@ import json
 
 load_dotenv()
 
-INTERNAL_DB_URL = os.getenv("INTERNAL_DB_URL")
+DB_URL = os.getenv("DB_URL")
 
 def get_connection():
-    return psycopg2.connect(INTERNAL_DB_URL)
+    return psycopg2.connect(DB_URL)
 
 def table_exists(table_name: str) -> bool:
     conn = get_connection()
@@ -145,12 +145,3 @@ def get_menu_items(options: str = ""):
     finally:
         cursor.close()
         conn.close()
-
-def main():
-    # Create tables if they don't exist
-    for table_name in ["menu_items"]:
-        if not table_exists(table_name):
-            execute_sql_file(f"./tables/{table_name}.sql")
-
-
-main()

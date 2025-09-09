@@ -22,5 +22,4 @@ export const ALLERGEN_OPTIONS = [
 ];
 
 // Backend constants
-// TODO: add production url to .env.local
-export const API_BASE_URL = 'https://davis-menus-server.onrender.com'; // import.meta.env.VITE_API_BASE_URL;
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

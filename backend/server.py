@@ -1,31 +1,20 @@
-import asyncio
-import aiohttp
 import database as db
-from random import randint
 from fastapi import FastAPI
 from pydantic import BaseModel
-from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from meal_planner import MealPlanner, MealPreferences
 
-# uvicorn server:app --reload --host 0.0.0.0 --port 8000
+# DEV: uvicorn server:app --reload --host 0.0.0.0 --port 8000
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    asyncio.create_task(ping_to_keep_server_alive())
-    yield
-
-app = FastAPI(lifespan=lifespan)
-server_url = "https://davis-menus-server.onrender.com" # TODO: change to production url
+app = FastAPI()
+server_url = "http://localhost:8000" # TODO: change to production url
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "http://10.0.0.158:8080",
-        "https://davis-menus.vercel.app",
-        server_url
-    ], # TODO: add production url
+        "https://davis-menus.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -85,9 +74,3 @@ async def meal_plan(request: MealPlanRequest):
 @app.get("/ping")
 async def ping():
     return {"message": "pong"}
-
-async def ping_to_keep_server_alive():
-    async with aiohttp.ClientSession() as session:
-        while True:
-            await session.get(f"{server_url}/ping")
-            await asyncio.sleep(randint(int(8 * 60), int(14.9 * 60)))

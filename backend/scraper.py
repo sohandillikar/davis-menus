@@ -216,32 +216,36 @@ def extract_menu_items(html: str, date: datetime, dining_hall: str) -> List[Dict
     
     return menu_items
 
-today = datetime.now(timezone("US/Pacific")).date() # datetime(2025, 8, 31).date()
-dates_till_saturday = get_dates_till_saturday(today)
+def scrape_and_load_menu_items(start_date: datetime = None):
+    if start_date is None:
+        start_date = datetime.now(timezone("US/Pacific")).date()
+    
+    dates_till_saturday = get_dates_till_saturday(start_date)
 
-week_menu_items = []
+    week_menu_items = []
 
-for dining_hall in DINING_HALLS:
-    for date in dates_till_saturday:
-        html = get_dining_hall_html(dining_hall)
-        menu_items = extract_menu_items(html, date, dining_hall)
-        week_menu_items += menu_items
+    for dining_hall in DINING_HALLS:
+        for date in dates_till_saturday:
+            html = get_dining_hall_html(dining_hall)
+            menu_items = extract_menu_items(html, date, dining_hall)
+            week_menu_items += menu_items
 
-        print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
-    print()
+            print(f"Extracted {len(menu_items)} items from {dining_hall.title()}\'s menu for {date.strftime('%a, %b %d')}")
+        print()
 
-# If today is Sunday, clear the menu_items table
-if today.weekday() == 6:
-    db.clear_table("menu_items")
-else:
-    for date in dates_till_saturday:
-        date_formatted = date.strftime('%Y-%m-%d')
-        rows_deleted = db.execute(f"DELETE FROM menu_items WHERE date='{date_formatted}'", return_type="rowcount")
-        print(f"DELETED {rows_deleted} rows from menu_items where date was {date_formatted}")
+    # If start_date is Sunday, clear the menu_items table
+    if start_date.weekday() == 6:
+        db.clear_table("menu_items")
+    else:
+        dates_till_saturday_str = str([d.strftime("%Y-%m-%d") for d in dates_till_saturday])[1:-1]
+        rows_deleted = db.execute(f"DELETE FROM menu_items WHERE date IN ({dates_till_saturday_str})", return_type="rowcount")
+        print(f"DELETED {rows_deleted} rows from menu_items where date was in ({dates_till_saturday_str})")
 
+    # Insert all menu items
+    if len(week_menu_items) > 0:
+        db.insert_json_menu_items(week_menu_items)
+    else:
+        print("NO ITEMS TO INSERT")
 
-# Insert all menu items
-if len(week_menu_items) > 0:
-    db.insert_json_menu_items(week_menu_items)
-else:
-    print("NO ITEMS TO INSERT")
+if __name__ == "__main__":
+    scrape_and_load_menu_items()
