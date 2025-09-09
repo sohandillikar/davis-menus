@@ -10,6 +10,8 @@ from meal_planner import MealPlanner, MealPreferences
 
 # DEV: uvicorn server:app --reload --host 0.0.0.0 --port 8000
 
+# Render's free tier shuts down the server after 15 minutes of inactivity
+# This function randomly pings the server every 8-15 minutes to keep it alive
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(ping_to_keep_server_alive())
