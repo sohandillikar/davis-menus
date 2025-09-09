@@ -1,10 +1,39 @@
+interface FooterLinkProps {
+  label: string;
+  href: string;
+}
+
+function FooterLink({ label, href }: FooterLinkProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+    >
+      {label}
+    </a>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="mt-12 py-8 border-t border-border/30 bg-muted/30">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <p className="text-muted-foreground text-sm">
-          UC Davis Dining Menus • Made with 💙 for Aggies
-        </p>
+    <footer className="bg-gradient-primary shadow-glow">
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="text-center space-y-4">
+          <p className="text-primary-foreground text-sm font-medium">
+            Made with ❤️ by AggieWorks
+          </p>
+
+          <div className="flex items-center justify-center gap-6 text-sm">
+            <FooterLink
+              label="Instagram"
+              href="https://www.instagram.com/aggiemenus/"
+            />
+            <FooterLink label="AggieWorks" href="https://aggieworks.org" />
+            <FooterLink label="Feedback" href="" />
+          </div>
+        </div>
       </div>
     </footer>
   );
