@@ -26,10 +26,7 @@ export function Footer() {
           </p>
 
           <div className="flex items-center justify-center gap-6 text-sm">
-            <FooterLink
-              label="Instagram"
-              href="https://www.instagram.com/aggiemenus/"
-            />
+            <FooterLink label="Instagram" href="https://www.instagram.com/aggiemenus/" />
             <FooterLink label="AggieWorks" href="https://aggieworks.org" />
             <FooterLink label="Feedback" href="" />
           </div>
