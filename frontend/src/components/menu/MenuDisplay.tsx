@@ -1,6 +1,6 @@
-import { MenuItemCard } from './MenuItemCard';
+import MenuItemCard from './MenuItemCard';
 import MenuItem from '@/types/MenuItem';
-import { NoMenuAvailable } from './NoMenuAvailable';
+import NoMenuAvailable from './NoMenuAvailable';
 
 interface MenuDisplayProps {
   items: MenuItem[];
@@ -9,7 +9,7 @@ interface MenuDisplayProps {
   displayView: 'card' | 'compact';
 }
 
-export function MenuDisplay({
+export default function MenuDisplay({
   items,
   diningHall,
   meal,

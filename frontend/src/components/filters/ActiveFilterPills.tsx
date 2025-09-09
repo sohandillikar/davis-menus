@@ -10,7 +10,7 @@ interface ActiveFiltersProps {
   preText?: string;
 }
 
-export function ActiveFilterPills(props: ActiveFiltersProps) {
+export default function ActiveFilterPills(props: ActiveFiltersProps) {
   const styles = filterStyles[props.color];
 
   const handleOptionChange = (option: string, checked: boolean) => {

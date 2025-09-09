@@ -7,7 +7,7 @@ interface MealPlannerButtonProps {
   onClick?: () => void;
 }
 
-export function MealPlannerButton({
+export default function MealPlannerButton({
   variant,
   onClick,
 }: MealPlannerButtonProps) {

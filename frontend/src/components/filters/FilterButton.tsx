@@ -18,7 +18,7 @@ interface FilterButtonProps {
   color: string;
 }
 
-export function FilterButton(props: FilterButtonProps) {
+export default function FilterButton(props: FilterButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const styles = filterStyles[props.color];
   const tooManyOptions = props.options.length > 5;

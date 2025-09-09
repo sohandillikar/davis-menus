@@ -5,7 +5,7 @@ interface LoadingAnimationProps {
   submessage: string;
 }
 
-export function LoadingAnimation({
+export default function LoadingAnimation({
   message,
   submessage,
 }: LoadingAnimationProps) {

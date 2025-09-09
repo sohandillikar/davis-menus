@@ -5,7 +5,7 @@ import { SelectContent } from '@/components/ui/select';
 import { Select } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { MealPreferences } from './MealPlannerModal';
-import { LoadingAnimation } from '../LoadingAnimation';
+import LoadingAnimation from '../LoadingAnimation';
 import * as utils from '@/lib/utils';
 
 interface Step2Props {
@@ -13,7 +13,7 @@ interface Step2Props {
   setPreferences: React.Dispatch<React.SetStateAction<MealPreferences>>;
 }
 
-export function Step2({ preferences, setPreferences }: Step2Props) {
+export default function Step2({ preferences, setPreferences }: Step2Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [availableDiningHalls, setAvailableDiningHalls] = useState<
     Record<string, string[]>
