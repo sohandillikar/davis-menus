@@ -27,7 +27,6 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // Meal planner constants
 export const CALORIE_REC = 2500;                  // Recommended calories per day
 export const PROTEIN_REC = 75;                    // Recommended protein per day
-export const PD_REC = PROTEIN_REC / CALORIE_REC;  // Recommended protein density
 export const MIN_CALORIES = 1200;                 // Minimum recommended calories per day
 export const MAX_CALORIES = 4500;                 // Maximum recommended calories per day
 

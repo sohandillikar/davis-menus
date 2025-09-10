@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import MenuItem from '@/types/MenuItem';
 import { MealPreferences } from '@/components/meal_planner/MealPlannerModal';
-import * as constants from '@/lib/constants';
+import { API_BASE_URL, CALORIE_REC, PROTEIN_REC, MIN_CALORIES, MAX_CALORIES } from '@/lib/constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,7 +30,7 @@ export function formatDateFromDB(date: string): string {
 }
 
 export async function getMenuItems() {
-  const response = await fetch(`${constants.API_BASE_URL}/menu_items/all`);
+  const response = await fetch(`${API_BASE_URL}/menu_items/all`);
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -99,7 +99,7 @@ export function removeFavorite(item: MenuItem) {
 export async function getOfferedThisWeek() {
   const favorites = getFavorites();
   const favoriteNames = favorites.map((favorite) => favorite.name);
-  const response = await fetch(`${constants.API_BASE_URL}/offered_this_week`, {
+  const response = await fetch(`${API_BASE_URL}/offered_this_week`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ item_names: favoriteNames }),
@@ -114,7 +114,7 @@ export async function getOfferedThisWeek() {
 }
 
 export async function getAvailableDiningHalls(date: Date) {
-  const response = await fetch(`${constants.API_BASE_URL}/available_dining_halls`, {
+  const response = await fetch(`${API_BASE_URL}/available_dining_halls`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ date: formatDateForDB(date) }),
@@ -129,7 +129,7 @@ export async function getAvailableDiningHalls(date: Date) {
 }
 
 export async function getMealPlan(mealPreferences: MealPreferences) {
-  const response = await fetch(`${constants.API_BASE_URL}/meal_plan`, {
+  const response = await fetch(`${API_BASE_URL}/meal_plan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -147,43 +147,40 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
 }
 
 export function scoreGoals(calories: number, protein: number) {
-  const clamp = (x: number, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, x));
+  const PD_REC = PROTEIN_REC / CALORIE_REC;
+  const MIN_PD = PD_REC * 0.95;
+  const MAX_PD = PD_REC * 2;
 
   const density = protein / calories;
 
-  const deltaCal = Math.abs(calories - constants.CALORIE_REC) / constants.CALORIE_REC;
-  const deltaProt = Math.abs(protein - constants.PROTEIN_REC) / constants.PROTEIN_REC;
-  const deltaDensity = Math.abs(density - constants.PD_REC) / constants.PD_REC;
+  const deltaCal = Math.abs(calories - CALORIE_REC) / CALORIE_REC;
+  const deltaProt = Math.abs(protein - PROTEIN_REC) / PROTEIN_REC;
 
-  const calScore = clamp(1 - deltaCal, 0, 1);
-  const densityScore = clamp(1 - deltaDensity, 0, 1);
-  let score = densityScore;
   let feedback = "";
 
-  if (calories < constants.MIN_CALORIES) {
-    const suggestedCalories = Math.max(Math.round(calories * 1.25), 1200);
-    const suggestedProtein = Math.round(suggestedCalories * constants.PD_REC);
-    feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
-    score = 0.7 * calScore + 0.3 * densityScore;
-  } else if (calories > constants.MAX_CALORIES) {
-    const suggestedCalories = Math.min(Math.round(calories * 0.75), 4500);
-    const suggestedProtein = Math.round(suggestedCalories * constants.PD_REC);
-    feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
-    score = 0.7 * calScore + 0.3 * densityScore;
-  } else if (deltaDensity > 0.25) {
+  if (calories < MIN_CALORIES) {
+    const suggestedCalories = Math.max(calories * 1.25, 1200);
+    const suggestedProtein = suggestedCalories * PD_REC;
+    feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
+  } else if (calories > MAX_CALORIES) {
+    const suggestedCalories = Math.min(calories * 0.75, 4500);
+    const suggestedProtein = suggestedCalories * PD_REC;
+    feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
+  } else if (density < MIN_PD || density > MAX_PD) {
+    const suggestedDensity = density < MIN_PD ? MIN_PD : MAX_PD;
     if (deltaCal > deltaProt) {
-      const suggestedCalories = (protein * constants.CALORIE_REC) / constants.PROTEIN_REC;
-      feedback = `Consider ${calories < constants.CALORIE_REC ? "increasing" : "reducing"} to ${suggestedCalories} calories to balance ${protein}g protein.`;
+      const suggestedCalories = protein / suggestedDensity;
+      feedback = `Consider ${calories < CALORIE_REC ? "increasing" : "reducing"} to ${Math.round(suggestedCalories)} calories to balance ${protein}g protein.`;
     } else if (deltaProt > deltaCal) {
-      const suggestedProtein = (calories * constants.PROTEIN_REC) / constants.CALORIE_REC;
-      feedback = `Consider ${protein < constants.PROTEIN_REC ? "increasing" : "reducing"} to ${suggestedProtein}g protein to balance ${calories} calories.`;
+      const suggestedProtein = calories * suggestedDensity;
+      feedback = `Consider ${protein < PROTEIN_REC ? "increasing" : "reducing"} to ${Math.round(suggestedProtein)}g protein to balance ${calories} calories.`;
     }
   } else {
-    feedback = `Awesome! ${calories} calories and ${protein}g protein look like a balanced meal plan.`;
+    feedback = `Awesome! ${calories} calories and ${protein}g protein make a balanced meal plan.`;
   }
 
   return {
-    score: score,
+    score: 0,
     feedback: feedback
   };
 }

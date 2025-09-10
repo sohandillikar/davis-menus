@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { MealPreferences } from './MealPlannerModal';
+import { scoreGoals } from '@/lib/utils';
 
 interface Step1Props {
   minCalories: number;
@@ -15,6 +17,24 @@ export default function Step1({
   preferences,
   setPreferences,
 }: Step1Props) {
+  const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState('');
+
+  useEffect(() => {
+    const calories = parseFloat(preferences.calories);
+    const protein = parseFloat(preferences.protein);
+
+    if (calories && protein && calories > 0 && protein > 0) {
+      const { score, feedback } = scoreGoals(calories, protein);
+      setScore(score);
+      setFeedback(feedback);
+      console.log(score, feedback);
+    } else {
+      setScore(0);
+      setFeedback("Please enter calorie and protein goals that are greater than 0.");
+    }
+  }, [preferences]);
+
   return (
     <div>
       <h2 className="text-xl font-semibold mb-4">
@@ -31,9 +51,7 @@ export default function Step1({
             id="calories"
             type="number"
             value={preferences.calories}
-            onChange={(e) =>
-              setPreferences((prev) => ({ ...prev, calories: e.target.value }))
-            }
+            onChange={e => setPreferences((prev) => ({ ...prev, calories: e.target.value }))}
           />
           <p className="text-xs text-muted-foreground">
             Minimum {minCalories} calories
@@ -45,9 +63,7 @@ export default function Step1({
             id="protein"
             type="number"
             value={preferences.protein}
-            onChange={(e) =>
-              setPreferences((prev) => ({ ...prev, protein: e.target.value }))
-            }
+            onChange={e => setPreferences((prev) => ({ ...prev, protein: e.target.value }))}
           />
           <p className="text-xs text-muted-foreground">
             Minimum {minProtein}g protein
