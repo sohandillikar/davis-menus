@@ -89,7 +89,7 @@ def insert_json_menu_items(menu_items: list[dict]):
         allergens, diets, ingredients
     ) VALUES (
         %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-    )"""
+    ) ON CONFLICT ON CONSTRAINT unique_menu_item DO NOTHING"""
     conn = get_connection()
     cursor = conn.cursor()
     try:
