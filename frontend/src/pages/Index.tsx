@@ -39,7 +39,7 @@ const Index = () => {
         toDate: new Date(payload.to_date + 'T00:00:00'),
       });
       setMenuItems(payload.menu_items);
-      setLoadingMenuItems(false);
+      setTimeout(() => setLoadingMenuItems(false), 100);
     };
 
     setLoadingMenuItems(true);

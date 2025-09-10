@@ -90,7 +90,7 @@ export default function MealPlannerModal() {
         );
         const payload = await getMealPlan(preferences);
         setDayMealPlan(payload);
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 100);
       };
 
       setIsLoading(true);
