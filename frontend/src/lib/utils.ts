@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import MenuItem from '@/types/MenuItem';
 import { MealPreferences } from '@/components/meal_planner/MealPlannerModal';
-import { API_BASE_URL } from '@/lib/constants';
+import * as constants from '@/lib/constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,7 +30,7 @@ export function formatDateFromDB(date: string): string {
 }
 
 export async function getMenuItems() {
-  const response = await fetch(`${API_BASE_URL}/menu_items/all`);
+  const response = await fetch(`${constants.API_BASE_URL}/menu_items/all`);
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -99,7 +99,7 @@ export function removeFavorite(item: MenuItem) {
 export async function getOfferedThisWeek() {
   const favorites = getFavorites();
   const favoriteNames = favorites.map((favorite) => favorite.name);
-  const response = await fetch(`${API_BASE_URL}/offered_this_week`, {
+  const response = await fetch(`${constants.API_BASE_URL}/offered_this_week`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ item_names: favoriteNames }),
@@ -114,7 +114,7 @@ export async function getOfferedThisWeek() {
 }
 
 export async function getAvailableDiningHalls(date: Date) {
-  const response = await fetch(`${API_BASE_URL}/available_dining_halls`, {
+  const response = await fetch(`${constants.API_BASE_URL}/available_dining_halls`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ date: formatDateForDB(date) }),
@@ -129,7 +129,7 @@ export async function getAvailableDiningHalls(date: Date) {
 }
 
 export async function getMealPlan(mealPreferences: MealPreferences) {
-  const response = await fetch(`${API_BASE_URL}/meal_plan`, {
+  const response = await fetch(`${constants.API_BASE_URL}/meal_plan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -147,40 +147,36 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
 }
 
 export function scoreGoals(calories: number, protein: number) {
-  const CALORIE_REF = 2500; // TODO: Add this to constants.ts
-  const PROTEIN_REF = 75;   // TODO: Add this to constants.ts
-  const PD_REF = PROTEIN_REF / CALORIE_REF;
-
   const clamp = (x: number, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, x));
 
   const density = protein / calories;
 
-  const deltaCal = Math.abs(calories - CALORIE_REF) / CALORIE_REF;
-  const deltaProt = Math.abs(protein - PROTEIN_REF) / PROTEIN_REF;
-  const deltaDensity = Math.abs(density - PD_REF) / PD_REF;
+  const deltaCal = Math.abs(calories - constants.CALORIE_REC) / constants.CALORIE_REC;
+  const deltaProt = Math.abs(protein - constants.PROTEIN_REC) / constants.PROTEIN_REC;
+  const deltaDensity = Math.abs(density - constants.PD_REC) / constants.PD_REC;
 
   const calScore = clamp(1 - deltaCal, 0, 1);
   const densityScore = clamp(1 - deltaDensity, 0, 1);
   let score = densityScore;
   let feedback = "";
 
-  if (calories < 1200) {
+  if (calories < constants.MIN_CALORIES) {
     const suggestedCalories = Math.max(Math.round(calories * 1.25), 1200);
-    const suggestedProtein = Math.round(suggestedCalories * PD_REF);
+    const suggestedProtein = Math.round(suggestedCalories * constants.PD_REC);
     feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
     score = 0.7 * calScore + 0.3 * densityScore;
-  } else if (calories > 4500) {
+  } else if (calories > constants.MAX_CALORIES) {
     const suggestedCalories = Math.min(Math.round(calories * 0.75), 4500);
-    const suggestedProtein = Math.round(suggestedCalories * PD_REF);
+    const suggestedProtein = Math.round(suggestedCalories * constants.PD_REC);
     feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
     score = 0.7 * calScore + 0.3 * densityScore;
   } else if (deltaDensity > 0.25) {
     if (deltaCal > deltaProt) {
-      const suggestedCalories = (protein * CALORIE_REF) / PROTEIN_REF;
-      feedback = `Consider ${calories < CALORIE_REF ? "increasing" : "reducing"} to ${suggestedCalories} calories to balance ${protein}g protein.`;
+      const suggestedCalories = (protein * constants.CALORIE_REC) / constants.PROTEIN_REC;
+      feedback = `Consider ${calories < constants.CALORIE_REC ? "increasing" : "reducing"} to ${suggestedCalories} calories to balance ${protein}g protein.`;
     } else if (deltaProt > deltaCal) {
-      const suggestedProtein = (calories * PROTEIN_REF) / CALORIE_REF;
-      feedback = `Consider ${protein < PROTEIN_REF ? "increasing" : "reducing"} to ${suggestedProtein}g protein to balance ${calories} calories.`;
+      const suggestedProtein = (calories * constants.PROTEIN_REC) / constants.CALORIE_REC;
+      feedback = `Consider ${protein < constants.PROTEIN_REC ? "increasing" : "reducing"} to ${suggestedProtein}g protein to balance ${calories} calories.`;
     }
   } else {
     feedback = `Awesome! ${calories} calories and ${protein}g protein look like a balanced meal plan.`;
