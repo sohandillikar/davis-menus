@@ -97,11 +97,11 @@ def parse_nutrition_value(value: str, key: str) -> Any:
             return []
         allergens = []
         for a in value.split(","):
-            if "/" in a:
-                a = [_.strip().lower() for _ in a.split("/") if _.strip()]
-                allergens.extend(a)
-            elif a.strip():
-                allergens.append(a.strip().lower())
+            a = a.strip().lower()
+            if a == "wheat/gluten":
+                allergens.extend(["wheat", "gluten"])
+            elif a:
+                allergens.append(a)
         return allergens
     return value
 
