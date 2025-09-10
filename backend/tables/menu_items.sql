@@ -14,5 +14,6 @@ CREATE TABLE menu_items (
     protein_g TEXT,
     allergens JSONB,
     diets JSONB,
-    ingredients TEXT
+    ingredients TEXT,
+    CONSTRAINT unique_menu_item UNIQUE (date, dining_hall, meal, platform, name)
 );
