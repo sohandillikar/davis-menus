@@ -145,3 +145,49 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   const data = await response.json();
   return data.meal_plan;
 }
+
+export function scoreGoals(calories: number, protein: number) {
+  const CALORIE_REF = 2500; // TODO: Add this to constants.ts
+  const PROTEIN_REF = 75;   // TODO: Add this to constants.ts
+  const PD_REF = PROTEIN_REF / CALORIE_REF;
+
+  const clamp = (x: number, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, x));
+
+  const density = protein / calories;
+
+  const deltaCal = Math.abs(calories - CALORIE_REF) / CALORIE_REF;
+  const deltaProt = Math.abs(protein - PROTEIN_REF) / PROTEIN_REF;
+  const deltaDensity = Math.abs(density - PD_REF) / PD_REF;
+
+  const calScore = clamp(1 - deltaCal, 0, 1);
+  const densityScore = clamp(1 - deltaDensity, 0, 1);
+  let score = densityScore;
+  let feedback = "";
+
+  if (calories < 1200) {
+    const suggestedCalories = Math.max(Math.round(calories * 1.25), 1200);
+    const suggestedProtein = Math.round(suggestedCalories * PD_REF);
+    feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
+    score = 0.7 * calScore + 0.3 * densityScore;
+  } else if (calories > 4500) {
+    const suggestedCalories = Math.min(Math.round(calories * 0.75), 4500);
+    const suggestedProtein = Math.round(suggestedCalories * PD_REF);
+    feedback = `Consider setting your goals around ${suggestedCalories} calories and ${suggestedProtein}g protein to create a healthy filling meal plan.`;
+    score = 0.7 * calScore + 0.3 * densityScore;
+  } else if (deltaDensity > 0.25) {
+    if (deltaCal > deltaProt) {
+      const suggestedCalories = (protein * CALORIE_REF) / PROTEIN_REF;
+      feedback = `Consider ${calories < CALORIE_REF ? "increasing" : "reducing"} to ${suggestedCalories} calories to balance ${protein}g protein.`;
+    } else if (deltaProt > deltaCal) {
+      const suggestedProtein = (calories * PROTEIN_REF) / CALORIE_REF;
+      feedback = `Consider ${protein < PROTEIN_REF ? "increasing" : "reducing"} to ${suggestedProtein}g protein to balance ${calories} calories.`;
+    }
+  } else {
+    feedback = `Awesome! ${calories} calories and ${protein}g protein look like a balanced meal plan.`;
+  }
+
+  return {
+    score: score,
+    feedback: feedback
+  };
+}
