@@ -31,7 +31,7 @@ export default function FavoritesSheet({ variant = 'default' }: FavoritesSheetPr
       setIsOfferedThisWeekLoading(true);
       const payload = await utils.getOfferedThisWeek();
       setOfferedThisWeek(payload);
-      setIsOfferedThisWeekLoading(false);
+      setTimeout(() => setIsOfferedThisWeekLoading(false), 100);
     }
   };
 
