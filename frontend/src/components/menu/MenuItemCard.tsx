@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { ItemHeader } from './ItemHeader';
-import { NutritionBadges } from './NutritionBadges';
-import { ExpandedDetails } from './ExpandedDetails';
-import { MenuItemModal } from './MenuItemModal';
+import ItemHeader from './ItemHeader';
+import NutritionBadges from './NutritionBadges';
+import ExpandedDetails from './ExpandedDetails';
+import MenuItemModal from './MenuItemModal';
 import MenuItem from '@/types/MenuItem';
 
 interface MenuItemCardProps {
@@ -15,7 +15,7 @@ interface MenuItemCardProps {
   nutritionFactsLayout?: 'row' | 'grid';
 }
 
-export function MenuItemCard({
+export default function MenuItemCard({
   item,
   display = 'card',
   expandable = true,

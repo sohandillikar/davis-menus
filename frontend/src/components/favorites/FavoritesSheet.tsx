@@ -8,9 +8,9 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { LoadingAnimation } from '@/components/LoadingAnimation';
+import LoadingAnimation from '@/components/LoadingAnimation';
 import { Heart } from 'lucide-react';
-import { FavoritesList } from './FavoritesList';
+import FavoritesList from './FavoritesList';
 import { useFavoritesContext } from '@/contexts/FavoritesContext';
 import MenuItem from '@/types/MenuItem';
 import * as utils from '@/lib/utils';
@@ -19,7 +19,7 @@ interface FavoritesSheetProps {
   variant?: 'default' | 'mobile';
 }
 
-export function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
+export default function FavoritesSheet({ variant = 'default' }: FavoritesSheetProps) {
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [offeredThisWeek, setOfferedThisWeek] = useState<MenuItem[]>([]);
   const [isOfferedThisWeekLoading, setIsOfferedThisWeekLoading] =

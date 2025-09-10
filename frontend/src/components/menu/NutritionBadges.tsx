@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import MenuItem from '@/types/MenuItem';
 
-export function NutritionBadges({ item }: { item: MenuItem }) {
+export default function NutritionBadges({ item }: { item: MenuItem }) {
   return (
     <div className="flex flex-wrap gap-2">
       {item.calories !== 'N/A' && (

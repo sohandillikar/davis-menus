@@ -12,7 +12,7 @@ interface NavigationButtonsProps {
   onCloseModal: () => void;
 }
 
-export function NavigationButtons({
+export default function NavigationButtons({
   currentStep,
   setCurrentStep,
   preferences,

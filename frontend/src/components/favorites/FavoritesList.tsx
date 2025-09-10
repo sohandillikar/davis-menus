@@ -1,6 +1,6 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Heart } from 'lucide-react';
-import { MenuItemCard } from '@/components/menu/MenuItemCard';
+import MenuItemCard from '@/components/menu/MenuItemCard';
 import MenuItem from '@/types/MenuItem';
 
 interface FillerComponentProps {
@@ -34,7 +34,7 @@ function FillerComponent({
   );
 }
 
-export function FavoritesList({
+export default function FavoritesList({
   items,
   hasFavorites,
   expandable = true,

@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { APP_TITLE, APP_LOGO_SRC } from '@/lib/constants';
 import { MealPlan } from './MealPlannerModal';
-import { MealCard } from './MealCard';
+import MealCard from './MealCard';
 
 interface MealPlanDisplayProps {
   dayMealPlan: Record<string, MealPlan>;
@@ -27,7 +27,7 @@ function DailyTotals({ totalCalories, totalProtein }: DailyTotalsProps) {
   );
 }
 
-export function MealPlanDisplay({ dayMealPlan }: MealPlanDisplayProps) {
+export default function MealPlanDisplay({ dayMealPlan }: MealPlanDisplayProps) {
   let totalCalories = 0;
   let totalProtein = 0;
 
