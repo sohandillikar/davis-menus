@@ -146,6 +146,7 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   return data.meal_plan;
 }
 
+// TODO: Add a score for the goals
 export function scoreGoals(calories: number, protein: number) {
   const PD_REC = PROTEIN_REC / CALORIE_REC;
   const MIN_PD = PD_REC * 0.95;
@@ -159,14 +160,17 @@ export function scoreGoals(calories: number, protein: number) {
   let feedback = "";
 
   if (calories < MIN_CALORIES) {
+    //  score = 50% - how far off from MIN_CALORIES
     const suggestedCalories = Math.max(calories * 1.25, 1200);
     const suggestedProtein = suggestedCalories * PD_REC;
     feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
   } else if (calories > MAX_CALORIES) {
+    //  score = 50% - how far off from MAX_CALORIES
     const suggestedCalories = Math.min(calories * 0.75, 4500);
     const suggestedProtein = suggestedCalories * PD_REC;
     feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
   } else if (density < MIN_PD || density > MAX_PD) {
+    //  score = 50% + how far off from MIN_PD or MAX_PD
     const suggestedDensity = density < MIN_PD ? MIN_PD : MAX_PD;
     if (deltaCal > deltaProt) {
       const suggestedCalories = protein / suggestedDensity;
