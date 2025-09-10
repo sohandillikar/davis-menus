@@ -23,3 +23,9 @@ export const ALLERGEN_OPTIONS = [
 
 // Backend constants
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+// Social constants
+export const AGGIEWORKS_WEBSITE = 'https://aggieworks.org';
+export const AGGIEWORKS_INSTAGRAM = 'https://www.instagram.com/ucd.aggieworks';
+export const AGGIEWORKS_LINKEDIN = 'https://www.linkedin.com/company/aggieworks';
+export const AGGIEWORKS_LOGO_SRC = '/aggieworks-logo.png';
