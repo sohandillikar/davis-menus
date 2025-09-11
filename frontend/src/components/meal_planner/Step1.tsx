@@ -45,10 +45,10 @@ export default function Step1({
       <h2 className="text-xl font-semibold mb-4">
         What are your nutrition goals?
       </h2>
-      <p className="text-sm text-muted-foreground mb-6">{feedback}</p>
+      <p className="text-sm text-muted-foreground mb-4">{feedback}</p>
       <Progress 
           value={score * 100} 
-          className={`h-3 mb-6 ${
+          className={`h-2 mb-4 ${
             score >= 0.8 
               ? '[&>div]:bg-green-500' 
               : score >= 0.5 
