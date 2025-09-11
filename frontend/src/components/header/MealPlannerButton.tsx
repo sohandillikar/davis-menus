@@ -34,7 +34,7 @@ export default function MealPlannerButton({
             <Utensils className="h-4 w-4 mr-2" />
             What Should I Eat?
           </Button>
-          <Badge className="absolute -top-2.5 -right-2.5 bg-primary text-primary-foreground animate-pulse-glow border-0 px-2 py-0.5 text-xs font-bold">
+          <Badge className="absolute -top-2.5 -right-2.5 bg-primary text-primary-foreground animate-pulse-glow border-0 px-2 py-0.5 text-xs">
             New!
           </Badge>
         </div>
@@ -48,7 +48,7 @@ export default function MealPlannerButton({
             <Utensils className="h-4 w-4 mr-2" />
             What Should I Eat?
           </Button>
-          <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground animate-pulse-glow border-0 px-2 py-0.5 text-xs font-bold">
+          <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground animate-pulse-glow border-0 px-2 py-0.5 text-xs">
             New!
           </Badge>
         </div>
