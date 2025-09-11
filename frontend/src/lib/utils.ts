@@ -78,6 +78,23 @@ export function getFavorites() {
   return JSON.parse(localStorage.getItem('aggiemenus.favoriteItems') || '[]');
 }
 
+export function getMealPreferences() {
+  const defaultPreferences = {
+    calories: CALORIE_REC.toString(),
+    protein: PROTEIN_REC.toString(),
+    meals: {},
+    diets: [],
+    allergens: [],
+  };
+  const storedPreferences = localStorage.getItem('aggiemenus.mealPreferences');
+  if (storedPreferences) {
+    return JSON.parse(storedPreferences);
+  } else {
+    localStorage.setItem('aggiemenus.mealPreferences', JSON.stringify(defaultPreferences));
+    return defaultPreferences;
+  }
+}
+
 export function isFavorite(item: MenuItem) {
   const favorites = getFavorites();
   return favorites.some((fav: MenuItem) => fav.name === item.name);
