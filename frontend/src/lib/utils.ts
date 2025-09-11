@@ -146,8 +146,9 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
   return data.meal_plan;
 }
 
-// TODO: Add a score for the goals
 export function scoreGoals(calories: number, protein: number) {
+  const clamp = (x: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, x));
+
   const PD_REC = PROTEIN_REC / CALORIE_REC;
   const MIN_PD = PD_REC * 0.95;
   const MAX_PD = PD_REC * 2;
@@ -158,20 +159,19 @@ export function scoreGoals(calories: number, protein: number) {
   const deltaProt = Math.abs(protein - PROTEIN_REC) / PROTEIN_REC;
 
   let feedback = "";
+  let calScore = 1;
+  let pdScore = 1;
 
   if (calories < MIN_CALORIES) {
-    //  score = 50% - how far off from MIN_CALORIES
     const suggestedCalories = Math.max(calories * 1.25, 1200);
     const suggestedProtein = suggestedCalories * PD_REC;
     feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
   } else if (calories > MAX_CALORIES) {
-    //  score = 50% - how far off from MAX_CALORIES
     const suggestedCalories = Math.min(calories * 0.75, 4500);
     const suggestedProtein = suggestedCalories * PD_REC;
     feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
   } else if (density < MIN_PD || density > MAX_PD) {
-    //  score = 50% + how far off from MIN_PD or MAX_PD
-    const suggestedDensity = density < MIN_PD ? MIN_PD : MAX_PD;
+    const suggestedDensity = density < MIN_PD ? MIN_PD * 1.01 : MAX_PD * 0.99;
     if (deltaCal > deltaProt) {
       const suggestedCalories = protein / suggestedDensity;
       feedback = `Consider ${calories < CALORIE_REC ? "increasing" : "reducing"} to ${Math.round(suggestedCalories)} calories to balance ${protein}g protein.`;
@@ -183,8 +183,22 @@ export function scoreGoals(calories: number, protein: number) {
     feedback = `Awesome! ${calories} calories and ${protein}g protein make a balanced meal plan.`;
   }
 
+  if (calories < MIN_CALORIES) {
+    calScore = clamp(1 - ((MIN_CALORIES - calories) / MIN_CALORIES), 0, 1);
+  } else if (calories > MAX_CALORIES) {
+    calScore = clamp(1 - ((calories - MAX_CALORIES) / MIN_CALORIES), 0, 1);
+  }
+
+  if (density < MIN_PD) {
+    pdScore = clamp(1 - ((MIN_PD - density) / MIN_PD), 0, 1);
+  } else if (density > MAX_PD) {
+    pdScore = clamp(1 - ((density - MAX_PD) / MIN_PD), 0, 1);
+  }
+
+  const score = 0.5 * calScore + 0.5 * pdScore;
+
   return {
-    score: 0,
+    score: score,
     feedback: feedback
   };
 }
