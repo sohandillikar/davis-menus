@@ -62,34 +62,36 @@ export default function ExpandedDetails({
   showDiets = false,
 }: ExpandedDetailsProps) {
   return (
-    <div className="pt-3 border-t border-border/30 space-y-3 animate-fade-in">
-      {/* Description and Feature */}
-      <Description description={item.description} feature={item.feature} />
+    <div className="pt-3">
+      <div className="pt-3 border-t border-border/30 space-y-3 animate-fade-in">
+        {/* Description and Feature */}
+        <Description description={item.description} feature={item.feature} />
 
-      {/* Nutrition Facts Grid */}
-      <NutritionFacts item={item} layout={nutritionFactsLayout} />
+        {/* Nutrition Facts Grid */}
+        <NutritionFacts item={item} layout={nutritionFactsLayout} />
 
-      {/* Allergens */}
-      {item.allergens.length > 0 && (
-        <BadgesList badges={item.allergens} title="Allergens" color="red" />
-      )}
+        {/* Allergens */}
+        {item.allergens.length > 0 && (
+          <BadgesList badges={item.allergens} title="Allergens" color="red" />
+        )}
 
-      {/* Diets */}
-      {showDiets && item.diets.length > 0 && (
-        <BadgesList badges={item.diets} title="Diets" color="green" />
-      )}
+        {/* Diets */}
+        {showDiets && item.diets.length > 0 && (
+          <BadgesList badges={item.diets} title="Diets" color="green" />
+        )}
 
-      {/* Ingredients */}
-      {item.ingredients && (
-        <div>
-          <h4 className="text-sm font-medium text-foreground mb-2">
-            Ingredients:
-          </h4>
-          <p className="text-xs text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3">
-            {item.ingredients}
-          </p>
-        </div>
-      )}
+        {/* Ingredients */}
+        {item.ingredients && (
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-2">
+              Ingredients:
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3">
+              {item.ingredients}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
