@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import MenuItem from '@/types/MenuItem';
 import { MealPreferences } from '@/components/meal_planner/MealPlannerModal';
-import { API_BASE_URL } from '@/lib/constants';
+import { API_BASE_URL, CALORIE_REC, PROTEIN_REC, MIN_CALORIES, MAX_CALORIES } from '@/lib/constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -78,6 +78,23 @@ export function getFavorites() {
   return JSON.parse(localStorage.getItem('aggiemenus.favoriteItems') || '[]');
 }
 
+export function getMealPreferences() {
+  const defaultPreferences = {
+    calories: CALORIE_REC.toString(),
+    protein: PROTEIN_REC.toString(),
+    meals: {},
+    diets: [],
+    allergens: [],
+  };
+  const storedPreferences = localStorage.getItem('aggiemenus.mealPreferences');
+  if (storedPreferences) {
+    return JSON.parse(storedPreferences);
+  } else {
+    localStorage.setItem('aggiemenus.mealPreferences', JSON.stringify(defaultPreferences));
+    return defaultPreferences;
+  }
+}
+
 export function isFavorite(item: MenuItem) {
   const favorites = getFavorites();
   return favorites.some((fav: MenuItem) => fav.name === item.name);
@@ -144,4 +161,61 @@ export async function getMealPlan(mealPreferences: MealPreferences) {
 
   const data = await response.json();
   return data.meal_plan;
+}
+
+export function scoreGoals(calories: number, protein: number) {
+  const clamp = (x: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, x));
+
+  const PD_REC = PROTEIN_REC / CALORIE_REC;
+  const MIN_PD = PD_REC * 0.95;
+  const MAX_PD = PD_REC * 2;
+
+  const density = protein / calories;
+
+  const deltaCal = Math.abs(calories - CALORIE_REC) / CALORIE_REC;
+  const deltaProt = Math.abs(protein - PROTEIN_REC) / PROTEIN_REC;
+
+  let feedback = "";
+  let calScore = 1;
+  let pdScore = 1;
+
+  if (calories < MIN_CALORIES) {
+    const suggestedCalories = Math.max(calories * 1.25, 1200);
+    const suggestedProtein = suggestedCalories * PD_REC;
+    feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
+  } else if (calories > MAX_CALORIES) {
+    const suggestedCalories = Math.min(calories * 0.75, 4500);
+    const suggestedProtein = suggestedCalories * PD_REC;
+    feedback = `Consider setting your goals around ${Math.round(suggestedCalories)} calories and ${Math.round(suggestedProtein)}g protein to create a healthy filling meal plan.`;
+  } else if (density < MIN_PD || density > MAX_PD) {
+    const suggestedDensity = density < MIN_PD ? MIN_PD * 1.01 : MAX_PD * 0.99;
+    if (deltaCal > deltaProt) {
+      const suggestedCalories = protein / suggestedDensity;
+      feedback = `Consider ${calories < CALORIE_REC ? "increasing" : "reducing"} to ${Math.round(suggestedCalories)} calories to balance ${protein}g protein.`;
+    } else if (deltaProt > deltaCal) {
+      const suggestedProtein = calories * suggestedDensity;
+      feedback = `Consider ${protein < PROTEIN_REC ? "increasing" : "reducing"} to ${Math.round(suggestedProtein)}g protein to balance ${calories} calories.`;
+    }
+  } else {
+    feedback = `Awesome! ${calories} calories and ${protein}g protein make a balanced meal plan.`;
+  }
+
+  if (calories < MIN_CALORIES) {
+    calScore = clamp(1 - ((MIN_CALORIES - calories) / MIN_CALORIES), 0, 1);
+  } else if (calories > MAX_CALORIES) {
+    calScore = clamp(1 - ((calories - MAX_CALORIES) / MIN_CALORIES), 0, 1);
+  }
+
+  if (density < MIN_PD) {
+    pdScore = clamp(1 - ((MIN_PD - density) / MIN_PD), 0, 1);
+  } else if (density > MAX_PD) {
+    pdScore = clamp(1 - ((density - MAX_PD) / MIN_PD), 0, 1);
+  }
+
+  const score = 0.5 * calScore + 0.5 * pdScore;
+
+  return {
+    score: score,
+    feedback: feedback
+  };
 }
