@@ -15,7 +15,7 @@ import ProgressBar from './ProgressBar';
 import MenuItem from '@/types/MenuItem';
 import MealPlanDisplay from './MealPlanDisplay';
 import { useMealPlannerModalContext } from '@/contexts/MealPlannerModalContext';
-import { getMealPlan } from '@/lib/utils';
+import { getMealPreferences, getMealPlan } from '@/lib/utils';
 
 export interface MealPreferences {
   calories: string;
@@ -41,13 +41,7 @@ export default function MealPlannerModal() {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [preferences, setPreferences] = useState<MealPreferences>({
-    calories: '2500',
-    protein: '75',
-    meals: {},
-    diets: [],
-    allergens: [],
-  });
+  const [preferences, setPreferences] = useState<MealPreferences>(getMealPreferences());
   const [dayMealPlan, setDayMealPlan] = useState<Record<string, MealPlan>>({});
 
   const { isOpen, setIsOpen } = useMealPlannerModalContext();
@@ -99,21 +93,8 @@ export default function MealPlannerModal() {
   }, [currentStep]);
 
   useEffect(() => {
-    if (isOpen) {
-      const storedPreferences = localStorage.getItem(
-        'aggiemenus.mealPreferences'
-      );
-      if (storedPreferences) {
-        setPreferences(JSON.parse(storedPreferences));
-      } else {
-        localStorage.setItem(
-          'aggiemenus.mealPreferences',
-          JSON.stringify(preferences)
-        );
-      }
-    } else {
+    if (!isOpen)
       handleClose();
-    }
   }, [isOpen]);
 
   return (
