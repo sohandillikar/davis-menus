@@ -27,7 +27,7 @@ export default function FavoritesSheet({ variant = 'default' }: FavoritesSheetPr
   const { favorites, refreshFavorites } = useFavoritesContext();
 
   const handleTabChange = async (value: string) => {
-    if (value === 'offeredThisWeek') {
+    if (value === 'offeredThisWeek' && favorites.length > 0) {
       setIsOfferedThisWeekLoading(true);
       const payload = await utils.getOfferedThisWeek();
       setOfferedThisWeek(payload);
